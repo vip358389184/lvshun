@@ -21,6 +21,7 @@ public class BannerBizImpl implements BannerBiz {
     public List<Banner> getBanner() {
         Banner banner=new Banner();
         banner.setStatus(MainEnum.BANNER_STATUS_TRUE.getCode());
+
         return bannerServer.getBanner(banner);
     }
 }

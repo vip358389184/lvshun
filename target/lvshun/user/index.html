@@ -73,8 +73,20 @@
             { id: "removeUser", pid: "user", text: "删除用户", iconCls: "icon-remove", url: "../datagrid/datagrid.html" },
 
             { id: "right", text: "权限管理"},
-            { id: "addRight", pid: "right", text: "查询权限", iconCls: "Note", url: "../navbartree/navbartree.html", iconPosition: "top" },
-            { id: "editRight", pid: "right", text: "操作权限", iconCls: "Reports", url: "../buttonedit/openwindow.html", iconPosition: "top" }
+            { id: "addRight", pid: "right", text: "查询权限", iconCls: "icon-search", url: "../navbartree/navbartree.html" },
+            { id: "editRight", pid: "right", text: "操作权限", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+
+            { id: "commmodity", text: "商品管理"},
+            { id: "searchcommmodity", pid: "commmodity", text: "查询商品", iconCls: "icon-search", url: "../datagrid/datagrid.html" },
+            { id: "addcommmodity", pid: "commmodity", text: "增加商品", iconCls: "icon-add", url: "../navbartree/navbartree.html" },
+            { id: "editcommmodity", pid: "commmodity", text: "修改商品", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+            { id: "removecommmodity", pid: "commmodity", text: "删除商品", iconCls: "icon-remove", url: "../datagrid/datagrid.html" },
+
+            { id: "orderlist", text: "订单管理"},
+            { id: "searchorderlist", pid: "orderlist", text: "查询订单", iconCls: "icon-search", url: "../datagrid/datagrid.html" },
+            { id: "addorderlist", pid: "orderlist", text: "增加订单", iconCls: "icon-add", url: "../navbartree/navbartree.html" },
+            { id: "editorderlist", pid: "orderlist", text: "修改订单", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+            { id: "removeorderlist", pid: "orderlist", text: "删除订单", iconCls: "icon-remove", url: "../datagrid/datagrid.html" }
         ];
         var menu1 = mini.get("leftTree");
         menu1.loadList(list, "id", "pid");

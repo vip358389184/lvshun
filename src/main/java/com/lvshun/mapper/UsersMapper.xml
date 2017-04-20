@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvshun.dao.UserDao">
+
+	<sql id="users_columns">
+		T.ecid,T.user_id,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
+		T.grade,T.joindate,T.collect,T.monetary
+	</sql>
+	<!-- 注册用户 -->
+	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
+		INSERT INTO Users(
+		 T.ec_id,T.user_id,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
+		T.grade,T.joindate,T.collect,T.monetary
+		)VALUES(
+		#{ecId},#{userId},#{type},#{password},#{nickName},#{email},#{userName},#{phone},#{address},#{integral}
+		,#{grade},#{joindate},#{collect},#{monetary}	
+		)
+	</insert>
+	<!-- 查询用户 详细 -->
+	<select id="findById"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users" >
+		select
+		*
+		from Users
+		where id=#{userId}
+	</select>
+	<!-- 查询用户 -->
+	<select id="findAll"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users">
+		select
+		*
+		from Users
+	</select>
+	<!-- 删除用户 -->
+	<delete id="delete" parameterType="com.lvshun.po.Users">
+		delete from Users where id=#{ecId}
+	</delete>
+	<!-- 修改用户 -->
+	<update id="update" parameterType="com.lvshun.po.Users" >
+		UPDATE Users AS T SET
+		T.user_id=#{userId},
+		T.type =#{type},
+		T.password=#{password},
+		T.nickname=#{nickName},
+		T.email=#{email},
+		T.username=#{userName},
+		T.phone = #{phone},
+		T.address =#{address},
+		T.integral = #{integral},
+		T.grade =#{grade},
+		T.joindate=#{joindate},
+		T.collect=#{collect},
+		T.monetary =#{monetary}
+		WHERE T.ecid=#{ecId}
+	</update>
+</mapper>

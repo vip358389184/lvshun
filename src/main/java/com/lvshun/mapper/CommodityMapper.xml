@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvshun.dao.CommodityDao">
+
+	<sql id="commodity_columns">
+		T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
+		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
+	</sql>
+	<!-- 添加商品 -->
+	<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
+		INSERT INTO Commodity(
+		 T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
+		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
+		)VALUES(
+		#{CommodityId},#{cId},#{cName},#{brand},#{picture},#{normalPrice},#{retailPrice},#{cDate},#{introduce},#{propertys}
+		,#{label},#{inventory},#{broadHeading},#{subclass},#{cDate},#{userId}
+		)
+	</insert>
+	<!-- 查询商品详细 -->
+	<select id="findById" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity" >
+		select * from Commodity where id=#{cId}
+	</select>
+	<!-- 查询用户 -->
+	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
+		select * from Commodity
+	</select>
+	<!-- 删除用户 -->
+	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
+		delete from Commodity where id=#{cId}
+	</delete>
+	<!-- 修改用户 -->
+	<update id="update" parameterType="com.lvshun.po.Commodity" >
+		UPDATE Commodity AS T SET
+		T.Commodity_id=#{CommodityId},
+		T.c_name=#{cName},
+		T.brand=#{brand},
+		T.picture =#{picture},
+		T.normal_price=#{normalPrice},
+		T.retail_price=#{retailPrice},
+		T.c_state=#{cState},
+		T.introduce=#{{introduce},
+		T.property=#{propertys},
+		T.label=#{label},
+		T.inventory=#{inventory},
+		T.broad_heading=#{broadHeading},
+		T.subclass#{subclass},
+		T.c_date=#{cDate},
+		T.user_id=#{userId}
+		WHERE T.c_id=#{cId}
+	</update>
+</mapper>

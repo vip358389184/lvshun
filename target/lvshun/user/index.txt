@@ -27,7 +27,19 @@
 	{id: "listbox", text: "ListBox", pid: "forms"},
 	{id: "checkboxlist", text: "CheckBoxList", pid: "forms"},
 	{id: "radiolist", text: "RadioList", pid: "forms"},
-	{id: "calendar", text: "Calendar", pid: "forms"}				
+	{id: "calendar", text: "Calendar", pid: "forms"},
+
+	 { id: "commmodity", text: "商品管理"},
+                { id: "searchcommmodity", pid: "commmodity", text: "查询商品", iconCls: "icon-search", url: "../datagrid/datagrid.html" },
+                { id: "addcommmodity", pid: "commmodity", text: "增加商品", iconCls: "icon-add", url: "../navbartree/navbartree.html" },
+                { id: "editcommmodity", pid: "commmodity", text: "修改商品", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+                { id: "removecommmodity", pid: "commmodity", text: "删除商品", iconCls: "icon-remove", url: "../datagrid/datagrid.html" },
+
+                { id: "orderlist", text: "订单管理"},
+                { id: "searchorderlist", pid: "orderlist", text: "查询订单", iconCls: "icon-search", url: "../datagrid/datagrid.html" },
+                { id: "addorderlist", pid: "orderlist", text: "增加订单", iconCls: "icon-add", url: "../navbartree/navbartree.html" },
+                { id: "editorderlist", pid: "orderlist", text: "修改订单", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+                { id: "removeorderlist", pid: "orderlist", text: "删除订单", iconCls: "icon-remove", url: "../datagrid/datagrid.html" }
 ]
 
 
