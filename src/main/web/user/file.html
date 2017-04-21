@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+    <script src="../js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        $("#submitId").on("click",function () {
+            $.ajaxFileUpload({
+                url:'/file/upload', //处理上传文件的服务端
+                secureuri:false,//是否启用安全机制
+                fileElementId:'file1',//file的id
+                dataType: 'application/json',//返回的类型
+                success: function (data) {//回调
+                    alert("上传成功");
+                }
+            });
+        });
+    </script>
+
+
+</head>
+<body>
+<input type="file" name="file1" id="file1"/>
+<button type="button" id="submitId">点击上传</button>
+
+</body>
+</html>

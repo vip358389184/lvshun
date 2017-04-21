@@ -3,6 +3,7 @@ package com.lvshun.controller;
 import com.lvshun.biz.CommodityBiz;
 import com.lvshun.po.Commodity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -12,7 +13,8 @@ import java.util.List;
 /**
  * Created by 宝龙 on 2017/4/20.
  */
-@Service
+@Controller
+@RequestMapping("/Commodity")
 public class CommodityController {
     @Autowired
     private CommodityBiz commodityBiz;

@@ -19,7 +19,7 @@
 		)
 	</insert>
 	<!-- 查询订单 详细 -->
-	<select id="findById"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList" >
+	<select id="getByoId"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList" >
 		select
 		*
 		from OrderList
@@ -32,11 +32,11 @@
 		from OrderList
 	</select>
 	<!-- 删除订单 -->
-	<delete id="delete" parameterType="com.lvshun.po.OrderList">
+	<delete id="deleteOrder" parameterType="com.lvshun.po.OrderList">
 		delete from OrderList where id=#{oId}
 	</delete>
 	<!-- 修改订单 -->
-	<update id="update" parameterType="com.lvshun.po.OrderList" >
+	<update id="updateOrder" parameterType="com.lvshun.po.OrderList" >
 		UPDATE OrderList AS T SET
 		 T.snumber_id =#{snumberId},
 		 T.c_id =#{cId},
