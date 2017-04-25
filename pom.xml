@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.lvshun</groupId>
-    <artifactId>website</artifactId>
+    <artifactId>lvshun</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>website Maven Webapp</name>
@@ -129,6 +129,18 @@
 
     <build>
         <finalName>lvshun</finalName>
+
+                     <resources>
+                        <resource>
+                            <directory>src/main/java</directory>
+                             <includes>
+                                 <include>**/mapper/*.xml</include>
+                             </includes>
+                         </resource>
+                     </resources>
+
     </build>
+
+
 
 </project>

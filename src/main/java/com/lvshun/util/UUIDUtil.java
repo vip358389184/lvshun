@@ -1,4 +1,4 @@
-package main.java.com.lvshun.util;
+package com.lvshun.util;
 
 import java.util.UUID;
 
