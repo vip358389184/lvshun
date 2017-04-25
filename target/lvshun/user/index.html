@@ -42,8 +42,8 @@
         <div class="mini-splitter" style="width:100%;height:100%;" borderStyle="border:0;">
             <div size="180" maxSize="250" minSize="100" showCollapseButton="true" style="border:0;">
                 <!--OutlookTree-->
-                <div id="leftTree" class="mini-outlooktree"  onnodeselect="onNodeSelect"
-                     textField="text" idField="id" parentField="pid">
+                <div id="leftTree" class="mini-outlookmenu" onitemselect="onItemSelect"
+                     idField="id" parentField="pid" textField="text">
                 </div>
 
             </div>
@@ -66,35 +66,15 @@
         mini.parse();
 
         var list = [
-            {id: "user", text: "用户管理"},
-
-            {id: "lists", text: "Lists", pid: "user" },
-
-            {id: "datagrid", text: "DataGrid", pid: "lists"},
-            {id: "tree", text: "Tree" , pid: "lists"},
-            {id: "treegrid", text: "TreeGrid " , pid: "lists"},
-
-            {id: "layouts", text: "Layouts", pid: "user"},
-
-            {id: "panel", text: "Panel", pid: "layouts"},
-            {id: "splitter", text: "Splitter", pid: "layouts"},
-            {id: "layout", text: "Layout ", pid: "layouts"},
+            { id: "user", text: "用户管理"},
+            { id: "searchUser", pid: "user", text: "查询用户", iconCls: "icon-search", url: "../datagrid/datagrid.html" },
+            { id: "addUser", pid: "user", text: "增加用户", iconCls: "icon-add", url: "../navbartree/navbartree.html" },
+            { id: "editUser", pid: "user", text: "修改用户", iconCls: "icon-edit", url: "../buttonedit/openwindow.html" },
+            { id: "removeUser", pid: "user", text: "删除用户", iconCls: "icon-remove", url: "../datagrid/datagrid.html" },
 
             { id: "right", text: "权限管理"},
-
-            {id: "base", text: "Base",  pid: "right" },
-
-            {id: "ajax", text: "Ajax", pid: "base"},
-            {id: "json", text: "JSON", pid: "base"},
-            {id: "date", text: "Date", pid: "base"},
-
-            {id: "forms", text: "Forms", pid: "right"},
-
-            {id: "button", text: "Button", pid: "forms"},
-            {id: "listbox", text: "ListBox", pid: "forms"},
-            {id: "checkboxlist", text: "CheckBoxList", pid: "forms"},
-            {id: "radiolist", text: "RadioList", pid: "forms"},
-            {id: "calendar", text: "Calendar", pid: "forms"}
+            { id: "addRight", pid: "right", text: "查询权限", iconCls: "Note", url: "../navbartree/navbartree.html", iconPosition: "top" },
+            { id: "editRight", pid: "right", text: "操作权限", iconCls: "Reports", url: "../buttonedit/openwindow.html", iconPosition: "top" }
         ];
         var menu1 = mini.get("leftTree");
         menu1.loadList(list, "id", "pid");
