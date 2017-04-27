@@ -14,12 +14,12 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/user" )
-public class UserController {
+public class UserController  {
     @Autowired
     private UserBiz userBiz;
     @RequestMapping("/getAllUser")
     public  @ResponseBody
-    List<Users> getAll(){
+    List<Users> getAll( ){
 
         return userBiz.findAll();
     }
