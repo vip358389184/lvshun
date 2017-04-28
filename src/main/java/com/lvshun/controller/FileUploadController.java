@@ -29,6 +29,7 @@ public class FileUploadController {
     @ResponseBody
     public String fileUpload_ajax(HttpServletRequest request, @RequestParam("file_AjaxFile") MultipartFile  multipartFile) {
         //调用保存文件的帮助类进行保存文件，并返回文件的相对路径
+
         String filePath = Files_Helper_DG.FilesUpload_transferTo_spring(request, multipartFile, "/files/upload");
         return "{'TFMark':'true','Msg':'upload success !','filePath':'" + filePath + "'}";
     }

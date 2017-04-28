@@ -46,7 +46,7 @@ jQuery.extend({
         return form;
     },
     ajaxFileUpload: function(s) {
-        // TODO introduce global settings, allowing the client to modify them for all requests, not only timeout		
+        // TODO introduce global settings, allowing the client to modify them for all requests, not only timeout
         s = jQuery.extend({}, jQuery.ajaxSettings, s);
         var id = new Date().getTime()
         var form = jQuery.createUploadForm(id, s.fileElementId, (typeof(s.data)=='undefined'?false:s.data));
@@ -171,7 +171,7 @@ jQuery.extend({
             jQuery.globalEval( data );
         // Get the JavaScript object, if JSON is used.
         if ( type == "json" )
-            eval( "data = " + data );
+            eval( "data = \""+data+"\"");
         // evaluate scripts within html
         if ( type == "html" )
             jQuery("<div>").html(data).evalScripts();

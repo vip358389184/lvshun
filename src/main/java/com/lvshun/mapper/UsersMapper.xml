@@ -22,14 +22,14 @@
 	<select id="findById"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users" >
 		select
 		*
-		from Users
+		from users
 		where id=#{userId}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users">
 		select
 		*
-		from Users
+		from users
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Users">

@@ -20,8 +20,8 @@ public class UserController  {
     @RequestMapping("/getAllUser")
     public  @ResponseBody
     List<Users> getAll( ){
-
-        return userBiz.findAll();
+        List<Users> list=userBiz.findAll();
+        return list;
     }
     @RequestMapping("/addUser")
     public @ResponseBody
