@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 /**
- * Created by 宝龙 on 2017/4/19.
+ * Created by baolong on 2017/4/19.
  */
 @Controller
 @RequestMapping("/user" )
