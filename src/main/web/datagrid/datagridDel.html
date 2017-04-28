@@ -1,101 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>查询用户</title>
+    <title>Pagination 分页表格</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="../scripts/boot.js" type="text/javascript"></script>
 </head>
-<body>
-<!--动态获取数据-->
-<!--<div id="datagrid1" class="mini-datagrid" style="width:700px;height:280px;"
-     url="../data/DataService.aspx?method=searchUser"  idField="id" allowResize="true"
+<body >
+<div style="padding-bottom:5px;">
+
+    <span>用户昵称：</span><input type="text" id="key"  />
+    <input type="button" value="查找" onclick="search()"/>
+</div>
+<div id="datagrid1" class="mini-datagrid" style="width:800px;height:250px;"
+     url="/user/getAllUser"  idField="id" allowResize="true"
+     sizeList="[20,30,50,100]" pageSize="20"
 >
     <div property="columns">
-        <div type="indexcolumn" ></div>
-        <div field="userId" width="120" headerAlign="center" allowSort="true">员工帐号</div>
+        <div type="users_columns" ></div>
+        <div field="userId" width="120" headerAlign="center" allowSort="true">用户帐号</div>
         <div field="nickName" width="120" headerAlign="center" allowSort="true">昵称</div>
-        <div field="gender" width="100" renderer="onGenderRenderer" align="center" headerAlign="center">性别</div>
-        <div field="salary" width="100" allowSort="true">薪资</div>
-        <div field="age" width="100" allowSort="true">年龄</div>
-        <div field="createtime" width="100" headerAlign="center" dateFormat="yyyy-MM-dd" allowSort="true">创建日期</div>
+        <div field="email" width="100" renderer="onGenderRenderer" align="center" headerAlign="center">邮箱</div>
+        <div field="phone" numberFormat="¥#,0.00" align="right" width="100" allowSort="true">手机号</div>
+        <div field="address" width="100" allowSort="true" decimalPlaces="2" dataType="float">地址</div>
+        <div field="joindate" width="100" headerAlign="center" dateFormat="yyyy-MM-dd" allowSort="true">创建日期</div>
+        <div field="joindate" width="100" headerAlign="center"  allowSort="true">操作</div>
     </div>
-</div>-->
+</div>
 
-<!-- 静态页面-->
-<table border="1px solid black"  style="margin: auto">
-    <tr>
-        <th>电商用户ID</th>
-        <th>用户类别</th>
-        <th>账户</th>
-        <th>密码</th>
-        <th>昵称</th>
-        <th>邮箱</th>
-        <th>名称</th>
-        <th>手机号</th>
-        <th>配送地址</th>
-        <th>用户积分</th>
-        <th>用户等级</th>
-        <th>注册时间</th>
-        <th>用户状态</th>
-        <th>商品收藏</th>
-        <th>消费总金额</th>
-        <th>操作</th>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>1001</td>
-        <td>1</td>
-        <td>zhang1001</td>
-        <td>zhang1001</td>
-        <td>zhangsna@163.com</td>
-        <td>张三</td>
-        <td>15010458082</td>
-        <td>北京朝阳</td>
-        <td>12</td>
-        <td>2</td>
-        <td>20120212</td>
-        <td>1</td>
-        <td>0</td>
-        <td>800</td>
-        <td><a href="#">删除</a></td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>1002</td>
-        <td>2</td>
-        <td>1234</td>
-        <td>lisi</td>
-        <td>lisi@163.com</td>
-        <td>李四</td>
-        <td>15110458083</td>
-        <td>山东德州</td>
-        <td>20</td>
-        <td>3</td>
-        <td>20160308</td>
-        <td>1</td>
-        <td>1</td>
-        <td>1000</td>
-        <td><a href="#">删除</a></td>
-    </tr>
-    <tr>
-        <td>3</td>
-        <td>1003</td>
-        <td>0</td>
-        <td>admin</td>
-        <td>admin666</td>
-        <td>admin666@163.com</td>
-        <td>admin</td>
-        <td>17600022106</td>
-        <td>江苏苏州</td>
-        <td>30</td>
-        <td>6</td>
-        <td>20171112</td>
-        <td>1</td>
-        <td>0</td>
-        <td>999</td>
-        <td><a href="#">删除</a></td>
-    </tr>
+<script type="text/javascript">
+    mini.parse();
+    var grid = mini.get("datagrid1");
+    grid.load();
+    function search() {
+        var key = document.getElementById("key").value;
+        grid.load({ key: key });
+    }
+    $("#key").bind("keydown", function (e) {
+        if (e.keyCode == 13) {
+            search();
+        }
+    });
 
-</table>
-
+</script>
 </body>
 </html>
