@@ -10,7 +10,7 @@
 	</sql>
 	<!-- 添加商品 -->
 	<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
-		INSERT INTO Commodity(
+		INSERT INTO commodity(
 		 T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
 		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
 		)VALUES(
@@ -20,19 +20,19 @@
 	</insert>
 	<!-- 查询商品详细 -->
 	<select id="findById" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity" >
-		select * from Commodity where id=#{cId}
+		select * from commodity where id=#{cId}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
-		select * from Commodity
+		select * from commodity
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
-		delete from Commodity where id=#{cId}
+		delete from commodity where id=#{cId}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >
-		UPDATE Commodity AS T SET
+		UPDATE commodity AS T SET
 		T.Commodity_id=#{CommodityId},
 		T.c_name=#{cName},
 		T.brand=#{brand},

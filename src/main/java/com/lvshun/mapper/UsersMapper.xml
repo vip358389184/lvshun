@@ -10,7 +10,7 @@
 	</sql>
 	<!-- 注册用户 -->
 	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
-		INSERT INTO Users(
+		INSERT INTO users(
 		 T.ec_id,T.user_id,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
 		T.grade,T.joindate,T.collect,T.monetary
 		)VALUES(
@@ -33,11 +33,11 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Users">
-		delete from Users where id=#{ecId}
+		delete from users where id=#{ecId}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Users" >
-		UPDATE Users AS T SET
+		UPDATE users AS T SET
 		T.user_id=#{userId},
 		T.type =#{type},
 		T.password=#{password},
