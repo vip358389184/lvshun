@@ -176,7 +176,7 @@ jQuery.extend({
         if ( type == "html" )
             jQuery("<div>").html(data).evalScripts();
         return data;
-    },handleError: function( s, xhr, status, e ) {
+    }, handleError: function( s, xhr, status, e ) {
         // If a local callback was specified, fire it
         if ( s.error )
             s.error( xhr, status, e );
