@@ -74,8 +74,8 @@
       <file leaf-file-name="UsersMapper.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lvshun/mapper/UsersMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+            <state relative-caret-position="150">
+              <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
               <folding>
                 <marker date="1493378915031" expanded="true" signature="448:775" ph="INSERT INTO Users... " />
                 <marker date="1493378915031" expanded="true" signature="902:946" ph="select * fro... users" />
@@ -1142,12 +1142,12 @@
       <workItem from="1493255875417" duration="26256000" />
       <workItem from="1493341195161" duration="12370000" />
       <workItem from="1493363622475" duration="12523000" />
-      <workItem from="1493426717316" duration="997000" />
+      <workItem from="1493426717316" duration="1489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147659000" />
+    <option name="totallyTimeSpent" value="148151000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1539,8 +1539,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lvshun/mapper/UsersMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
+        <state relative-caret-position="150">
+          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
           <folding>
             <marker date="1493378915031" expanded="true" signature="448:775" ph="INSERT INTO Users... " />
             <marker date="1493378915031" expanded="true" signature="902:946" ph="select * fro... users" />
