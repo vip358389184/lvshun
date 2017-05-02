@@ -1,6 +1,5 @@
 package com.lvshun.util;
 
-import java.sql.Connection;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;

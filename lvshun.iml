@@ -25,7 +25,12 @@
     </content>
     <orderEntry type="jdk" jdkName="1.7" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.6" level="application_server_libraries" />
+=======
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.75" level="application_server_libraries" />
+>>>>>>> a0738fd461b4158af395f6cd2eccea349a3d5abd
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
