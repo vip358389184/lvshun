@@ -170,18 +170,28 @@ jQuery.extend({
         if ( type == "script" )
             jQuery.globalEval( data );
         // Get the JavaScript object, if JSON is used.
-        if ( type == "json" )
-            eval( "data = \""+data+"\"");
-        // evaluate scripts within html
+        if  (type ==  "json"  ){
+            ////////////以下为新增代码///////////////
+            data = r.responseText;
+            var  start = data.indexOf(">");
+            if (start!= -1){
+                var  end = data.indexOf("<" ,start + 1);
+                if (end!= -1){
+                    data = data.substring(start + 1,end);
+                }
+            }
+            ///////////以上为新增代码///////////////
+            eval( "data ="  + data);
+        }
         if ( type == "html" )
             jQuery("<div>").html(data).evalScripts();
         return data;
-    }, handleError: function( s, xhr, status, e ) {
-        // If a local callback was specified, fire it
-        if ( s.error )
-            s.error( xhr, status, e );
-        // If we have some XML response text (e.g. from an AJAX call) then log it in the console
-        else if(xhr.responseText)
-            console.log(xhr.responseText);
+    },handleError: function( s, xhr, status, e ) {
+        if ( s.error ) {
+            s.error.call( s.context || window, xhr, status, e );
+        }
+        if ( s.global ) {
+            (s.context ? jQuery(s.context) : jQuery.event).trigger  ( "ajaxError", [xhr, s, e] );
+        }
     }
 })

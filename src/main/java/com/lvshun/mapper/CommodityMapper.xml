@@ -4,12 +4,9 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lvshun.dao.CommodityDao">
 
-	<sql id="commodity_columns">
-		T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
-		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
-	</sql>
-	<!-- 添加商品 -->
-	<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
+
+		<!-- 添加商品 -->
+	<!--<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
 		INSERT INTO commodity(
 		 T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
 		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
@@ -17,10 +14,17 @@
 		#{CommodityId},#{cId},#{cName},#{brand},#{picture},#{normalPrice},#{retailPrice},#{cDate},#{introduce},#{propertys}
 		,#{label},#{inventory},#{broadHeading},#{subclass},#{cDate},#{userId}
 		)
+	</insert>-->
+	<insert id="addComm"  parameterType="com.lvshun.po.Commodity" >
+		INSERT INTO commodity(
+		cid,cname,cdate
+		)VALUES(
+		#{0},#{1},#{2}
+		)
 	</insert>
 	<!-- 查询商品详细 -->
 	<select id="findById" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity" >
-		select * from commodity where id=#{cId}
+		select cid,cname,cdate from commodity where id=#{cId}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
@@ -28,7 +32,7 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
-		delete from commodity where id=#{cId}
+		delete from commodity where cid=#{id}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >

@@ -7,33 +7,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 宝龙 on 2017/4/19.
  */
 @Service
 public class UserServerImpl implements UserServer{
-  @Autowired
-  private UserDao userDao;
+    @Autowired
+    private UserDao userDao;
 
-    public void addUser(Users user) {
-        userDao.addUser(user);
+
+    public int addUser(String userid, String username, String password) {
+        return userDao.addUser(userid,username,password);
     }
 
     public List<Users> findAll() {
-        List<Users> list = userDao.findAll();
-        return list;
+        return userDao.findAll();
+    }
+
+    public Long getTotal(Map<String, Object> map) {
+        return null;
     }
 
     public Users getById(String id) {
         return userDao.getById(id);
     }
 
-    public void delete(String id) {
-       userDao.delete(id);
+    public int delete(String id) {
+        return userDao.delete(id);
     }
 
-    public void update(Users user) {
-         userDao.update(user);
+    public int update(Users user)
+    {
+        return userDao.update(user);
     }
 }

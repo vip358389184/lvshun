@@ -16,29 +16,28 @@ public class CommodityBizImpl implements CommodityBiz{
     @Autowired
     private CommodityServer commodityServer;
 
-    public void addComm(Commodity commodity) {
-        Commodity commodity1 = new Commodity();
-        commodityServer.addComm(commodity1);
+    public int addComm(String cid,String cname,String cdate) {
+
+       return commodityServer.addComm(cid,cname,cdate);
     }
 
     public List<Commodity> findAll() {
-        Commodity commodity = new Commodity();
+
         return commodityServer.findAll();
     }
 
     public Commodity getById(String  id) {
-        Commodity commodity = new Commodity();
 
-        return  commodityServer.getById(commodity.getcId());
+
+        return  commodityServer.getById(id);
     }
 
-    public void delete(String id) {
-        Commodity commodity = new Commodity();
-        commodityServer.delete(commodity.getcId());
+    public int delete(String id) {
+
+     return  commodityServer.delete(id);
     }
 
-    public void update(Commodity commodity) {
-        Commodity commodity1 = new Commodity();
-        commodityServer.update(commodity1);
+    public int update(Commodity commodity) {
+       return  commodityServer.update(commodity);
     }
 }

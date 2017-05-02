@@ -26,14 +26,10 @@
                 dataType: 'application/json', //返回值类型 一般设置为json
                 success: function (data)  //服务器成功响应处理函数
                 {
-                    var jsonObject = eval('(' + data + ')');
-                    $("#sp_AjaxFile").html(" Upload Success ！ filePath:" + jsonObject.filePath);
-                },
-                error: function (data, status, e)//服务器响应失败处理函数
-                {
-                    alert(e);
+                    alert("成功!");
                 }
-            });//end ajaxfile
+
+            });
         }
         else {
             alert("请选择文件!");

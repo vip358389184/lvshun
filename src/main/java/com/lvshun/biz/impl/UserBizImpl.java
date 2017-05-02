@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.support.HttpRequestHandlerServlet;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 宝龙 on 2017/4/19.
@@ -20,32 +22,28 @@ public class UserBizImpl implements UserBiz {
     @Autowired
     private UserServer userServer;
 
-
-    public void addUser(Users user ) {
-        Users users = new Users();
-        userServer.addUser(users);
+    public int addUser(String userid, String username, String password) {
+        return userServer.addUser(userid,username,password);
     }
 
-    public  @ResponseBody
-    List<Users> findAll() {
-        Users users = new Users();
-
+    public List<Users> findAll() {
         return userServer.findAll();
     }
 
+    public Long getTotal(Map<String, Object> map) {
+        return userServer.getTotal(map);
+    }
+
     public Users getById(String id) {
-        Users users = new Users();
-
-        return userServer.getById(users.getUserId());
+        return userServer.getById(id);
     }
 
-    public void delete(String id) {
-        Users users = new Users();
-        userServer.delete(users.getUserId());
+    public int delete(String id) {
+return userServer.delete(id);
     }
 
-    public void update(Users user) {
-        Users users = new Users();
-        userServer.update(users);
+    public int update(Users user)
+    {
+return userServer.update(user);
     }
 }

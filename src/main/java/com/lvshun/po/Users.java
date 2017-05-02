@@ -16,8 +16,15 @@ public class Users {
 	private String joindate;
 	private String collect;
 	private BigDecimal monetary;
+	private String address;
 
+	public String getAddress() {
+		return address;
+	}
 
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
 	public Users() {
 		super();

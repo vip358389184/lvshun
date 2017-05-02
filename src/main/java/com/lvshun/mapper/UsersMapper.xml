@@ -4,26 +4,30 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lvshun.dao.UserDao">
 
-	<sql id="users_columns">
-		T.ecid,T.user_id,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
-		T.grade,T.joindate,T.collect,T.monetary
-	</sql>
-	<!-- 注册用户 -->
+	<!--注册用户 &ndash;&gt;
 	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
 		INSERT INTO users(
-		 T.ec_id,T.user_id,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
+		 T.ec_id,T.userid,T.type,T.password,T.nickname,T.email,T.username,T.phone,T.address,T.integral,
 		T.grade,T.joindate,T.collect,T.monetary
 		)VALUES(
 		#{ecId},#{userId},#{type},#{password},#{nickName},#{email},#{userName},#{phone},#{address},#{integral}
 		,#{grade},#{joindate},#{collect},#{monetary}	
 		)
+	</insert>-->
+	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
+		INSERT INTO users(
+		userid,username,password
+		)VALUES(
+		#{0},#{1},#{2}
+		)
 	</insert>
+
 	<!-- 查询用户 详细 -->
-	<select id="findById"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users" >
+	<select id="getById"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users" >
 		select
-		*
+		userid,username,password
 		from users
-		where id=#{userId}
+		where userid=#{userid}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users">
@@ -33,7 +37,7 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Users">
-		delete from users where id=#{ecId}
+		delete from users where userid=#{id}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Users" >

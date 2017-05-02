@@ -17,8 +17,8 @@ public class CommodityServerImpl implements CommodityServer {
     @Autowired
     private CommodityDao commodityDao;
 
-    public void addComm(Commodity commodity) {
-        commodityDao.addComm(commodity);
+    public int addComm(String cid,String cname,String cdate) {
+      return   commodityDao.addComm(cid,cname,cdate);
     }
 
     public List<Commodity> findAll() {
@@ -30,11 +30,11 @@ public class CommodityServerImpl implements CommodityServer {
         return commodityDao.getById(id);
     }
 
-    public void delete(String id) {
-         commodityDao.delete(id);
+    public int delete(String id) {
+        return commodityDao.delete(id);
     }
 
-    public void update(Commodity commodity) {
-        commodityDao.update(commodity);
+    public int update(Commodity commodity) {
+       return commodityDao.update(commodity);
     }
 }
