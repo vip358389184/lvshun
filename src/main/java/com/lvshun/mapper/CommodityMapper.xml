@@ -32,7 +32,7 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
-		delete from commodity where cid=#{id}
+		delete from commodity where cid=#{ids}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >
