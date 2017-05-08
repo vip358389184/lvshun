@@ -98,5 +98,10 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
-
+	<bean id="multipartResolver"
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+		<!-- 100M -->
+		<property name="maxUploadSize" value="104857600"></property>
+		<property name="defaultEncoding" value="utf-8"></property>
+	</bean>
 </beans>
