@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lvshun.dao.OrderListDao">
+
+	<!-- 添加订单 -->
+	<insert id="addorderList"  parameterType="com.lvshun.po.OrderList" >
+		INSERT INTO orderlist(
+		 T.snumber_id,T.o_id,T.c_id,T.o_name,T.o_property,T.c_number,T.delivery_costs,T.money,T.o_state,T.user_id,
+		T.address,T.s_method,T.popay_ment,T.present_exp,T.oxd_date,T.osong_date,T.osh_date,T.ofk_date,T.order_time
+		)VALUES(
+		#{snumberId},#{oId},#{cId},#{oName},#{oProperty},#{cNumber},#{deliveryCosts},#{money},#{oState},#{userId}
+		,#{address},#{sMethod},#{popayMent},#{presentExp},#{oxdDate},#{osongDate},#{oshDate},#{ofkDate},#{orderTime}
+		)
+	</insert>
+	<!-- 查询订单 详细 -->
+	<select id="getByoId"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList" >
+		select
+		*
+		from orderlist
+		where id=#{oId}
+	</select>
+	<!-- 查询订单 -->
+	<select id="getAllorder"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList">
+		select
+		*
+		from orderlist
+	</select>
+	<!-- 删除订单 -->
+	<delete id="deleteOrder" parameterType="com.lvshun.po.OrderList">
+		delete from orderlist where id=#{oId}
+	</delete>
+	<!-- 修改订单 -->
+	<update id="updateOrder" parameterType="com.lvshun.po.OrderList" >
+		UPDATE orderlist AS T SET
+		 T.snumber_id =#{snumberId},
+		 T.c_id =#{cId},
+		 T.o_name=#{oName},
+		 T.o_property=#{oProperty},
+		 T.c_number =#{cNumber},
+		 T.delivery_costs =#{deliveryCosts},
+		 T.money=#{money},
+		 T.o_state=#{oState},
+		 T.user_id=#{userId},
+		 T.address=#{address},
+		 T.s_method=#{sMethod},
+		 T.popay_ment=#{popayMent},
+		 T.present_exp=#{presentExp},
+		 T.oxd_date =#{oxdDate},
+		 T.osong_date=#{osongDate},
+	     T.osh_date=#{oshDate},
+		 T.ofk_date=#{ofkDate},
+		 T.order_time=#{orderTime}
+		WHERE T.o_id,=#{oId}
+	</update>
+</mapper>

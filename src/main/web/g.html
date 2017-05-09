@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="Generator" content="ECSHOP v2.7.3">
+		<meta name="Keywords" content="">
+		<meta name="Description" content="">
+		<title>购物车</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/shopping_flow.js"></script>
+	</head>
+
+	<body>
+		<div class=" block header_bg" style="margin-bottom: 0px;">
+
+			<div style="clear:both"></div>
+
+			<div class="block box">
+				<div class="blank"></div>
+				<div id="ur_here">
+					当前位置:
+					<a href="index.html">首页</a> <code>&gt;</code> 购物车
+				</div>
+			</div>
+			<div class="blank"></div>
+
+			<div class="block table">
+				<div class="flowBox">
+					<h6><span>商品列表</span></h6>
+					<form id="formCart" name="formCart" method="post" action="#">
+						<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+							<tbody>
+								<tr>
+									<th bgcolor="#ffffff">商品名称</th>
+									<th bgcolor="#ffffff">属性</th>
+									<th bgcolor="#ffffff">市场价</th>
+									<th bgcolor="#ffffff">本店价</th>
+									<th bgcolor="#ffffff">购买数量</th>
+									<th bgcolor="#ffffff">小计</th>
+									<th bgcolor="#ffffff">操作</th>
+								</tr>
+							</tbody>
+						</table>
+						<table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+							<tbody>
+								<tr>
+									<td bgcolor="#ffffff">
+										购物金额小计 ￥0.00元，比市场价 ￥0.00元 节省了 ￥0.00元 (0) </td>
+									<td align="right" bgcolor="#ffffff">
+										<input type="button" value="清空购物车" class="bnt_blue_1" onclick="">
+										<input name="submit" type="submit" class="bnt_blue_1" value="更新购物车">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<input type="hidden" name="step" value="update_cart">
+					</form>
+					<table width="99%" align="center" border="0" cellpadding="5" cellspacing="0" bgcolor="#dddddd">
+						<tbody>
+							<tr>
+								<td bgcolor="#ffffff">
+									<a href="#"><img src="img/continue.gif" alt="continue"></a>
+								</td>
+								<td bgcolor="#ffffff" align="right">
+									<a href="#"><img src="img/checkout.gif" alt="checkout"></a>
+
+								</td>
+							</tr>
+						</tbody>
+
+					</table>
+				</div>
+				<div class="blank"></div>
+				<div class="blank5"></div>
+			</div>
+			<div class="site-footer">
+				<div class="ft-container">
+					<div class="footer-service">
+						<ul class="list-service clearfix">
+							<li>
+								<a rel="nofollow" href="javascript:void(0)">
+									<i class="iconfont"></i>1小时快修服务
+								</a>
+							</li>
+							<li>
+								<a rel="nofollow" href="javascript:void(0)">
+									<i class="iconfont"></i>7天无理由退货
+								</a>
+							</li>
+							<li>
+								<a rel="nofollow" href="javascript:void(0)">
+									<i class="iconfont"></i>15天免费换货
+								</a>
+							</li>
+							<li>
+								<a rel="nofollow" href="javascript:void(0)">
+									<i class="iconfont"></i>满150元包邮
+								</a>
+							</li>
+							<li>
+								<a rel="nofollow" href="javascript:void(0)">
+									<i class="iconfont"></i>520余家售后网点
+								</a>
+							</li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>
