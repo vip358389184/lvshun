@@ -6,25 +6,20 @@
 
 
 		<!-- 添加商品 -->
-	<!--<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
+	<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
 		INSERT INTO commodity(
-		 T.Commodity_id,T.c_id,T.c_name,T.brand,T.picture,T.normal_price,T.retail_price,T.c_state,T.introduce,T.property,
-		T.label,T.inventory,T.broad_heading,T.subclass,T.c_date,T.user_id
+		 Commodity_id,c_id,c_name,brand,picture,normal_price,retail_price,c_state,introduce,property,
+		label,inventory,broad_heading,subclass,c_date,user_id
 		)VALUES(
-		#{CommodityId},#{cId},#{cName},#{brand},#{picture},#{normalPrice},#{retailPrice},#{cDate},#{introduce},#{propertys}
-		,#{label},#{inventory},#{broadHeading},#{subclass},#{cDate},#{userId}
-		)
-	</insert>-->
-	<insert id="addComm"  parameterType="com.lvshun.po.Commodity" >
-		INSERT INTO commodity(
-		cid,cname,cdate
-		)VALUES(
-		#{0},#{1},#{2}
+		#{Commodity_id},#{c_id},#{c_name},#{brand},#{picture},#{normal_price},#{retail_price},#{c_state},#{introduce},#{property}
+		,#{label},#{inventory},#{broad_heading},#{subclass},#{c_date},#{user_id}
 		)
 	</insert>
+
+
 	<!-- 查询商品详细 -->
 	<select id="findById" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity" >
-		select cid,cname,cdate from commodity where id=#{cId}
+		select * from commodity where c_id=#{c_id}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
@@ -32,7 +27,7 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
-		delete from commodity where cid=#{ids}
+		delete from commodity where c_id=#{c_id}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >

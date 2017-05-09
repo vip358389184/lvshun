@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myApp" ng-controller="CommodityController" >
+<form >
+    商品ID<input ng-model="c_id" type="text" id="c_id" name="c_id" n ><br>
+    商品名称<input type="text" id="c_name" name="c_name" ng-model="c_name"><br>
+    商品品牌<input type="text" id="brand" name="brand" ng-model="brand"><br>
+    正常价格<input type="text" id="normal_price" name="normal_price" ng-model="normal_price">
+    <input type="submit" value="tj">
+
+
+</form>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('CommodityController', function($scope) {
+        $scope.c_name = "John Doe";
+        $scope.c_id ="1001";
+        $scope.brand ="thinkpad";
+        $scope.normal_price ="5000";
+    });
+</script>
+</body>
+</html>

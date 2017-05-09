@@ -16,9 +16,9 @@ public class CommodityBizImpl implements CommodityBiz{
     @Autowired
     private CommodityServer commodityServer;
 
-    public int addComm(String cid,String cname,String cdate) {
+    public int addComm(Commodity commodity) {
 
-       return commodityServer.addComm(cid,cname,cdate);
+       return commodityServer.addComm(commodity);
     }
 
     public List<Commodity> findAll() {

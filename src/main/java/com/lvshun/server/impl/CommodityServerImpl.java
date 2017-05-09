@@ -17,8 +17,9 @@ public class CommodityServerImpl implements CommodityServer {
     @Autowired
     private CommodityDao commodityDao;
 
-    public int addComm(String cid,String cname,String cdate) {
-      return   commodityDao.addComm(cid,cname,cdate);
+
+    public int addComm(Commodity commodity) {
+        return commodityDao.addComm(commodity);
     }
 
     public List<Commodity> findAll() {

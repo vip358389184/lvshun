@@ -5,6 +5,7 @@ import com.lvshun.po.Commodity;
 import com.lvshun.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,5 +25,13 @@ public class CommodityController {
     public List<Commodity> findAll(){
         List<Commodity> commList = commodityBiz.findAll();
         return  commList;
+    }
+    @ResponseBody
+    @RequestMapping(value = "addComm")
+    public  String addComm(Model model,Commodity commodity){
+        Commodity commoditys = new Commodity();
+        commodityBiz.addComm(commoditys);
+        model.addAttribute(commoditys);
+        return "";
     }
 }

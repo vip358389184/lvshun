@@ -6,53 +6,45 @@ import java.math.BigDecimal;
  * Created by 宝龙 on 2017/4/20.
  */
 public class Commodity {
-    private String CommodityId;//
-    private String cId;//
-    private String cName;
+    private String Commodity_id;//
+    private String c_id;//
+    private String c_name;
     private String brand;
     private String picture;
-    private BigDecimal normalPrice;
-    private BigDecimal retailPrice;
-    private String cState;
+    private BigDecimal normal_price;
+    private BigDecimal retail_price;
+    private String c_state;
     private String introduce;
-    private String propertys;
+    private String property;
     private String label;
     private String inventory;
-    private String broadHeading;
+    private String broad_heading;
     private String subclass;
-    private String cDate;
-    private String userId;
+    private String cdate;
+    private String user_id;
 
-    public String getSubclass() {
-        return subclass;
+    public String getCommodity_id() {
+        return Commodity_id;
     }
 
-    public void setSubclass(String subclass) {
-        this.subclass = subclass;
+    public void setCommodity_id(String commodity_id) {
+        Commodity_id = commodity_id;
     }
 
-    public String getCommodityId() {
-        return CommodityId;
+    public String getC_id() {
+        return c_id;
     }
 
-    public void setCommodityId(String commodityId) {
-        CommodityId = commodityId;
+    public void setC_id(String c_id) {
+        this.c_id = c_id;
     }
 
-    public String getcId() {
-        return cId;
+    public String getC_name() {
+        return c_name;
     }
 
-    public void setcId(String cId) {
-        this.cId = cId;
-    }
-
-    public String getcName() {
-        return cName;
-    }
-
-    public void setcName(String cName) {
-        this.cName = cName;
+    public void setC_name(String c_name) {
+        this.c_name = c_name;
     }
 
     public String getBrand() {
@@ -71,28 +63,28 @@ public class Commodity {
         this.picture = picture;
     }
 
-    public BigDecimal getNormalPrice() {
-        return normalPrice;
+    public BigDecimal getNormal_price() {
+        return normal_price;
     }
 
-    public void setNormalPrice(BigDecimal normalPrice) {
-        this.normalPrice = normalPrice;
+    public void setNormal_price(BigDecimal normal_price) {
+        this.normal_price = normal_price;
     }
 
-    public BigDecimal getRetailPrice() {
-        return retailPrice;
+    public BigDecimal getRetail_price() {
+        return retail_price;
     }
 
-    public void setRetailPrice(BigDecimal retailPrice) {
-        this.retailPrice = retailPrice;
+    public void setRetail_price(BigDecimal retail_price) {
+        this.retail_price = retail_price;
     }
 
-    public String getcState() {
-        return cState;
+    public String getC_state() {
+        return c_state;
     }
 
-    public void setcState(String cState) {
-        this.cState = cState;
+    public void setC_state(String c_state) {
+        this.c_state = c_state;
     }
 
     public String getIntroduce() {
@@ -103,12 +95,12 @@ public class Commodity {
         this.introduce = introduce;
     }
 
-    public String getPropertys() {
-        return propertys;
+    public String getProperty() {
+        return property;
     }
 
-    public void setPropertys(String propertys) {
-        this.propertys = propertys;
+    public void setProperty(String property) {
+        this.property = property;
     }
 
     public String getLabel() {
@@ -127,27 +119,35 @@ public class Commodity {
         this.inventory = inventory;
     }
 
-    public String getBroadHeading() {
-        return broadHeading;
+    public String getBroad_heading() {
+        return broad_heading;
     }
 
-    public void setBroadHeading(String broadHeading) {
-        this.broadHeading = broadHeading;
+    public void setBroad_heading(String broad_heading) {
+        this.broad_heading = broad_heading;
     }
 
-    public String getcDate() {
-        return cDate;
+    public String getSubclass() {
+        return subclass;
     }
 
-    public void setcDate(String cDate) {
-        this.cDate = cDate;
+    public void setSubclass(String subclass) {
+        this.subclass = subclass;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getCdate() {
+        return cdate;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setCdate(String cdate) {
+        this.cdate = cdate;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }
