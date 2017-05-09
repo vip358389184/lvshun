@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="lvshun:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="lvshun.war">
-      <element id="artifact" artifact-name="lvshun:war exploded" />
-    </root>
-  </artifact>
-</component>
