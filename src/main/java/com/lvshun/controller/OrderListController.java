@@ -2,6 +2,7 @@ package com.lvshun.controller;
 
 import com.lvshun.biz.OrderListBiz;
 import com.lvshun.po.OrderList;
+import com.lvshun.po.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ public class OrderListController {
     @Autowired
     private OrderListBiz orderListBiz;
 
-    @RequestMapping("/getAllOrderList")
-    public  @ResponseBody
-    List<OrderList> getAllOrderList(){
-
-        return orderListBiz.getAllorder();
+    @ResponseBody
+    @RequestMapping(value="/getAllorder")
+    public List<OrderList> getAllorder(){
+        List<OrderList> orderList = orderListBiz.getAllorder();
+        return  orderList;
     }
     @RequestMapping("/addOrderList")
     public @ResponseBody

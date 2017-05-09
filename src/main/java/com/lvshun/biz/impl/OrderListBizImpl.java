@@ -29,12 +29,12 @@ public class OrderListBizImpl implements OrderListBiz {
     public OrderList getByoId(String id) {
         OrderList orderList = new OrderList();
 
-        return orderListServer.getByoId(orderList.getoId());
+        return orderListServer.getByoId(orderList.getO_id());
     }
 
     public void deleteOrder(String id) {
         OrderList orderList = new OrderList();
-        orderListServer.deleteOrder(orderList.getoId());
+        orderListServer.deleteOrder(orderList.getO_id());
     }
 
     public void updateOrder(OrderList orderList) {

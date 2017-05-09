@@ -6,63 +6,74 @@ import java.math.BigDecimal;
  * Created by 宝龙 on 2017/4/20.
  */
 public class OrderList {
-    private  String snumberId;
-    private  String oId;
-    private  String oName;
-    private  String oProperty;
-    private  String cNumber;
+    private  String snumber_id;
+    private  String o_id;
+    private  String c_id;
+    private  String o_name;
+
+
+    private  String o_roperty;
+    private  String c_number;
     private  String deliveryCosts;
     private BigDecimal money;
-    private  String oState;
-    private  String  userId;
+    private  String o_state;
+    private  String  user_id;
     private  String address;
-    private  String sMethod;
+    private  String s_method;
     private  String popayMent;
     private  String  presentExp;
-    private  String oxdDate;
-    private  String  osongDate;
-    private  String oshDate;
-    private  String  ofkDate;
-    private  String  orderTime;
+    private  String oxd_date;
+    private  String  osong_date;
+    private  String osh_date;
+    private  String  ofk_date;
+    private  String  order_time;
 
-    public String getSnumberId() {
-        return snumberId;
+    public String getSnumber_id() {
+        return snumber_id;
     }
 
-    public void setSnumberId(String snumberId) {
-        this.snumberId = snumberId;
+    public void setSnumber_id(String snumber_id) {
+        this.snumber_id = snumber_id;
     }
 
-    public String getoId() {
-        return oId;
+    public String getO_id() {
+        return o_id;
     }
 
-    public void setoId(String oId) {
-        this.oId = oId;
+    public void setO_id(String o_id) {
+        this.o_id = o_id;
     }
 
-    public String getoName() {
-        return oName;
+    public String getC_id() {
+        return c_id;
     }
 
-    public void setoName(String oName) {
-        this.oName = oName;
+    public void setC_id(String c_id) {
+        this.c_id = c_id;
     }
 
-    public String getoProperty() {
-        return oProperty;
+    public String getO_name() {
+        return o_name;
     }
 
-    public void setoProperty(String oProperty) {
-        this.oProperty = oProperty;
+    public void setO_name(String o_name) {
+        this.o_name = o_name;
     }
 
-    public String getcNumber() {
-        return cNumber;
+    public String getO_roperty() {
+        return o_roperty;
     }
 
-    public void setcNumber(String cNumber) {
-        this.cNumber = cNumber;
+    public void setO_roperty(String o_roperty) {
+        this.o_roperty = o_roperty;
+    }
+
+    public String getC_number() {
+        return c_number;
+    }
+
+    public void setC_number(String c_number) {
+        this.c_number = c_number;
     }
 
     public String getDeliveryCosts() {
@@ -81,20 +92,20 @@ public class OrderList {
         this.money = money;
     }
 
-    public String getoState() {
-        return oState;
+    public String getO_state() {
+        return o_state;
     }
 
-    public void setoState(String oState) {
-        this.oState = oState;
+    public void setO_state(String o_state) {
+        this.o_state = o_state;
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser_id() {
+        return user_id;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public String getAddress() {
@@ -105,12 +116,12 @@ public class OrderList {
         this.address = address;
     }
 
-    public String getsMethod() {
-        return sMethod;
+    public String getS_method() {
+        return s_method;
     }
 
-    public void setsMethod(String sMethod) {
-        this.sMethod = sMethod;
+    public void setS_method(String s_method) {
+        this.s_method = s_method;
     }
 
     public String getPopayMent() {
@@ -129,43 +140,43 @@ public class OrderList {
         this.presentExp = presentExp;
     }
 
-    public String getOxdDate() {
-        return oxdDate;
+    public String getOxd_date() {
+        return oxd_date;
     }
 
-    public void setOxdDate(String oxdDate) {
-        this.oxdDate = oxdDate;
+    public void setOxd_date(String oxd_date) {
+        this.oxd_date = oxd_date;
     }
 
-    public String getOsongDate() {
-        return osongDate;
+    public String getOsong_date() {
+        return osong_date;
     }
 
-    public void setOsongDate(String osongDate) {
-        this.osongDate = osongDate;
+    public void setOsong_date(String osong_date) {
+        this.osong_date = osong_date;
     }
 
-    public String getOshDate() {
-        return oshDate;
+    public String getOsh_date() {
+        return osh_date;
     }
 
-    public void setOshDate(String oshDate) {
-        this.oshDate = oshDate;
+    public void setOsh_date(String osh_date) {
+        this.osh_date = osh_date;
     }
 
-    public String getOfkDate() {
-        return ofkDate;
+    public String getOfk_date() {
+        return ofk_date;
     }
 
-    public void setOfkDate(String ofkDate) {
-        this.ofkDate = ofkDate;
+    public void setOfk_date(String ofk_date) {
+        this.ofk_date = ofk_date;
     }
 
-    public String getOrderTime() {
-        return orderTime;
+    public String getOrder_time() {
+        return order_time;
     }
 
-    public void setOrderTime(String orderTime) {
-        this.orderTime = orderTime;
+    public void setOrder_time(String order_time) {
+        this.order_time = order_time;
     }
 }

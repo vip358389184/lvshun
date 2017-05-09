@@ -19,8 +19,17 @@ public class Commodity {
     private String label;
     private String inventory;
     private String broadHeading;
+    private String subclass;
     private String cDate;
     private String userId;
+
+    public String getSubclass() {
+        return subclass;
+    }
+
+    public void setSubclass(String subclass) {
+        this.subclass = subclass;
+    }
 
     public String getCommodityId() {
         return CommodityId;

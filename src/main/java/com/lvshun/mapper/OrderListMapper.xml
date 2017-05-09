@@ -4,10 +4,6 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lvshun.dao.OrderListDao">
 
-	<sql id="orderlist_columns">
-		T.snumber_id,T.o_id,T.c_id,T.o_name,T.o_property,T.c_number,T.delivery_costs,T.money,T.o_state,T.user_id,
-		T.address,T.s_method,T.popay_ment,T.present_exp,T.oxd_date,T.osong_date,T.osh_date,T.ofk_date,T.order_time
-	</sql>
 	<!-- 添加订单 -->
 	<insert id="addorderList"  parameterType="com.lvshun.po.OrderList" >
 		INSERT INTO orderlist(
