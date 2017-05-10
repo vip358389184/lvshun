@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/js/bootstrap.min.css">
     <script src="../js/angular/angular.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
 
 </head>
 <body ng-app="myApp" ng-controller="CommodityController">
@@ -59,6 +64,10 @@
         </tr>
         </tbody>
     </table>
+    <hr>
+    <button class="btn btn-success" ng-click="addComm()">
+        <span class="glyphicon glyphicon-edit" ></span><a href="addComm.html" class="a">创建新商品</a>
+    </button>
 
 </div>
 <script>
@@ -69,8 +78,25 @@
         });
     });
 
+
 </script>
 
+<script src="/js/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
+        });
+    });
+</script>
+<style>
+    .a{
+        text-decoration: none;
+        list-style: none;
+        color: white;
 
+    }
+</style>
 </body>
 </html>

@@ -12,16 +12,16 @@ public class OrderList {
     private  String o_name;
 
 
-    private  String o_roperty;
+    private  String o_property;
     private  String c_number;
-    private  String deliveryCosts;
+    private  String delivery_costs;
     private BigDecimal money;
     private  String o_state;
     private  String  user_id;
     private  String address;
     private  String s_method;
-    private  String popayMent;
-    private  String  presentExp;
+    private  String popay_ment;
+    private  String  present_exp;
     private  String oxd_date;
     private  String  osong_date;
     private  String osh_date;
@@ -60,12 +60,28 @@ public class OrderList {
         this.o_name = o_name;
     }
 
-    public String getO_roperty() {
-        return o_roperty;
+    public String getO_property() {
+        return o_property;
     }
 
-    public void setO_roperty(String o_roperty) {
-        this.o_roperty = o_roperty;
+    public void setO_property(String o_property) {
+        this.o_property = o_property;
+    }
+
+    public String getPopay_ment() {
+        return popay_ment;
+    }
+
+    public void setPopay_ment(String popay_ment) {
+        this.popay_ment = popay_ment;
+    }
+
+    public String getPresent_exp() {
+        return present_exp;
+    }
+
+    public void setPresent_exp(String present_exp) {
+        this.present_exp = present_exp;
     }
 
     public String getC_number() {
@@ -76,12 +92,12 @@ public class OrderList {
         this.c_number = c_number;
     }
 
-    public String getDeliveryCosts() {
-        return deliveryCosts;
+    public String getDelivery_costs() {
+        return delivery_costs;
     }
 
-    public void setDeliveryCosts(String deliveryCosts) {
-        this.deliveryCosts = deliveryCosts;
+    public void setDelivery_costs(String delivery_costs) {
+        this.delivery_costs = delivery_costs;
     }
 
     public BigDecimal getMoney() {
@@ -124,21 +140,7 @@ public class OrderList {
         this.s_method = s_method;
     }
 
-    public String getPopayMent() {
-        return popayMent;
-    }
 
-    public void setPopayMent(String popayMent) {
-        this.popayMent = popayMent;
-    }
-
-    public String getPresentExp() {
-        return presentExp;
-    }
-
-    public void setPresentExp(String presentExp) {
-        this.presentExp = presentExp;
-    }
 
     public String getOxd_date() {
         return oxd_date;

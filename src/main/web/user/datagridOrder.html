@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="/js/bootstrap.min.css">
     <script src="../js/angular/angular.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css?v=4.1.0" rel="stylesheet">
 
 </head>
 <body ng-app="myApp" ng-controller="OrderListController">
@@ -47,17 +52,17 @@
 
             <td>{{order.o_id}}</td>
             <td>{{order.c_id}}</td>
-            <td>{{order.o_oame}}</td>
+            <td>{{order.o_name}}</td>
             <td>{{ order.o_property }}</td>
             <td>{{order.c_number}}</td>
-            <td>{{order.deliveryCosts}}</td>
+            <td>{{order.delivery_costs}}</td>
             <td>{{ order.money }}</td>
             <td>{{order.o_state}}</td>
             <td>{{order.user_id}}</td>
             <td>{{order.address}}</td>
             <td>{{ order.s_method }}</td>
-            <td>{{ order.popayMent }}</td>
-            <td>{{ order.presentExp }}</td>
+            <td>{{ order.popay_ment }}</td>
+            <td>{{ order.present_exp }}</td>
             <td>{{ order.oxd_date }}</td>
             <td>{{ order.osong_date }}</td>
             <td>{{ order.osh_date }}</td>
