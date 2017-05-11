@@ -7,11 +7,12 @@
 	<!-- 添加订单 -->
 	<insert id="addorderList"  parameterType="com.lvshun.po.OrderList" >
 		INSERT INTO orderlist(
-		 T.snumber_id,T.o_id,T.c_id,T.o_name,T.o_property,T.c_number,T.delivery_costs,T.money,T.o_state,T.user_id,
-		T.address,T.s_method,T.popay_ment,T.present_exp,T.oxd_date,T.osong_date,T.osh_date,T.ofk_date,T.order_time
+		 snumber_id,o_id,c_id,o_name,o_property,c_number,delivery_costs,money,o_state,user_id,
+	  address,s_method,popay_ment,present_exp,oxd_date,osong_date,osh_date,ofk_date,order_time
 		)VALUES(
-		#{snumberId},#{oId},#{cId},#{oName},#{oProperty},#{cNumber},#{deliveryCosts},#{money},#{oState},#{userId}
-		,#{address},#{sMethod},#{popayMent},#{presentExp},#{oxdDate},#{osongDate},#{oshDate},#{ofkDate},#{orderTime}
+		#{snumber_id},#{o_id},#{c_id},#{o_name},#{o_property},#{c_number},#{delivery_costs},#{money},#{o_state},#{user_id}
+		,#{address},#{s_method},#{popay_ment},#{present_exp},#{oxd_date},#{osong_date},#{osh_date},#{ofk_date},#{order_time},
+
 		)
 	</insert>
 	<!-- 查询订单 详细 -->
@@ -19,7 +20,7 @@
 		select
 		*
 		from orderlist
-		where id=#{oId}
+		where id=#{o_id}
 	</select>
 	<!-- 查询订单 -->
 	<select id="getAllorder"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList">

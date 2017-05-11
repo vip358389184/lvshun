@@ -8,7 +8,8 @@
     <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css?v=4.1.0" rel="stylesheet">
-
+    <script src="../scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="../scripts/ajaxfileupload.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="CommodityController" >
  <div class="row">
@@ -35,7 +36,7 @@
                 </div>
             </div>
             <div class="ibox-content">
-                <form method="get" class="form-horizontal">
+
                     <div class="form-group">
                         <label class="col-sm-2 control-label">商品编号</label>
 
@@ -59,13 +60,25 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+              <!--  <form name="form5"  method="post" enctype="multipart/form-data">
+                    <input type="file" id="file_AjaxFile" name="file_AjaxFile">
+                    <input type="button" value="upload" onclick="fileUploadAjax()"/><span id="sp_AjaxFile"></span>
+
+                </form>-->
+                <div class="form-group" >
+                    <label class="col-sm-2 control-label">商品图片</label>
+                    <div  class="col-sm-10">
+                    <input type="file" file-model="myFile"  ng-model="picture">
+                    <button ng-click="save()" >上传</button>
+                    </div>
+                </div>
+                  <!-- <div class="form-group">
                         <label class="col-sm-2 control-label">商品图片</label>
 
                         <div class="col-sm-10">
                             <input type="text" class="form-control" ng-model="picture">
                         </div>
-                    </div>
+                    </div>-->
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">正常价格</label>
@@ -85,19 +98,14 @@
 
                     <div class="form-group">
                         <label class="col-sm-2 control-label">商品状态
-                            <br/>
-
                         </label>
-
                         <div class="col-sm-10">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" checked="" value="1" id="optionsRadios1" name="optionsRadios">选项1</label>
+                                    <input type="radio" checked="" value="1" ng-model="c_state" id="optionsRadios1" name="optionsRadios">选项1</label>
+                                    <input type="radio" value="2" id="optionsRadios2" name="optionsRadios" ng-model="c_state" >选项2</label>
                             </div>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" value="2" id="optionsRadios2" name="optionsRadios">选项2</label>
-                            </div>
+
                         </div>
 
                         <div class="hr-line-dashed"></div>
@@ -149,42 +157,90 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">商品子类别</label>
+                            <label class="col-sm-2 control-label">商品创建时间</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" ng-model="subclass">
+                                <input type="text" class="form-control" ng-model="cdate">
                             </div>
                         </div>
-
-                        <div class="form-group">
+                       <!-- <div class="form-group">
                             <label class="col-sm-2 control-label">商品创建时间：</label>
                             <div class="col-sm-10">
                                 <input class="form-control layer-date" ng-model="cdate" placeholder="YYYY-MM-DD hh:mm:ss" onclick="laydate({istime: true, format: 'YYYY-MM-DD hh:mm:ss'})">
                                 <label class="laydate-icon"></label>
                             </div>
-                        </div>
+                        </div>-->
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
-                            <button class="btn btn-primary" type="submit">保存内容</button>
+                            <button class="btn btn-primary" type="submit" ng-click="submitFrom()">保存内容</button>
                             <button class="btn btn-white" type="submit">取消</button>
                         </div>
                     </div>
-                </form>
-            </div>
+
         </div>
     </div>
 </div>
 </div>
-    <script>
-    var app = angular.module('myApp', []);
-    app.controller('CommodityController', function($scope) {
-        $scope.c_name = "John Doe";
-        $scope.c_id ="1001";
-        $scope.brand ="thinkpad";
-        $scope.normal_price ="5000";
-    });
-</script>
+ </div>
+
+ <script src="../js/angular/angular.min.js" type="text/javascript"></script>
+ <script>
+     var app = angular.module('myApp', []);
+     app.controller('CommodityController', function($scope,$http) {
+         $scope.c_id = "";
+         $scope.c_name="";
+         $scope.brand="";
+         $scope.picture="";
+         $scope.normal_price="";
+         $scope.retail_price="";
+         $scope.c_state="";
+         $scope.introduce="";
+         $scope.property="";
+         $scope.label="";
+         $scope.inventory="";
+         $scope.broad_heading="";
+         $scope.subclass="";
+         $scope.cdate="";
+
+         $scope.submitFrom = function() {
+             var c_id=$scope.c_id;
+             var c_name=$scope.c_name;
+             var brand=$scope.brand;
+             var picture= $scope.picture;
+             var normal_price= $scope.normal_price;
+             var retail_price= $scope.retail_price;
+             var c_state= $scope.c_state;
+             var introduce= $scope.introduce;
+             var property= $scope.property;
+             var label= $scope.label;
+             var inventory= $scope.inventory;
+             var broad_heading= $scope.broad_heading;
+             var subclass= $scope.subclass;
+             var cdate= $scope.cdate;
+
+             var parme={'c_id':c_id,'c_name':c_name,'brand':brand,'picture':picture,
+                 'normal_price':normal_price,'retail_price':retail_price,'c_state':c_state,
+                 'introduce':introduce,'property':property,'label':label,'inventory':inventory,'broad_heading':broad_heading,
+                 'subclass':subclass,'cdate':cdate,
+             };
+
+
+             $http({
+                 method:'POST',
+                 url:'/comm/addComm',
+                 data:parme,
+                 dataType:'json',
+             }).success(function(data, status, headers, config){
+                 alert("添加成功！");
+                window.location="datagridComm.html"
+             }).error(function(data, status, headers, config){
+                 alert("error");
+             })
+         }
+     });
+
+ </script>
  <script src="/js/plugins/layer/laydate/laydate.js"></script>
  <script>
      //外部js调用
@@ -220,6 +276,27 @@
      laydate(start);
      laydate(end);
  </script>
+ <script type="text/javascript">
+     function fileUploadAjax() {
+         if ($("#file_AjaxFile").val().length > 0) {
+             $.ajaxFileUpload({
+                 url: '/FileUpload/fileUpload_ajax', //用于文件上传的服务器端请求地址
+                 type: "post",
+                 secureuri: false, //一般设置为false
+                 fileElementId: 'file_AjaxFile',
+                 dataType: 'application/json', //返回值类型 一般设置为json
+                 success: function (data)  //服务器成功响应处理函数
+                 {
+                     alert("成功!");
+                 }
 
+             });
+         }
+         else {
+             alert("请选择文件!");
+         }
+     }
+
+ </script>
 </body>
 </html>

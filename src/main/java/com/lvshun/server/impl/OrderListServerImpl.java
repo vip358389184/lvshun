@@ -16,8 +16,8 @@ public class OrderListServerImpl implements OrderListServer {
     @Autowired
      private  OrderListDao orderListDao;
 
-    public void addorderList(OrderList orderList) {
-            orderListDao.addorderList(orderList);
+    public int addorderList(OrderList orderList) {
+           return orderListDao.addorderList(orderList);
     }
 
     public List<OrderList> getAllorder() {
@@ -28,11 +28,11 @@ public class OrderListServerImpl implements OrderListServer {
         return orderListDao.getByoId(id);
     }
 
-    public void deleteOrder(String id) {
-            orderListDao.deleteOrder(id);
+    public int deleteOrder(String id) {
+       return      orderListDao.deleteOrder(id);
     }
 
-    public void updateOrder(OrderList orderList) {
-            orderListDao.updateOrder(orderList);
+    public int updateOrder(OrderList orderList) {
+        return     orderListDao.updateOrder(orderList);
     }
 }

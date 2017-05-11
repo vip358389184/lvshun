@@ -1,15 +1,21 @@
 package com.lvshun.controller;
 
 import com.lvshun.biz.CommodityBiz;
+import com.lvshun.biz.OrderListBiz;
 import com.lvshun.po.Commodity;
 import com.lvshun.util.ResponseUtil;
+import com.lvshun.util.ReturnMessage;
+import com.lvshun.vo.Commoditys;
+import com.lvshun.vo.User;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -20,6 +26,9 @@ import java.util.List;
 public class CommodityController {
     @Autowired
     private CommodityBiz commodityBiz;
+
+    private static Logger logger = LogManager
+            .getLogger(UserController.class.getName());
     @ResponseBody
     @RequestMapping(value="/findAll")
     public List<Commodity> findAll(){
@@ -27,11 +36,12 @@ public class CommodityController {
         return  commList;
     }
     @ResponseBody
-    @RequestMapping(value = "addComm")
-    public  String addComm(Model model,Commodity commodity){
-        Commodity commoditys = new Commodity();
+    @RequestMapping(value="/addComm")
+    public ReturnMessage addComm(@RequestBody Commoditys  commoditys){
+
+        logger.info(commoditys);
         commodityBiz.addComm(commoditys);
-        model.addAttribute(commoditys);
-        return "";
+
+        return  ReturnMessage.SUCCESS;
     }
 }
