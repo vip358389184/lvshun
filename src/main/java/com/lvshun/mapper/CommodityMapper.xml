@@ -9,10 +9,10 @@
 	<insert id="addComm" parameterType="com.lvshun.po.Commodity"  >
 		INSERT INTO commodity(
 		 Commodity_id,c_id,c_name,brand,picture,normal_price,retail_price,c_state,introduce,property,
-		label,inventory,broad_heading,subclass,c_date,user_id
+		label,inventory,broad_heading,subclass,cdate,user_id
 		)VALUES(
 		#{Commodity_id},#{c_id},#{c_name},#{brand},#{picture},#{normal_price},#{retail_price},#{c_state},#{introduce},#{property}
-		,#{label},#{inventory},#{broad_heading},#{subclass},#{c_date},#{user_id}
+		,#{label},#{inventory},#{broad_heading},#{subclass},#{cdate},#{user_id}
 		)
 	</insert>
 
