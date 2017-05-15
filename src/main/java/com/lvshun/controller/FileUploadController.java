@@ -1,6 +1,8 @@
 package com.lvshun.controller;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,47 +22,27 @@ import java.util.Iterator;
 @Controller
 @RequestMapping(value = "/FileUpload")
 public class FileUploadController {
-    /*@RequestMapping(value = "fileUpload_ajax", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "fileUpload_ajax", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public String springUpload(MultipartFile file) throws IllegalStateException, IOException {
-
-
-        String path = "D:\\workspace\\lvshun\\src\\main\\web\\files\\upload\\" + file.getOriginalFilename();
-        //上传
-        file.transferTo(new File(path));
-
-        return null;
-    }*/
-    @RequestMapping(value = "fileUpload_ajax",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public String springUpload(HttpServletRequest request) throws IllegalStateException, IOException
-    {
-       // long startTime=System.currentTimeMillis();
-        //将当前上下文初始化给 CommonsMutipartResolver （多部分解析器）
-
-        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(
-                request.getSession().getServletContext());
-        //检查form中是否有enctype="multipart/form-data"
-        if(multipartResolver.isMultipart(request))
-        {
-
-            //将request变成多部分request
-            MultipartHttpServletRequest multiRequest=(MultipartHttpServletRequest)request;
-            //获取multiRequest 中所有的文件名
-            Iterator iter=multiRequest.getFileNames();
-            while(iter.hasNext())
-            {
-                //一次遍历所有文件
-                MultipartFile file=multiRequest.getFile(iter.next().toString());
-                if(file!=null)
-                {
-                    String path="D:\\workspace\\lvshun\\src\\main\\web\\files\\upload\\"+file.getOriginalFilename();
-                    //上传
-                    file.transferTo(new File(path));
-                }
-            }
+    public String upload( MultipartFile file, HttpServletRequest request, ModelMap model) {
+        System.out.println("开始");
+        String path = request.getSession().getServletContext().getRealPath("upload");
+        String fileName = file.getOriginalFilename();
+        System.out.println(path);
+        File targetFile = new File(path, fileName);
+        if(!targetFile.exists()){
+            targetFile.mkdirs();
         }
+        //保存
+        try {
+            file.transferTo(targetFile);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("fileUrl", request.getContextPath()+"/upload/"+fileName);
+
         return "/success";
     }
+
 }
 

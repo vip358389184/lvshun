@@ -27,13 +27,14 @@ public class CommodityServerImpl implements CommodityServer {
         return commodityDao.findAll();
     }
 
-    public Commodity getById(String id) {
-        return commodityDao.getById(id);
+    public Commodity findById(String id) {
+        return commodityDao.findById(id);
     }
 
     public int delete(String id) {
         return commodityDao.delete(id);
     }
+
 
     public int update(Commodity commodity) {
        return commodityDao.update(commodity);
