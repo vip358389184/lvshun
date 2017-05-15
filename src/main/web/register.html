@@ -66,13 +66,7 @@
                             <span class=""><i></i><label></label></span>
                         </div>
                     </div>
-                    <!--<div class="check onfocusstyle" style="position: relative;">-->
-                        <!--<input type="checkbox" nullmsg="请阅读并选择" name="agree" id="agree" value="1">&nbsp;&nbsp;<label for="agree">我已阅读并同意</label>-->
-                        <!--<a href="javascript:void(0);" class="blue" id="rule">《商城系统用户协议》</a>-->
-                        <!--<div class="Validform_checktip formtip" style="top: 0px;">-->
-                            <!--<span class=""><i></i><label></label></span>-->
-                        <!--</div>-->
-                    <!--</div>-->
+
                     <div class="input-box sub-box">
                         <input type="button" id="reg" ng-click="submitFrom()" value="注册">
                     </div>
@@ -173,7 +167,7 @@
 
                 $http({
                         method:'POST',
-                        url:'/user/saveUser',
+                        url:'/comm/addComm',
                         data:parme,
                         dataType:'json',
                 }).success(function(data, status, headers, config){

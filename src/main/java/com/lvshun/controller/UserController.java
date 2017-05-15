@@ -48,7 +48,6 @@ public class UserController  {
     @RequestMapping("/delete")
     public String delete( HttpServletRequest request,Model model)throws Exception{
         String id= request.getParameter("id");
-
         int delCol = userBiz.delete(id);
         model.addAttribute(delCol);
 
