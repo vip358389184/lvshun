@@ -10,7 +10,10 @@ import java.util.Map;
  */
 public interface UserServer {
     //注册用户
-    public int addUser(String userid,String username,String password);
+    public int addUser(Users users);
+
+    //登录
+    public  int selectlogin(Users users);
 
     //查询全部用户
     public List<Users> findAll();

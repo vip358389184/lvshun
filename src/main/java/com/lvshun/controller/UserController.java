@@ -34,11 +34,31 @@ public class UserController  {
 
 
     @ResponseBody
-    @RequestMapping(value="/saveUser")
-    public ReturnMessage saveUser(@RequestBody User user){
-
+    @RequestMapping(value="/addUser")
+    public ReturnMessage addUser(@RequestBody User user){
         logger.info(user);
+        userBiz.addUser(user);
         return  ReturnMessage.SUCCESS;
     }
+
+
+    @ResponseBody
+    @RequestMapping(value="/selectlogin")
+    public ReturnMessage selectlogin(@RequestBody User user){
+        int count = userBiz.selectlogin(user);
+        logger.info("count:"+count);
+       if(count>0){
+
+            logger.info(user);
+            logger.info("CG");
+
+            return  ReturnMessage.SUCCESS;
+       }else {
+
+           logger.info("SB");
+           return ReturnMessage.ERROR;
+       }
+    }
+
 
 }

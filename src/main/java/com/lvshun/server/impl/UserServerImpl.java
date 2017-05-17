@@ -18,8 +18,14 @@ public class UserServerImpl implements UserServer{
     private UserDao userDao;
 
 
-    public int addUser(String userid, String username, String password) {
-        return userDao.addUser(userid,username,password);
+    public int addUser(Users users) {
+        return userDao.addUser(users);
+    }
+
+    //登录
+    public  int selectlogin(Users users){
+
+        return userDao.selectlogin(users);
     }
 
     public List<Users> findAll() {

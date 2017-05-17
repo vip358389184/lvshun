@@ -16,11 +16,27 @@
 	</insert>-->
 	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
 		INSERT INTO users(
-		userid,username,password
+		username,password,phone
 		)VALUES(
-		#{0},#{1},#{2}
+		#{username},#{password},#{phone}
 		)
 	</insert>
+
+
+	<!--购物车-->
+	<select id="shopping" >
+
+
+
+	</select>
+
+  <!--login-->
+	<select id="selectlogin" parameterType="com.lvshun.po.Users"  resultType="int" >
+	     SELECT
+	           count(*)
+	       FROM  users
+	           where username= #{username} and password=#{password}
+	</select>
 
 	<!-- 查询用户 详细 -->
 	<select id="getById"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users" >
@@ -29,16 +45,21 @@
 		from users
 		where userid=#{userid}
 	</select>
+
 	<!-- 查询用户 -->
 	<select id="findAll"  parameterType="com.lvshun.po.Users" resultType="com.lvshun.po.Users">
 		select
 		*
 		from users
 	</select>
+
+
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Users">
 		delete from users where userid=#{id}
 	</delete>
+
+
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Users" >
 		UPDATE users AS T SET
@@ -57,4 +78,5 @@
 		T.monetary =#{monetary}
 		WHERE T.ecid=#{ecId}
 	</update>
+
 </mapper>
