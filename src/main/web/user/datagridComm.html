@@ -3,12 +3,14 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/js/bootstrap.min.css">
+    <script src="../scripts/jquery-1.6.2.min.js"></script>
     <script src="../js/angular/angular.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico"> <link href="/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/css/font-awesome.css?v=4.4.0" rel="stylesheet">
     <link href="/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css?v=4.1.0" rel="stylesheet">
+
 
 </head>
 <body ng-app="myApp" ng-controller="CommodityController">
@@ -20,7 +22,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>编辑</th>
+
             <th>商品编号</th>
             <th>商品名称</th>
             <th>商品品牌</th>
@@ -35,16 +37,13 @@
             <th>商品大类</th>
             <th>商品子类别</th>
             <th>商品创建时间</th>
+
             <th>操作</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="comm in comms">
-            <td>
-                <button class="btn" ng-click="update(user.userid)">
-                    <span class="glyphicon glyphicon-pencil"></span>编辑
-                </button>
-            </td>
+
 
             <td>{{comm.c_id}}</td>
             <td>{{comm.c_name}}</td>
@@ -60,7 +59,12 @@
             <td>{{ comm.broad_heading }}</td>
             <td>{{ comm.subclass }}</td>
             <td>{{ comm.cdate }}</td>
-            <td><a href="#">删除</a></td>
+
+            <td>
+                <button type="button" class="btn btn-info" onclick="openUserModifyDialog" ng-click="edit(comm.c_id)" >编辑</button>
+                <button type="button" class="btn btn-danger" ng-click="delete(comm.c_id)" >删除</button>
+
+            </td>
         </tr>
         </tbody>
     </table>
@@ -70,19 +74,57 @@
     </button>
 
 </div>
+
+</div>
+
 <script>
+
     var app = angular.module('myApp', []);
     app.controller('CommodityController', function($scope,$http) {
         $http.get("/comm/findAll").success(function (data,status,header,config) {
             $scope.comms =data;
         });
+
+
+        $scope.delete = function(id){
+            $http(
+                {   method:'POST',
+                    url:'/comm/delete?id='+id,
+
+                }
+            ).success(function(data) {
+
+                window.location.reload();
+            });
+        }
+        $scope.edit = function(id){
+//            $scope.c_id=data.c_id;
+//            $scope.c_name=data.c_name;
+//            $scope.brand=data.brand;
+//            $scope.picture=data.picture;
+//            $scope.normal_price = data.normal_price;
+//            $scope.retail_price = data.retail_price;
+//            $scope.picture=data.picture;
+//            $scope.normal_price = data.normal_price;
+//            $scope.retail_price = data.retail_price;
+//            $scope.c_state=data.c_state;
+//            $scope.introduce = data.introduce;
+//            $scope.property = data.property;
+//            $scope.label=data.label;
+//            $scope.inventory = data.inventory;
+//            $scope.broad_heading = data.broad_heading;
+//            $scope.subclass = data.subclass;
+//            $scope.cdate = data.cdate;
+//           $scope.update=true;
+//		            $scope.getAll();
+        window.open("updateComm.html?id="+id);
+
+        };
     });
-
-
 </script>
-
 <script src="/js/plugins/iCheck/icheck.min.js"></script>
 <script>
+
     $(document).ready(function () {
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
@@ -95,8 +137,8 @@
         text-decoration: none;
         list-style: none;
         color: white;
-
     }
 </style>
+
 </body>
 </html>

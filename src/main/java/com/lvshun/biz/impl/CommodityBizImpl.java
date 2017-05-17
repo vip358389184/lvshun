@@ -43,9 +43,9 @@ public class CommodityBizImpl implements CommodityBiz   {
         return commodityServer.findAll();
     }
 
-    public Commodity getById(String  id) {
-        Commoditys commodity1 = new Commoditys();
-        return  commodityServer.getById(commodity1.getC_id());
+    public Commodity findById(String  id) {
+
+        return  commodityServer.findById(id);
     }
 
     public int delete(String id) {
@@ -53,7 +53,7 @@ public class CommodityBizImpl implements CommodityBiz   {
      return  commodityServer.delete(id);
     }
 
-    public int update(Commoditys commodity) {
+    public int update(Commodity commodity) {
         Commodity commodity1  = new Commodity();
         return commodityServer.update(commodity1);
     }

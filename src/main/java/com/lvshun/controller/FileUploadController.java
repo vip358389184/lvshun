@@ -1,8 +1,10 @@
 package com.lvshun.controller;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -20,47 +22,33 @@ import java.util.Iterator;
 @Controller
 @RequestMapping(value = "/FileUpload")
 public class FileUploadController {
-    /*@RequestMapping(value = "fileUpload_ajax", method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "fileUpload_ajax",method = RequestMethod.POST)
     @ResponseBody
-    public String springUpload(MultipartFile file) throws IllegalStateException, IOException {
+    public String springUpload(HttpServletRequest request,@RequestParam("file_AjaxFile") MultipartFile file1) throws IllegalStateException, IOException {
+        /**
+         * 进行判断是否存在文件
+         **/
+        if (!file1.isEmpty()) {
+            /**
+             * 设置文件放置路径
+             *  根目录下的 upload
+             */
+            String filePath = request.getSession().getServletContext().getRealPath("/") + "upload/"
+                    + file1.getOriginalFilename();
+            // 转存文件
+            //原来为   临时文件 需要转存才可以保存下来
+            file1.transferTo(new File(filePath));
 
+/**
+ * 数据库 存储地址
+ *   "upload/"+ file1.getOriginalFilename();
+ *   如未防止 文件名重复 可采用  UUId进行防止
+ */
+            String dbfilePath = "upload/" + file1.getOriginalFilename();
+            return "{data:'"+dbfilePath+"'}";
 
-        String path = "D:\\workspace\\lvshun\\src\\main\\web\\files\\upload\\" + file.getOriginalFilename();
-        //上传
-        file.transferTo(new File(path));
-
-        return null;
-    }*/
-    @RequestMapping(value = "fileUpload_ajax",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
-    @ResponseBody
-    public String springUpload(HttpServletRequest request) throws IllegalStateException, IOException
-    {
-       // long startTime=System.currentTimeMillis();
-        //将当前上下文初始化给 CommonsMutipartResolver （多部分解析器）
-
-        CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(
-                request.getSession().getServletContext());
-        //检查form中是否有enctype="multipart/form-data"
-        if(multipartResolver.isMultipart(request))
-        {
-
-            //将request变成多部分request
-            MultipartHttpServletRequest multiRequest=(MultipartHttpServletRequest)request;
-            //获取multiRequest 中所有的文件名
-            Iterator iter=multiRequest.getFileNames();
-            while(iter.hasNext())
-            {
-                //一次遍历所有文件
-                MultipartFile file=multiRequest.getFile(iter.next().toString());
-                if(file!=null)
-                {
-                    String path="D:\\workspace\\lvshun\\src\\main\\web\\files\\upload\\"+file.getOriginalFilename();
-                    //上传
-                    file.transferTo(new File(path));
-                }
-            }
         }
-        return "/success";
+        return "{'data':fail}";
     }
 }
 

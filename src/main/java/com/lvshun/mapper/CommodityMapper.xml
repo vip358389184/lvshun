@@ -19,7 +19,7 @@
 
 	<!-- 查询商品详细 -->
 	<select id="findById" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity" >
-		select * from commodity where c_id=#{c_id}
+		select * from commodity where c_id=#{id}
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
@@ -27,7 +27,7 @@
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
-		delete from commodity where c_id=#{c_id}
+		delete from commodity where c_id=#{id}
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >
