@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import java.util.*;
 /**
  * Created by baolong on 2017/4/19.
  */
@@ -35,10 +36,18 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value="/addUsers")
     public ReturnMessage addUsers(@RequestBody User user){
+        userBiz.addUsers(user);
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("statue",1);
+        return ReturnMessage.SUCCESS
+        ;}
+
+  /*  public String  addUsers(@RequestBody User user){
      logger.info(user);
-     userBiz.addUsers(user);
-        return  ReturnMessage.SUCCESS;
-    }
+    int i =  userBiz.addUsers(user);
+        System.out.printf("i"+i);
+        return   "sccess";
+    }*/
 
     //删除
     @ResponseBody
@@ -56,7 +65,7 @@ public class UserController {
         int count = userBiz.selectlogin(user);
         logger.info("count:"+count);
         if(count>0){
-            logger.info("GC");
+            logger.info("CG");
             return  ReturnMessage.SUCCESS;
 
        }else {

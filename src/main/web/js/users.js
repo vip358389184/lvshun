@@ -3,7 +3,7 @@ $(function() {
 
 	//注册处理
 	var username= $("#username"),
- 		mobile= $("#Phone"),
+        phone= $("#phone"),
  		smscode= $("#smscode"),
  		password= $("#password"),
  		repassword= $("#repassword"),
@@ -12,8 +12,8 @@ $(function() {
  	username.change(function() {
  		checkUserName(false);
  	});
- 	mobile.change(function() {
- 		checkPhone(false);
+    phone.change(function() {
+        checkphone(false);
  	});
  	password.change(function(){
  		checkPwd(false);
@@ -54,11 +54,16 @@ $(function() {
  		return isValid;
  	}
 
+	function is_phone(phone){
+		var pattern = /^1[34578]\d{9}$/;
+    return pattern.test(phone);
+  }
+
  	//验证手机
- 	function checkPhone(issubmit) {
+ 	function checkphone(issubmit) {
  		var isValid = false;
- 		var v= $.trim(mobile.val());
- 		var i= mobile.siblings(".Validform_checktip").children();
+ 		var v= $.trim(phone.val());
+ 		var i= phone.siblings(".Validform_checktip").children();
  		if (v=='') {
  			if (issubmit) {
  				i.attr('class',"i-err").children("label").text('请输入手机号码');
@@ -66,7 +71,7 @@ $(function() {
  				i.attr('class',"").children("label").text('');
  			}
  		}
- 		else if(!is_mobile(v))
+ 		else if(!is_phone(v))
  		{
  			i.attr('class',"i-err").children("label").text('手机号码格式不正确');
  		}
@@ -217,7 +222,7 @@ $(function() {
  	}
  	
  	
- 	//用户登陆
+ /*	//用户登陆
 	$("#login").click(function() {		
 		var login_name=$.trim($("#loginname").val()),
 			passw=$.trim($("#passw").val()),
@@ -263,5 +268,5 @@ $(function() {
 		});
  	});
  	
-   loadLayer();
+   loadLayer();*/
 })
