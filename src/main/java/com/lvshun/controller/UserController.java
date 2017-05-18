@@ -42,13 +42,6 @@ public class UserController {
         return ReturnMessage.SUCCESS
         ;}
 
-  /*  public String  addUsers(@RequestBody User user){
-     logger.info(user);
-    int i =  userBiz.addUsers(user);
-        System.out.printf("i"+i);
-        return   "sccess";
-    }*/
-
     //删除
     @ResponseBody
     @RequestMapping("/delete")
