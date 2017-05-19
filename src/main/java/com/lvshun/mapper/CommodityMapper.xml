@@ -29,7 +29,7 @@
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >
 		delete from commodity where c_id=#{id}
 	</delete>
-	<!-- 修改用户 -->
+	<!-- 修改商品 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >
 
 		update commodity
