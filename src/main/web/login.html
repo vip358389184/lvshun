@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/js/users.js">
     <link rel="stylesheet" href="/js/utils.js">
 </head>
-<body ng-app="login" ng-controller="loginCtrl">
+<body  ng-app="login"ng-controller="loginCtrl">
 <div class="head_box">
     <div id="head_wrap">
         <div id="head_nav">
@@ -42,14 +42,14 @@
                     </div>
                     <div class="input-box input-box1 onfocusstyle user-word">
                         <label for="loginname" class="icon-user"></label>
-                        <input type="text" name="username" id="loginname" ng-model="username" value="" placeholder="用户名/手机号码" class="position-input" maxlength="20" datatype="*" autocomplete="off">
+                        <input type="text" name="username"  id="loginname" required="required"  ng-model="username"  placeholder="用户名" class="position-input" maxlength="20">
                         <div class="Validform_checktip formtip">
                             <span class=""><i></i><label></label></span>
                         </div>
                     </div>
                     <div class="input-box onfocusstyle passw-word">
                         <label for="passw" class="icon-passw"></label>
-                        <input type="password" name="password" id="passw" value="" ng-model="password" placeholder="密码" class="position-input" maxlength="20" datatype="*" autocomplete="off">
+                        <input type="password" name="password" id="passw" value="" required="required"  ng-model="password" placeholder="密码" class="position-input" maxlength="20" datatype="*" autocomplete="off">
                         <div class="Validform_checktip formtip">
                             <span class=""><i></i><label></label></span>
                         </div>
@@ -151,17 +151,18 @@
             var username=$scope.username;
             var password=$scope.password;
             var parme={'username':username,'password':password};
-
-
             $http({
                 method:'POST',
-               /* url:'/comm/addComm',*/
+                url:'/user/selectlogin',
                 data:parme,
-                dataType:'json',
+                dataType:'json'
             }).success(function(data, status, headers, config){
-                alert("success");
+              /*  alert("success");
+                window.location="index.html"*/
+
+
             }).error(function(data, status, headers, config){
-                alert("error");
+                alert("成功！");
             })
         }
     });

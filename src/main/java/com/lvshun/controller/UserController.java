@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 @RequestMapping("/user" )
-public class UserController  {
+public class UserController {
 
 
     private static Logger logger = LogManager
@@ -29,28 +29,49 @@ public class UserController  {
     private UserBiz userBiz;
 
     @ResponseBody
-    @RequestMapping(value="/findAll")
-    public List<Users> findAll(){
+    @RequestMapping(value = "/findAll")
+    public List<Users> findAll() {
         List<Users> userList = userBiz.findAll();
-        return  userList;
+        return userList;
     }
-//添加
-    @ResponseBody
-    @RequestMapping(value="/saveUser")
-    public ReturnMessage saveUser(@RequestBody User user){
 
+    //添加
+    @ResponseBody
+    @RequestMapping(value = "/addUser")
+    public ReturnMessage addUser(@RequestBody User user) {
         logger.info(user);
 
-        return  ReturnMessage.SUCCESS;
+        userBiz.addUser(user);
+
+
+        return ReturnMessage.SUCCESS;
     }
-//删除
+
+    //删除
     @ResponseBody
     @RequestMapping("/delete")
-    public String delete( HttpServletRequest request,Model model)throws Exception{
-        String id= request.getParameter("id");
+    public String delete(HttpServletRequest request, Model model) throws Exception {
+        String id = request.getParameter("id");
         int delCol = userBiz.delete(id);
         model.addAttribute(delCol);
-
         return "";
+    }
+
+    @ResponseBody
+    @RequestMapping(value="/selectlogin")
+    public ReturnMessage selectlogin(@RequestBody User user){
+        int count = userBiz.selectlogin(user);
+        logger.info("count:"+count);
+       if(count>0){
+
+            logger.info(user);
+            logger.info("CG");
+
+            return  ReturnMessage.SUCCESS;
+       }else {
+
+           logger.info("SB");
+           return ReturnMessage.ERROR;
+       }
     }
 }

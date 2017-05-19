@@ -26,7 +26,7 @@ public class OrderLists {
     private  String  ofk_date;
     private  String  order_time;
 
-       public String getO_id() {
+    public String getO_id() {
         return o_id;
     }
 
