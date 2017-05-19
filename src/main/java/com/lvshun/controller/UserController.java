@@ -35,6 +35,8 @@ public class UserController {
         return userList;
     }
 
+
+
     //添加
     @ResponseBody
     @RequestMapping(value = "/addUser")
@@ -65,7 +67,7 @@ public class UserController {
        if(count>0){
 
             logger.info(user);
-            logger.info("CG");
+            logger.info("GC");
 
             return  ReturnMessage.SUCCESS;
        }else {

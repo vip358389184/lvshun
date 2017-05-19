@@ -12,6 +12,8 @@ public interface UserDao {
     //注册用户
     public int addUser(Users users);
 
+
+
     //登录
     public  int selectlogin(Users users);
 

@@ -10,8 +10,6 @@ public class OrderList {
     private  String o_id;
     private  String c_id;
     private  String o_name;
-
-
     private  String o_property;
     private  String c_number;
     private  String delivery_costs;

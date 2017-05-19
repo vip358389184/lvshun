@@ -137,7 +137,7 @@
 <script src="/js/main.js" type="text/javascript"></script>
 <script src="/js/users.js" type="text/javascript"></script>
 <script src="/js/layer.min.js"></script>
-<script src="/js/layer.min.js"></script>
+
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
 
 
@@ -157,12 +157,14 @@
                 data:parme,
                 dataType:'json'
             }).success(function(data, status, headers, config){
-              /*  alert("success");
-                window.location="index.html"*/
+                alert("登录成功！");
+                window.location="index.html"
 
 
             }).error(function(data, status, headers, config){
-                alert("成功！");
+                alert("登录失败,请重新登录！");
+                window.location="login.html"
+
             })
         }
     });

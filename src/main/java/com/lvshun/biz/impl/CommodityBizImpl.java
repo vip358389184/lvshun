@@ -43,6 +43,10 @@ public class CommodityBizImpl implements CommodityBiz   {
         return commodityServer.findAll();
     }
 
+    public List<Commodity> findAllByTo(){
+        return  commodityServer.findAllByTo();
+    }
+
     public Commodity findById(String  id) {
 
         return  commodityServer.findById(id);

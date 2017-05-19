@@ -14,6 +14,7 @@ public interface CommodityBiz {
     public int addComm(Commoditys commodity);
     //查询全部商品
     public List<Commodity> findAll();
+    public List<Commodity> findAllByTo();
     //查询商品详细
     public Commodity findById(String id);
     //删除商品

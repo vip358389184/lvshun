@@ -44,6 +44,13 @@ public class CommodityController {
         List<Commodity> commList = commodityBiz.findAll();
         return  commList;
     }
+
+    @ResponseBody
+    @RequestMapping(value="/findAllByTo")
+    public List<Commodity> findAllByTo(){
+        List<Commodity> commList = commodityBiz.findAllByTo();
+        return  commList;
+    }
     @ResponseBody
     @RequestMapping(value="/addComm")
     public ReturnMessage addComm(@RequestBody Commoditys  commoditys){
