@@ -31,22 +31,13 @@
 	</delete>
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Commodity" >
-		UPDATE commodity AS T SET
-		T.Commodity_id=#{CommodityId},
-		T.c_name=#{cName},
-		T.brand=#{brand},
-		T.picture =#{picture},
-		T.normal_price=#{normalPrice},
-		T.retail_price=#{retailPrice},
-		T.c_state=#{cState},
-		T.introduce=#{{introduce},
-		T.property=#{propertys},
-		T.label=#{label},
-		T.inventory=#{inventory},
-		T.broad_heading=#{broadHeading},
-		T.subclass#{subclass},
-		T.c_date=#{cDate},
-		T.user_id=#{userId}
-		WHERE T.c_id=#{cId}
+
+		update commodity
+		<set>
+			normal_price = #{normal_price},
+			retail_price = #{retail_price},
+			inventory = #{inventory},
+		</set>
+		where c_id = #{c_id}
 	</update>
 </mapper>
