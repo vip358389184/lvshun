@@ -58,7 +58,7 @@
             <td>{{ user.monetary }}</td>
             <td>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="update(user)">编辑</button>
+                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal" ng-click="edit(user.user_id)">编辑</button>
                     <button type="button" class="btn btn-danger" ng-click="delete(user.user_id)">删除</button>
                 </div>
             </td>
@@ -95,6 +95,10 @@
 
                 window.location.reload();
             });
+        }
+        $scope.edit=function (id) {
+            window.open("updateUser.html?id="+id)
+
         }
 
     });

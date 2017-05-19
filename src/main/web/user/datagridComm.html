@@ -26,16 +26,16 @@
             <th>商品编号</th>
             <th>商品名称</th>
             <th>商品品牌</th>
-            <th>商品图片</th>
+           <!-- <th>商品图片</th>-->
             <th>正常价格</th>
-            <th>零售价格</th>
-            <th>商品状态</th>
+          <!--  <th>零售价格</th>-->
+           <!-- <th>商品状态</th>-->
             <th>商品介绍</th>
             <th>商品属性</th>
-            <th>商品标签</th>
+           <!-- <th>商品标签</th>-->
             <th>商品库存</th>
-            <th>商品大类</th>
-            <th>商品子类别</th>
+           <!-- <th>商品大类</th>
+            <th>商品子类别</th>-->
             <th>商品创建时间</th>
             <th>操作</th>
         </tr>
@@ -45,20 +45,20 @@
             <td>{{comm.c_id}}</td>
             <td>{{comm.c_name}}</td>
             <td>{{ comm.brand }}</td>
-            <td>{{comm.picture}}</td>
+          <!--  <td>{{comm.picture}}</td>-->
             <td>{{comm.normal_price}}</td>
-            <td>{{ comm.retail_price }}</td>
-            <td>{{comm.c_state}}</td>
+           <!-- <td>{{ comm.retail_price }}</td>-->
+         <!--   <td>{{comm.c_state}}</td>-->
             <td>{{comm.introduce}}</td>
             <td>{{comm.property}}</td>
-            <td>{{ comm.label }}</td>
+           <!-- <td>{{ comm.label }}</td>-->
             <td>{{ comm.inventory }}</td>
-            <td>{{ comm.broad_heading }}</td>
-            <td>{{ comm.subclass }}</td>
+            <!--<td>{{ comm.broad_heading }}</td>
+            <td>{{ comm.subclass }}</td>-->
             <td>{{ comm.cdate }}</td>
 
             <td>
-                <button type="button" class="btn btn-info" onclick="openUserModifyDialog" ng-click="edit(comm.c_id)" >编辑</button>
+                <button type="button" class="btn btn-info" ng-click="edit(comm.c_id)" >编辑</button>
                 <button type="button" class="btn btn-danger" ng-click="delete(comm.c_id)" >删除</button>
 
             </td>
@@ -94,29 +94,11 @@
                 window.location.reload();
             });
         }
-        $scope.edit = function(id){
-//            $scope.c_id=data.c_id;
-//            $scope.c_name=data.c_name;
-//            $scope.brand=data.brand;
-//            $scope.picture=data.picture;
-//            $scope.normal_price = data.normal_price;
-//            $scope.retail_price = data.retail_price;
-//            $scope.picture=data.picture;
-//            $scope.normal_price = data.normal_price;
-//            $scope.retail_price = data.retail_price;
-//            $scope.c_state=data.c_state;
-//            $scope.introduce = data.introduce;
-//            $scope.property = data.property;
-//            $scope.label=data.label;
-//            $scope.inventory = data.inventory;
-//            $scope.broad_heading = data.broad_heading;
-//            $scope.subclass = data.subclass;
-//            $scope.cdate = data.cdate;
-//           $scope.update=true;
-//		            $scope.getAll();
-        window.open("updateComm.html?id="+id);
+ $scope.edit=function (id) {
+        window.open("updateComm.html?id="+id)
 
-        };
+ }
+
     });
 </script>
 <script src="/js/plugins/iCheck/icheck.min.js"></script>

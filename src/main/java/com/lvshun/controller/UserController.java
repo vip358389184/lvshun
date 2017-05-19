@@ -1,6 +1,7 @@
 package com.lvshun.controller;
 
 import com.lvshun.biz.UserBiz;
+import com.lvshun.po.Commodity;
 import com.lvshun.po.Users;
 import com.lvshun.util.ReturnMessage;
 import com.lvshun.vo.User;
@@ -75,5 +76,20 @@ public class UserController {
            logger.info("SB");
            return ReturnMessage.ERROR;
        }
+    }
+    //修改
+    @ResponseBody
+    @RequestMapping(value="/update")
+    public String update(Users users, HttpServletRequest request){
+        String user_id=request.getParameter("user_id");
+        String password=request.getParameter("password");
+        String email=request.getParameter("email");
+        String phone =request.getParameter("phone");
+        String address =request.getParameter("address");
+        String integral =request.getParameter("integral");
+        String monetary =request.getParameter("monetary");
+        userBiz.update(users);
+
+        return  "success";
     }
 }

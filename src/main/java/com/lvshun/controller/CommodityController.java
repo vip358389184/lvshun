@@ -88,11 +88,16 @@ public class CommodityController {
     }
     //修改
     @ResponseBody
-    @RequestMapping("/update")
-    public String update(HttpServletRequest request,Commodity commoditys){
-
+    @RequestMapping(value="/update")
+    public String update( Commodity  commoditys,HttpServletRequest request){
+       String c_id=request.getParameter("c_id");
+       String normal_price=request.getParameter("normal_price");
+        String retail_price=request.getParameter("retail_price");
+        String inventory =request.getParameter("inventory");
         commodityBiz.update(commoditys);
-        return "";
+
+        return  "success";
     }
+
 
 }

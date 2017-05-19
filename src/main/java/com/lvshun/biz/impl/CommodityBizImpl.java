@@ -58,8 +58,8 @@ public class CommodityBizImpl implements CommodityBiz   {
     }
 
     public int update(Commodity commodity) {
-        Commodity commodity1  = new Commodity();
-        return commodityServer.update(commodity1);
+
+        return commodityServer.update(commodity);
     }
 
 }

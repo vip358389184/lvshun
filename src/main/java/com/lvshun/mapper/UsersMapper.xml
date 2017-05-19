@@ -62,21 +62,18 @@
 
 	<!-- 修改用户 -->
 	<update id="update" parameterType="com.lvshun.po.Users" >
-		UPDATE users AS T SET
-		T.user_id=#{userId},
-		T.type =#{type},
-		T.password=#{password},
-		T.nickname=#{nickName},
-		T.email=#{email},
-		T.username=#{userName},
-		T.phone = #{phone},
-		T.address =#{address},
-		T.integral = #{integral},
-		T.grade =#{grade},
-		T.joindate=#{joindate},
-		T.collect=#{collect},
-		T.monetary =#{monetary}
-		WHERE T.ecid=#{ecId}
+
+		update users
+		<set>
+			password = #{password},
+			nickname = #{nickname},
+			email = #{email},
+			phone = #{phone},
+			address = #{address},
+			integral = #{integral},
+			monetary = #{monetary},
+		</set>
+		where user_id = #{user_id}
 	</update>
 
 </mapper>
