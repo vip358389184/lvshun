@@ -1,0 +1,44 @@
+
+.top{
+    margin-left: 80px;
+}
+.name{
+
+    margin-top: -110px;
+    margin-left: 150px;
+
+}
+.imgas{
+
+    display: block;
+
+
+}
+.imgas img{
+    width: 130px;
+    height: 130px;
+}
+.moen{
+
+    margin-left: 150px;
+    margin-top: 10px;
+}
+.moen .sp{
+
+    color: red;
+}
+
+.ying{
+
+    margin-top: 90px;
+
+
+}
+
+#col{
+    font-size: 18px;
+    margin-left: 110px;
+    color: black;
+
+}
+

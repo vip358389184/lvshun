@@ -18,6 +18,15 @@ public class Users {
 	private BigDecimal monetary;
 	private String address;
 	private String ustate;
+	private String  dawk;
+	private String prefecture;
+
+   public String getDawk(){return  dawk;}
+   public void setDawk(String dawk){this.dawk=dawk;};
+
+   public String getPrefecture(){return prefecture;}
+   public void setPrefecture(String prefecture){this.prefecture=prefecture;}
+
 
 	public String getEc_id() {
 		return ec_id;

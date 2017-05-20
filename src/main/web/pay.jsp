@@ -6,7 +6,7 @@
 request.setAttribute("money",request.getParameter("money"));%>
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <%request.setAttribute("picture",request.getParameter("picture"));%>
-<%request.setAttribute("label",request.getParameter("picture"));%>
+<%request.setAttribute("label",request.getParameter("label"));%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -17,9 +17,15 @@ request.setAttribute("money",request.getParameter("money"));%>
     <script src="js/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/main.css">
     <link rel="stylesheet" type="text/css" href="/js/bankList.css">
+    <link rel="stylesheet" type="text/css" href="/css/pay.css">
     <!--[if lt IE 9]>
     <style>#no-ie{display:block;}</style>
     <![endif]-->
+
+
+
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/open.js"></script>
 </head>
 <script type="text/javascript">
     function check(fileName,alertText){
@@ -70,37 +76,7 @@ request.setAttribute("money",request.getParameter("money"));%>
         return true;
     }
 </script>
-<style type="text/css" >
 
-    .top{
-        margin-left: 80px;
-    }
-    .name{
-
-        margin-top: -110px;
-        margin-left: 150px;
-
-    }
-    .imgas{
-
-        display: block;
-
-    }
-    .moen{
-      margin-left: 150px;
-        margin-top: 10px;
-    }
-    .moen .sp{
-        font-size: 18px;
-        color: red;
-    }
-
-    .ying{
-
-        margin-top: 90px;
-    }
-
-</style>
 <body :controller="vmPayment">
 
 <!-- shortcut -->
@@ -134,23 +110,14 @@ request.setAttribute("money",request.getParameter("money"));%>
                 </p>
             </div>
             <!-- 订单信息 end --><!-- 订单金额 -->
-
-            <!-- 订单金额 end -->
             <div class="o-list j_orderList" id="listPayOrderInfo"><!-- 单笔订单 -->
-
-                <!-- 多笔订单 end -->
             </div>
         </div>
         <div class="top">
-
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
             <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
             <p class="moen"><span class="sp">￥</span><%=request.getParameter("money")%></p>
-
-
         </div>
-
-
         <form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
                 <tr>
@@ -162,9 +129,9 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                 </tr>
                 <tr >
-                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                    <p cl   hidden class="tb27" align="left" valign="bottom">
                         应付金额:
-                    </td>
+                    </p>
 
                     <td class="tb29" valign="bottom">
                         <%--<input name="orderAmount" class="intext" type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>">--%>
@@ -290,14 +257,19 @@ request.setAttribute("money",request.getParameter("money"));%>
                         <input hidden name="merParam" class="intext" type="text" size="48" maxlength="500" value="">
                     </td>
                 </tr>
-                <tr height="35">
+
+                <tr>
                     <div class="o-right" align="center">
+
                         <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%></strong><em>元</em></div>
                     </div>
-                    <td width="100%" colspan="3" align="center" class="tb28">
+                    <div   id="col" onclick="openwin();" style="width:120px;font-size: 18px">
+                        新增收货地址
+                    </div>
+                    <td  colspan="3"  width="50%" align="center" class="tb28">
                         <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
                     </td>
-                </tr>
+</tr>
             </table>
         </form>
     </div>

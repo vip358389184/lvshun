@@ -23,13 +23,6 @@
 	</insert>
 
 
-	<!--购物车-->
-	<select id="shopping" >
-
-
-
-	</select>
-
   <!--login-->
 	<select id="selectlogin" parameterType="com.lvshun.po.Users"  resultType="int" >
 	     SELECT
@@ -75,5 +68,6 @@
 		</set>
 		where user_id = #{user_id}
 	</update>
+
 
 </mapper>
