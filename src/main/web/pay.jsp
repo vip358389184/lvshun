@@ -4,13 +4,14 @@
 <%@ page import="com.lvshun.config.PayConfig"%>
 <%
 request.setAttribute("money",request.getParameter("money"));%>
+<%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>绿顺支付</title>
-
+    <link rel="shortcut icon" href="user/favicon.ico">
     <script src="js/jquery-1.9.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/js/main.css">
     <link rel="stylesheet" type="text/css" href="/js/bankList.css">
@@ -216,7 +217,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品单价:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="1" hidden>
+                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>00" hidden>
                     </td>
                 </tr>
                 <tr>
@@ -233,7 +234,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品名称:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input  hidden  name="prdName" class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("cname")%>">
+                        <input  hidden  name="prdName" class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("c_name")%>">
                     </td>
                 </tr>
                 <tr>
