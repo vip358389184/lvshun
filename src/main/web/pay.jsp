@@ -67,7 +67,15 @@ request.setAttribute("money",request.getParameter("money"));%>
         return true;
     }
 </script>
+<style type="text/css" >
+    .top{
+          width: 50%;
+          height:100% ;
+          border: solid 1px cyan;
+    }
+</style>
 <body :controller="vmPayment">
+
 <!-- shortcut -->
 <div class="shortcut">
     <div class="w">
@@ -106,7 +114,12 @@ request.setAttribute("money",request.getParameter("money"));%>
                 <!-- 多笔订单 end -->
             </div>
         </div>
+        <div class="top">
+            <p><%=request.getParameter("label")%></p>
+            <p><%=request.getParameter("cname")%></p>
 
+
+        </div>
 
 
         <form name="MD5form" id="MD5form" method="post" action="/payApply/pay">
@@ -253,9 +266,6 @@ request.setAttribute("money",request.getParameter("money"));%>
                         <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%>00</strong><em>分</em></div>
                     </div>
                     <td width="100%" colspan="3" align="center" class="tb28">
-
-
-
                         <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
                     </td>
                 </tr>
