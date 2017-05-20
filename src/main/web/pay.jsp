@@ -115,8 +115,8 @@ request.setAttribute("money",request.getParameter("money"));%>
         </div>
         <div class="top">
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
-            <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
-            <p class="moen"><span class="sp">￥</span><%=request.getParameter("money")%></p>
+            <p class="moen"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>
+            
         </div>
         <form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
@@ -212,7 +212,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品单价:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>00" hidden>
+                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>" hidden>
                     </td>
                 </tr>
                 <tr>

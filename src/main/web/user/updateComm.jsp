@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <%@ page language="java" pageEncoding="UTF-8"%>
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="../scripts/jquery-1.6.2.min.js" type="text/javascript"></script>
@@ -10,7 +11,10 @@
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css?v=4.1.0" rel="stylesheet">
     <script src="../scripts/ajaxfileupload.js"></script>
-
+    <%request.setAttribute("normal_price",request.getParameter("normal_price"));%>
+    <%request.setAttribute("retail_price",request.getParameter("retail_price"));%>
+    <%request.setAttribute("inventory",request.getParameter("inventory"));%>
+    <%request.setAttribute("normal_price",request.getParameter("normal_price"));%>
 </head>
 <body ng-app="myApp" ng-controller="CommodityController" >
 <div class="row">
@@ -41,7 +45,7 @@
                     <label class="col-sm-2 control-label">正常价格</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="price" ng-model="normal_price">
+                        <input type="text" class="form-control" id="price" ng-model="normal_price" value="<%=request.getParameter("normal_price")%>">
                     </div>
                 </div>
 
@@ -49,7 +53,7 @@
                     <label class="col-sm-2 control-label">零售价格</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" ng-model="retail_price" id="retail_price">
+                        <input type="text" class="form-control" ng-model="retail_price" id="retail_price" value="<%=request.getParameter("retail_price")%>">
                     </div>
                 </div>
 
@@ -57,7 +61,7 @@
                         <label class="col-sm-2 control-label">商品库存</label>
 
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" ng-model="inventory" id="inventory">
+                            <input type="text" class="form-control" ng-model="inventory" id="inventory" value="<%=request.getParameter("inventory")%>">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
@@ -104,10 +108,10 @@
 
              }).success(function () {
                  alert("修改成功！");
-                 window.location = "datagridComm.html"
+                 window.location = "datagridComm.jsp"
              }).error(function(){
                  alert("修改成功");
-                 window.location = "datagridComm.html"
+                 window.location = "datagridComm.jsp"
              })
 
          };
