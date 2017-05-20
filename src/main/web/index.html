@@ -465,8 +465,8 @@
                 </ul>
                 <ul class="banner_menu_content_ul">
                     <li>
-                        <a href="kon.html"><img src="img/h6.jpg"></a>
-                        <a href="kon.html">打火机</a></li>
+                        <a href="kon.html"><img src="img/yun.jpg"></a>
+                        <a href="kon.html">运动套装</a></li>
 
                     <li>
                         <a href="kon.html"><img src="img/h7.jpg"></a>
@@ -576,11 +576,12 @@
                         <a href="kon.html"><img src="img/fangchensai.jpg"></a>
                         <a href="kon.html">防尘塞</a></li>
                     <li>
-                        <a href="kon.html"><img src="img/fangchensai.jpg"></a>
+                        <a href="kon.html"><img src="img/zhijia.jpg"></a>
                         <a href="kon.html">手机支架</a></li>
                 </ul>
                 <ul class="banner_menu_content_ul">
                     <li>
+
                         <a href="kon.html"><img src="img/raoxian.jpg"></a>
                         <a href="kon.html">耳机绕线器</a></li>
                     <li>
@@ -682,7 +683,7 @@
             <li><img src="img/004.png"></li>
             <li><img src="img/005.jpg"></li>
             <li><img src="img/001.jpg"></li>
-            <li><img src="img/002.jpg"></li>0000000
+            <li><img src="img/002.jpg"></li>
 
         </ul>
     </div>
@@ -720,14 +721,12 @@
     </div>
     <div class="floor_goods_wrap">
         <ul>
-
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
                 <a   class="floor_goods_img"><img src="{{value.picture}}"></a>
                 <a class="floor_goods_tit">{{value.c_name}}</a>
                 <a class="floor_goods_txt">{{value.label}}</a>
-                <a class="floor_goods_price">{{value.retail_price}}元</a>
+                <a class="floor_goods_price">立即购买</a>
             </li>
-
             <div style="clear:both;"></div>
         </ul>
     </div>
@@ -786,14 +785,11 @@
 <script type="text/javascript" src="js/xiaomi.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-
         var app = angular.module('myApp', []);
         app.controller('CommodityController', function($scope,$http) {
-
             $http.get("/comm/findAllByTo").success(function (data,status,header,config) {
                 $scope.yi =data;
             });
-
             $http({
                 method: 'POST',
                 url: '/comm/findAll'
@@ -801,15 +797,11 @@
                 angular.forEach(response.data, function(data,index,array){
                     $scope.myObj=response.data;
                 });
-
             }, function errorCallback(response) {
 
             });
         })
-
 </script>
-
-
 </body>
 </html>
 
