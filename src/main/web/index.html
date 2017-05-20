@@ -706,7 +706,8 @@
                 <a><img src="{{value.picture}}"></a>
                 <a>{{value.c_name}}</a>
                 <a>{{value.label}}</a>
-                <a href="pay.jsp" ng-click="findById(value.c_id)">立即购买</a>
+                <a>{{value.retail_price}}</a>
+                <button href="#" ng-click="findById(value.c_id,value.retail_price)">立即购买</button>
             </li>
 
         </ul>
@@ -800,7 +801,26 @@
             }, function errorCallback(response) {
 
             });
+            $scope.findById = function(id,money) {
+                //参数
 
+                var params={ 'money':money,"id":id };
+                $http({
+                    method:'GET',
+                    url:'/comm/findById?id='+id+"&money="+money,
+                    data:params,
+                    dataType:'json',
+                }).success(function(data, status, headers, config){
+                    //处理返回值 进行跳转
+                    console.log(data);
+                  window.location="/pay.jsp?money="+money;
+                }).error(function(data, status, headers, config){
+                    console.log(data)
+                    console.log(status)
+
+                    alert("error");
+                })
+            }
         })
 </script>
 </body>

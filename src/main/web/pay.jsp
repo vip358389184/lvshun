@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.lvshun.config.PayConfig"%>
+<%
+request.setAttribute("money",request.getParameter("money"));%>
 <html>
 <head>
     <meta charset="utf-8">
@@ -122,7 +125,8 @@
                     </td>
 
                     <td class="tb29" valign="bottom">
-                        <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="1">
+                        <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="<fmt:formatNumber type="number"   value="${money}"  pattern="0.00" maxFractionDigits="2" />">
+
                     </td>
                 </tr>
                 <tr>
