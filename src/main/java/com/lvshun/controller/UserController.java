@@ -21,32 +21,23 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/user" )
 public class UserController {
-
-
     private static Logger logger = LogManager
             .getLogger(UserController.class.getName());
 
     @Autowired
     private UserBiz userBiz;
-
     @ResponseBody
     @RequestMapping(value = "/findAll")
     public List<Users> findAll() {
         List<Users> userList = userBiz.findAll();
         return userList;
     }
-
-
-
     //添加
     @ResponseBody
     @RequestMapping(value = "/addUser")
     public ReturnMessage addUser(@RequestBody User user) {
         logger.info(user);
-
         userBiz.addUser(user);
-
-
         return ReturnMessage.SUCCESS;
     }
 
@@ -68,12 +59,11 @@ public class UserController {
        if(count>0){
 
             logger.info(user);
+            logger.info("登录成功！");
             logger.info("GC");
-
             return  ReturnMessage.SUCCESS;
        }else {
-
-           logger.info("SB");
+           logger.info("登录失败！");
            return ReturnMessage.ERROR;
        }
     }
@@ -89,7 +79,6 @@ public class UserController {
         String integral =request.getParameter("integral");
         String monetary =request.getParameter("monetary");
         userBiz.update(users);
-
         return  "success";
     }
 }
