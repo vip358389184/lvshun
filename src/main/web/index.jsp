@@ -8,6 +8,7 @@
     <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
     <script src="js/jquery.animate-colors-min.js"></script>
     <link rel="shortcut icon" href="user/favicon.ico">
+    <%request.setAttribute("username",request.getParameter("username"));%>
 <style type="text/css">
     .banner_menu_content ul li a img{
 
@@ -28,12 +29,18 @@
         </div>
         <div id="head_right">
             <div id="head_landing">
-                <a class="head_nav_a" href="login.html">登陆</a>
+                <a class="head_nav_a" id="b" onload="b()" ><%=request.getParameter("username")%></a>
+                <span>|</span>
+                <a class="head_nav_a" href="login.html">登录</a>
                 <span>|</span>
                 <a class="head_nav_a" href="register.html">注册</a>
             </div>
-
-
+          <!--  <div id="head_car">
+                <a href="g.html" class="head_car_text">购物车（0）</a>
+                <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
+                    <a class="car_text"></a>
+                </div>
+            </div>-->
         </div>
     </div>
 </div>
@@ -548,6 +555,8 @@
                         <a href="kon.html"><img src="img/u=170626932,151332030&fm=23&gp=0.jpg"></a>
                         <a href="kon.html">百雀羚套装</a></li>
                 </ul>
+
+
             </div>
         </li>
         <li>
@@ -694,13 +703,13 @@
             <span id="head_hot_goods_next">></span>
         </div>
     </div>
-    <div id="head_hot_goods_content">
+    <div id="head_hot_goods_content" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)">{{value.label}}</a>
-                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label)">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.label}}</a>
+                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label)"onclick="a()">{{value.retail_price}}</a>
             </li>
         </ul>
     </div>
@@ -712,13 +721,13 @@
             <span class="title_span">服装</span>
         </div>
     </div>
-    <div class="floor_goods_wrap">
+    <div class="floor_goods_wrap" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" class="floor_goods_tit">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"  class="floor_goods_txt">{{value.label}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" class="floor_goods_price">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()" class="floor_goods_tit">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" onclick="a()" class="floor_goods_txt">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" onclick="a()" class="floor_goods_price">{{value.retail_price}}</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -778,6 +787,38 @@
 <script type="text/javascript" src="js/xiaomi.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+    var username="username"; // 变量名
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(username + "=")
+        if (c_start != -1) {
+            c_start = c_start + username.length + 1
+            c_end = document.cookie.indexOf(";", c_start)
+            if (c_end == -1) c_end = document.cookie.length
+            //        document.write(document.cookie.substring(c_start,c_end)+"<br>");
+            var sss= unescape(document.cookie.substring(c_start, c_end))  // 取出值
+            alert(sss);
+        }
+    }
+    function a() {
+      var username = <%=request.getParameter("username")%>
+        if(username==null){
+            alert("请先登录,后进行购买！");
+            window.location="login.html";
+        }
+    }
+   $( function b() {
+       var username = <%=request.getParameter("username")%>
+       if(username==null){
+           $("#b").text('你好，请登录');
+       /*if($("#b").text("null")){
+           $("#b").text('你好，请登录');*/
+       }else{
+           $("#b").text(<%=request.getParameter("username")%>);
+       }
+   });
+</script>
+<script type="text/javascript">
+
         var app = angular.module('myApp', []);
         app.controller('CommodityController', function($scope,$http) {
             $http.get("/comm/findAllByTo").success(function (data,status,header,config) {
@@ -793,6 +834,7 @@
             }, function errorCallback(response) {
 
             });
+
             $scope.findById = function(id,money,c_name,picture,label) {
                 //参数
                 var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture,"label":label};
@@ -800,16 +842,16 @@
                     method:'POST',
 
                     url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label,
+
                     data:params,
                     dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
                     window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label;
+
                 }).error(function(data, status, headers, config){
-                    console.log(data)
-                    console.log(status)
-                    alert("error");
+
                 })
             }
         })

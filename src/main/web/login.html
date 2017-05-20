@@ -164,8 +164,7 @@
                         window.location="login.html"
                     }else {
                         alert("登录成功！");
-
-                        window.location = "index.jsp"
+                        window.location="index.jsp?username="+username;
                     }
                 }).error(function (data, status, headers, config) {
                     alert("登录失败!");
@@ -173,6 +172,24 @@
                 });
             }
 
+        }
+        $scope.findById = function(id,money,c_name) {
+            //参数
+            var params={ 'money':money,"id":id ,"c_name":c_name};
+            $http({
+                method:'POST',
+                url:'/comm/findById?id='+id+"&money="+money+"&c_name"+c_name,
+                data:params,
+                dataType:'text',
+            }).success(function(data, status, headers, config){
+                //处理返回值 进行跳转
+                console.log(data);
+                window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name;
+            }).error(function(data, status, headers, config){
+                console.log(data)
+                console.log(status)
+                alert("error");
+            })
         }
     });
 

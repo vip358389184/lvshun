@@ -292,7 +292,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                 </tr>
                 <tr height="35">
                     <div class="o-right" align="center">
-                        <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%>00</strong><em>分</em></div>
+                        <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%></strong><em>元</em></div>
                     </div>
                     <td width="100%" colspan="3" align="center" class="tb28">
                         <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
