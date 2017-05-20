@@ -15,6 +15,55 @@
     <style>#no-ie{display:block;}</style>
     <![endif]-->
 </head>
+<script type="text/javascript">
+    function check(fileName,alertText){
+        with(fileName){
+            if(value==null || value==""){
+                alert(alertText);
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
+    function checks(thisForm){
+        with(thisForm){
+            if(check(postUrl,"请输入请求地址")==false){
+                postUrl.focus();
+                return false;
+            }
+            if(check(svcName,"请输入服务名称")==false){
+                svcName.focus();
+                return false;
+            }
+            if(check(key,"请输入MD5密钥")==false){
+                key.focus();
+                return false;
+            }
+            if(check(merId,"请输入商户编号")==false){
+                merId.focus();
+                return false;
+            }
+            if(check(amt,"请输入订单金额")==false){
+                amt.focus();
+                return false;
+            }
+            if(check(merUrl,"请输入返回商户URL")==false){
+                merUrl.focus();
+                return false;
+            }
+            if(check(retUrl,"请输入结果通知URL")==false){
+                retUrl.focus();
+                return false;
+            }
+            if(check(tranChannel,"请选择交易渠道")==false){
+                tranChannel.focus();
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
 <body :controller="vmPayment">
 <!-- shortcut -->
 <div class="shortcut">
@@ -47,10 +96,7 @@
                 </p>
             </div>
             <!-- 订单信息 end --><!-- 订单金额 -->
-            <div class="o-right">
-                <div class="o-price"><em>应付金额</em><strong>0.00</strong><em>元</em></div>
-                <div class="o-detail"><a onclick="" href="">订单详情<i></i></a></div>
-            </div>
+
             <!-- 订单金额 end -->
             <div class="o-list j_orderList" id="listPayOrderInfo"><!-- 单笔订单 -->
 
@@ -60,7 +106,7 @@
 
 
 
-        <form name="MD5form" id="MD5form" method="post" action="/scanPay/pay">
+        <form name="MD5form" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
                 <tr>
                     <td  hidden width="40%" height="25" class="tb27" align="left" valign="bottom">
@@ -74,6 +120,7 @@
                     <td height="25"  class="tb27" align="left" valign="bottom">
                         应付金额:
                     </td>
+
                     <td class="tb29" valign="bottom">
                         <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="1">
                     </td>
@@ -82,6 +129,7 @@
                     <td height="25" hidden class="tb27" align="left" valign="bottom">
                         订单日期:
                     </td>
+
                     <td class="tb29" valign="bottom">
                         <input name="orderDate" hidden id="orderDate" class="intext" type="text" size="48" maxlength="20" value="">
                     </td>
@@ -108,35 +156,96 @@
                     <td height="25" class="tb27"  hidden align="left" valign="bottom">
                         商品订单号 :
                     </td>
+
                     <td class="tb29" valign="bottom">
                         <input name="prdOrdNo" hidden id="prdOrdNo" type="text" size="48"  maxlength="30" value="">
                     </td>
                 </tr>
                 <tr>
-                    <td height="25" class="tb27" align="left" valign="bottom">
+                    <td  hidden height="25" class="tb27" align="left" valign="bottom">
                         支付方式 :
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input type="checkbox" value="00020" name="payMode" id="payMode">银行卡</td>
+                        <input hidden name="payMode" id="payMode" type="text" size="48"  maxlength="30" value="00020">
+
+                    </td>
+
+
                        <%-- <select name="payMode" id="payMode" >
                     </td>
                             <option value="00020" >银行卡</option>
                         </select>--%>
                 </tr>
                 <tr>
+                <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                    支付通道码 :
+                </td>
+                <td class="tb29" valign="bottom">
+                    <input hidden name="typecode" id="typecode" type="text" size="48"  maxlength="30" value="${typecode}">
+                </td>
+                </tr>
+                <tr>
                     <td height="25" hidden class="tb27" align="left" valign="bottom">
                         到账类型:
                     </td>
-                    <td class="tb29"  hidden valign="bottom">
-                        <select name="receivableType" id="receivableType" >
-                            <option value="D00" >D+0</option>
-                            <option value="T01" >T+1</option>
-                        </select>
+                    <td class="tb29" valign="bottom">
+                        <input hidden name="receivableType" id="receivableType" type="text" size="48"  maxlength="30" value="D00">
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
+                        商品单价:
+                    </td>
+                    <td class="tb29" valign="bottom">
+                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="1" hidden>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                        商品展示网址:
+                    </td>
+                    <td class="tb29" valign="bottom">
+	          <textarea hidden name="prdDisUrl" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,120);"
+                        oninput="checkLength(this,120);">http://www.icardpay.com</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                        商品名称:
+                    </td>
+                    <td class="tb29" valign="bottom">
+                        <input hidden name="prdName" class="intext" type="text" size="48" maxlength="48" value="100元移动充值卡">
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
+                        商品简称:
+                    </td>
+                    <td class="tb29" valign="bottom">
+                        <input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="充值卡">
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
+                        商品描述:
+                    </td>
+                    <td class="tb29" valign="bottom">
+	          <textarea hidden name="prdDesc" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,500);"
+                        oninput="checkLength(this,500);">充值卡</textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
+                        扩展参数:
+                    </td>
+                    <td class="tb29" valign="bottom">
+                        <input hidden name="merParam" class="intext" type="text" size="48" maxlength="500" value="">
                     </td>
                 </tr>
                 <tr height="35">
                     <td width="100%" colspan="3" align="center" class="tb28">
-                        <input type="submit" class="btn_2" value="&nbsp;立 即 支 付&nbsp;"style="background-color: red;color:white; width:150px;height: 40px;">
+
+                        <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;立 即 支 付&nbsp;"style="background-color: red;color:white; width:150px;height: 40px;">
                     </td>
                 </tr>
             </table>

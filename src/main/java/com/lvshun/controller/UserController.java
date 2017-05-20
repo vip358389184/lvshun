@@ -1,5 +1,4 @@
 package com.lvshun.controller;
-
 import com.lvshun.biz.UserBiz;
 import com.lvshun.po.Commodity;
 import com.lvshun.po.Users;
@@ -14,7 +13,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
-
 /**
  * Created by baolong on 2017/4/19.
  */
@@ -23,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 public class UserController {
     private static Logger logger = LogManager
             .getLogger(UserController.class.getName());
-
     @Autowired
     private UserBiz userBiz;
     @ResponseBody
@@ -40,7 +37,6 @@ public class UserController {
         userBiz.addUser(user);
         return ReturnMessage.SUCCESS;
     }
-
     //删除
     @ResponseBody
     @RequestMapping("/delete")
@@ -57,7 +53,6 @@ public class UserController {
         int count = userBiz.selectlogin(user);
         logger.info("count:"+count);
        if(count>0){
-
             logger.info(user);
             logger.info("登录成功！");
             logger.info("GC");

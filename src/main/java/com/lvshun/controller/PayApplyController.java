@@ -21,7 +21,7 @@ import java.util.TreeMap;
 @RequestMapping("/payApply")
 public class PayApplyController {
 
-    private static final String PAY_GATEWAY = "/PayApply.do";
+    private static final String PAY_GATEWAY = "/payment/PayApply.do";
 
 
     @RequestMapping("/pay")
