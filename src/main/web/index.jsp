@@ -697,10 +697,10 @@
     <div id="head_hot_goods_content">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.label}}</a>
-                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)">{{value.label}}</a>
+                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label)">{{value.retail_price}}</a>
             </li>
         </ul>
     </div>
@@ -715,10 +715,10 @@
     <div class="floor_goods_wrap">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_tit">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_txt">{{value.label}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_price">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" class="floor_goods_tit">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"  class="floor_goods_txt">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" class="floor_goods_price">{{value.retail_price}}</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -793,19 +793,19 @@
             }, function errorCallback(response) {
 
             });
-            $scope.findById = function(id,money,c_name,picture) {
+            $scope.findById = function(id,money,c_name,picture,label) {
                 //参数
-                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture};
+                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture,"label":label};
                 $http({
                     method:'POST',
 
-                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture,
+                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label,
                     data:params,
                     dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
-                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture;
+                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label;
                 }).error(function(data, status, headers, config){
                     console.log(data)
                     console.log(status)

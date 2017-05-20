@@ -6,6 +6,7 @@
 request.setAttribute("money",request.getParameter("money"));%>
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <%request.setAttribute("picture",request.getParameter("picture"));%>
+<%request.setAttribute("label",request.getParameter("picture"));%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -70,11 +71,35 @@ request.setAttribute("money",request.getParameter("money"));%>
     }
 </script>
 <style type="text/css" >
+
     .top{
-          width: 50%;
-          height:100% ;
-          border: solid 1px cyan;
+        margin-left: 80px;
     }
+    .name{
+
+        margin-top: -110px;
+        margin-left: 150px;
+
+    }
+    .imgas{
+
+        display: block;
+
+    }
+    .moen{
+      margin-left: 150px;
+        margin-top: 10px;
+    }
+    .moen .sp{
+        font-size: 18px;
+        color: red;
+    }
+
+    .ying{
+
+        margin-top: 90px;
+    }
+
 </style>
 <body :controller="vmPayment">
 
@@ -118,16 +143,15 @@ request.setAttribute("money",request.getParameter("money"));%>
         </div>
         <div class="top">
 
-            <p>
-                商品名称：<%=request.getParameter("c_name")%>
+            <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
+            <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
+            <p class="moen"><span class="sp">￥</span><%=request.getParameter("money")%></p>
 
-            </p>
-            <p>
-                商品图片：<%=request.getParameter("picture")%></p>
+
         </div>
 
 
-        <form name="MD5form" id="MD5form" method="post" action="/payApply/pay">
+        <form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
                 <tr>
                     <td  hidden width="40%" height="25" class="tb27" align="left" valign="bottom">
@@ -137,8 +161,8 @@ request.setAttribute("money",request.getParameter("money"));%>
                         <input  hidden name="versionId" class="intext" type="text" size="48" maxlength="50" value="1.0">
                     </td>
                 </tr>
-                <tr>
-                    <td height="25" hidden class="tb27" align="left" valign="bottom">
+                <tr >
+                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
                         应付金额:
                     </td>
 
