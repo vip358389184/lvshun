@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <head lang="en">
     <meta charset="UTF-8">
     <title>绿顺</title>
@@ -31,16 +32,8 @@
                 <span>|</span>
                 <a class="head_nav_a" href="register.html">注册</a>
             </div>
-<<<<<<< HEAD
-         <!--   <div id="head_car">
-=======
-          <!--  <div id="head_car">
->>>>>>> 8516489c8acd3ad3e3efc9bc6a2bd16e21335d91
-                <a href="g.html" class="head_car_text">购物车（0）</a>
-                <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
-                    <a class="car_text"></a>
-                </div>
-            </div>-->
+
+
         </div>
     </div>
 </div>
@@ -704,9 +697,9 @@
     <div id="head_hot_goods_content">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.label}}</a>
                 <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.retail_price}}</a>
             </li>
         </ul>
@@ -722,10 +715,10 @@
     <div class="floor_goods_wrap">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_tit">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  class="floor_goods_txt">{{value.label}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_price">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_tit">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_txt">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_price">{{value.retail_price}}</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -800,19 +793,19 @@
             }, function errorCallback(response) {
 
             });
-            $scope.findById = function(id,money,c_name) {
+            $scope.findById = function(id,money,c_name,picture) {
                 //参数
-                var params={ 'money':money,"id":id ,"c_name":c_name};
+                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture};
                 $http({
                     method:'POST',
 
-                    url:'/comm/findById?id='+id+"&money="+money+"&cname="+cname,
+                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture,
                     data:params,
                     dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
-                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name;
+                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture;
                 }).error(function(data, status, headers, config){
                     console.log(data)
                     console.log(status)

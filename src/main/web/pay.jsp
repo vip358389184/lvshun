@@ -5,11 +5,12 @@
 <%
 request.setAttribute("money",request.getParameter("money"));%>
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
+<%request.setAttribute("picture",request.getParameter("picture"));%>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset="gbk" />
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>绿顺支付</title>
     <link rel="shortcut icon" href="user/favicon.ico">
     <script src="js/jquery-1.9.1.min.js"></script>
@@ -116,10 +117,13 @@ request.setAttribute("money",request.getParameter("money"));%>
             </div>
         </div>
         <div class="top">
-            <p><%=request.getParameter("label")%></p>
-            <p><%=request.getParameter("cname")%></p>
 
+            <p>
+                商品名称：<%=request.getParameter("c_name")%>
 
+            </p>
+            <p>
+                商品图片：<%=request.getParameter("picture")%></p>
         </div>
 
 
