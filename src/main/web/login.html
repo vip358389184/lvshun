@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/js/users.js">
     <link rel="stylesheet" href="/js/utils.js">
 </head>
-<body  ng-app="login"ng-controller="loginCtrl">
+<body  ng-app="login"ng-controller="UserController">
 <div class="head_box">
     <div id="head_wrap">
         <div id="head_nav">
@@ -135,37 +135,27 @@
     </div>
 <script src="/js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="/js/main.js" type="text/javascript"></script>
-<script src="/js/users.js" type="text/javascript"></script>
+
 <script src="/js/layer.min.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
 <script>
     var app = angular.module('login', []);
-    app.controller('loginCtrl', function($scope,$http) {
-        $scope.username = "";
-        $scope.password="";
-        $scope.loginFrom = function() {
-            var username=$scope.username;
-            var password=$scope.password;
-            var parme={'username':username,'password':password};
+    app.controller('UserController', function($scope,$http) {
+        $scope.loginFrom = function () {
+            var username = $scope.username;
+            var password = $scope.password;
+            var parme = {'username': username, 'password': password};
             $http({
-                method:'POST',
-                url:'/user/selectlogin',
-                data:parme,
-                dataType:'json'
-            }).success(function(data, status, headers, config){
-                alert("success");
-                window.location="index.html"
-            }).error(function(data, status, headers, config){
-                alert("error！");
+                method: 'POST',
+                url: '/user/selectlogin',
+                data: parme,
+                dataType: 'json',
+            }).success(function (dataa) {
                 alert("登录成功！");
-                window.location="index.html"
-            }).error(function(data, status, headers, config){
-                alert("登录失败,请重新登录！");
-                window.location="login.html"
-            })
+                window.location = "index.html"
+            });
         }
     });
-
 </script>
 
 </body>

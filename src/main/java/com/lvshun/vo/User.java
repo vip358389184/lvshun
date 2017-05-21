@@ -6,7 +6,7 @@ package com.lvshun.vo;
 public class User {
 
     private String username;
-    private String mobile;
+    private String phone;
     private String password;
     private String repassword;
 
@@ -22,13 +22,9 @@ public class User {
         this.username = username;
     }
 
-    public String getMobile() {
-        return mobile;
-    }
+    public String getPhone(){ return  phone;}
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+    public void setPhone(String phone){this.phone=phone;}
 
     public String getPassword() {
         return password;
@@ -51,16 +47,16 @@ public class User {
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
-                ", mobile='" + mobile + '\'' +
+                ", phone='" + phone + '\'' +
                 ", password='" + password + '\'' +
                 ", repassword='" + repassword + '\'' +
                 '}';
     }
 
 
-    public User(String username, String mobile, String password, String repassword) {
+    public User(String username, String phone, String password, String repassword) {
         this.username = username;
-        this.mobile = mobile;
+        this.phone = phone;
         this.password = password;
         this.repassword = repassword;
     }

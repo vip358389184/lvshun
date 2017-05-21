@@ -12,7 +12,7 @@ import java.util.TreeMap;
  */
 public interface UserBiz {
     //注册用户
-    public int addUser(User user);
+    public int addUsers(User user);
 
     //登录
     public  int selectlogin(User user);

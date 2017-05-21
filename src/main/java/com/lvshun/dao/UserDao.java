@@ -10,9 +10,7 @@ import java.util.Map;
  */
 public interface UserDao {
     //注册用户
-    public int addUser(Users users);
-
-
+    public int addUsers(Users users);
 
     //登录
     public  int selectlogin(Users users);

@@ -703,11 +703,10 @@
     <div id="head_hot_goods_content">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a><img src="{{value.picture}}"></a>
-                <a>{{value.c_name}}</a>
-                <a>{{value.label}}</a>
-                <a>{{value.retail_price}}</a>
-                <button href="#" ng-click="findById(value.c_id,value.retail_price)">立即购买</button>
+                <a ng-click="findById(value.c_id,value.retail_price)"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price)">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price)">{{value.label}}</a>
+                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price)">{{value.retail_price}}</a>
             </li>
 
         </ul>
@@ -723,10 +722,10 @@
     <div class="floor_goods_wrap">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a href="pay.jsp"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a href="pay.jsp" class="floor_goods_tit">{{value.c_name}}</a>
-                <a  href="pay.jsp" class="floor_goods_txt">{{value.label}}</a>
-                <a href="pay.jsp" class="floor_goods_price">{{value.retail_price}}元</a>
+                <a  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a  class="floor_goods_tit">{{value.c_name}}</a>
+                <a  class="floor_goods_txt">{{value.label}}</a>
+                <a  class="floor_goods_price">{{value.retail_price}}</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -817,7 +816,6 @@
                 }).error(function(data, status, headers, config){
                     console.log(data)
                     console.log(status)
-
                     alert("error");
                 })
             }
