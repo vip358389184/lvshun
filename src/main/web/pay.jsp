@@ -120,13 +120,15 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                 </tr>
                 <tr>
-                    <td height="25"  class="tb27" align="left" valign="bottom">
+                    <td height="25" hidden class="tb27" align="left" valign="bottom">
                         应付金额:
                     </td>
 
                     <td class="tb29" valign="bottom">
-                        <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="<fmt:formatNumber type="number"   value="${money}"  pattern="0.00" maxFractionDigits="2" />">
+                        <%--<input name="orderAmount" class="intext" type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>">--%>
+                            <input name="orderAmount"  hidden class="intext"  type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>00">
 
+                           <%-- 应付金额：<%=request.getParameter("money")%>00分--%>
                     </td>
                 </tr>
                 <tr>
@@ -214,11 +216,11 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                 </tr>
                 <tr>
-                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
                         商品名称:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input hidden name="prdName" class="intext" type="text" size="48" maxlength="48" value="100元移动充值卡">
+                        <input  hidden  name="prdName" class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("cname")%>">
                     </td>
                 </tr>
                 <tr>
@@ -226,7 +228,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品简称:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="充值卡">
+                        <input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="">
                     </td>
                 </tr>
                 <tr>
@@ -235,7 +237,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                     <td class="tb29" valign="bottom">
 	          <textarea hidden name="prdDesc" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,500);"
-                        oninput="checkLength(this,500);">充值卡</textarea>
+                        oninput="checkLength(this,500);"></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -247,9 +249,14 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                 </tr>
                 <tr height="35">
+                    <div class="o-right" align="center">
+                        <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%>00</strong><em>分</em></div>
+                    </div>
                     <td width="100%" colspan="3" align="center" class="tb28">
 
-                        <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;立 即 支 付&nbsp;"style="background-color: red;color:white; width:150px;height: 40px;">
+
+
+                        <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
                     </td>
                 </tr>
             </table>
