@@ -8,10 +8,11 @@
 	<insert id="addorderList"  parameterType="com.lvshun.po.OrderList" >
 		INSERT INTO orderlist(
 		 snumber_id,o_id,c_id,o_name,o_property,c_number,delivery_costs,money,o_state,user_id,
-	  address,s_method,popay_ment,present_exp,oxd_date,osong_date,osh_date,ofk_date,order_time
+	  addre,s_method,popay_ment,present_exp,oxd_date,osong_date,osh_date,ofk_date,order_time,username,phone,dawk,prefecture,address
 		)VALUES(
 		#{snumber_id},#{o_id},#{c_id},#{o_name},#{o_property},#{c_number},#{delivery_costs},#{money},#{o_state},#{user_id}
-		,#{address},#{s_method},#{popay_ment},#{present_exp},#{oxd_date},#{osong_date},#{osh_date},#{ofk_date},#{order_time},
+		,#{addre},#{s_method},#{popay_ment},#{present_exp},#{oxd_date},#{osong_date},#{osh_date},#{ofk_date},#{order_time},
+		#{username},#{phone},#{dawk},#{prefecture},#{address}
 
 		)
 	</insert>

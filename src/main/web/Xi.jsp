@@ -1,4 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="com.lvshun.config.PayConfig"%>
+<%
+	request.setAttribute("money",request.getParameter("money"));%>
+<%request.setAttribute("c_name",request.getParameter("c_name"));%>
+<%request.setAttribute("picture",request.getParameter("picture"));%>
+<%request.setAttribute("label",request.getParameter("label"));%>
 <html>
 
 	<head>
@@ -10,17 +18,27 @@
 		<link rel="stylesheet" href="css/animate.min.css">
 		<link rel="stylesheet" href="css/location.css">
 		<link rel="stylesheet" href="css/item.css">
-
 		<link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss">
+		<script type="text/javascript" src="js/open.js"></script>
 	</head>
+	<style type="text/css">
+		.wenzi{
+			margin-left: 40px;
+		}
 
-	<body>
+		.cart-buy{
+
+			margin-top: 20px;
+		}
 
 
 
-		<div class="navtitleright nb">
-			<a href="index.jsp">首页</a> &gt;
-			<a href="#">电脑</a> &gt;
+	</style>
+	<body      ng-app="Selectform" ng-controller="SelectformCtrl">
+
+
+	<div class="navtitleright nb">
+		<a href="#">欢迎光临</a> &gt;
 
 		</div>
 		<div class="indbody pro-style">
@@ -30,9 +48,9 @@
 						<div class="ovclear">
 							<div class="slide-fish">
 								<div class="t2">
-									<a href="img/pai2.jpg" id="bigimg" class="MagicZoom MagicThumb" style="position: relative; display: block; outline: 0px; text-decoration: none; width: 410px;"><img src="img/pai2.jpg" id="sim145606" class="main_img" style="width:410px;height: 410px;">
+									<a href="<%=request.getParameter("picture")%>" id="bigimg" class="MagicZoom MagicThumb" style="position: relative; display: block; outline: 0px; text-decoration: none; width: 410px;"><img src="<%=request.getParameter("picture")%>" id="sim145606" class="main_img" style="width:410px;height: 410px;">
 										<div id="bc145606" class="MagicZoomBigImageCont" style="width: 300px; height: 300px; left: -10000px; top: 0px; overflow: hidden; z-index: 100; visibility: hidden; position: absolute; display: block;">
-											<div style="overflow: hidden;"><img src="img/pai2.jpg" style="position: relative; left: -499.512px; top: -499.512px; display: block; visibility: visible;"></div>
+											<div style="overflow: hidden;"><img src="<%=request.getParameter("picture")%>" style="position: relative; left: -499.512px; top: -499.512px; display: block; visibility: visible;"></div>
 										</div>
 										<div class="MagicZoomPup" style="z-index: 10; visibility: hidden; position: absolute; opacity: 0.5; width: 153.75px; height: 153.75px; left: 256.25px; top: 256.25px;"></div>
 									</a>
@@ -43,21 +61,18 @@
 									<div class="bd">
 										<ul class="smallImg" id="imglist">
 											<li class="on">
-												<a rel="bigimg" rev="img/img/pai2.jpg"><img src="img/pai2.jpg"></a>
+												<a rel="bigimg" rev="<%=request.getParameter("picture")%>"><img src="<%=request.getParameter("picture")%>"></a>
 											</li>
-
-
-
 										</ul>
 									</div>
 								</div>
 							</div>
 							<div class="fish-detail">
-								<h3>ipad air 2 平板 电脑 wlan版经典款式金色</h3>
+								<h3><%=request.getParameter("c_name")%><%=request.getParameter("label")%></h3>
 								<p></p>
 								<div class="price">
 									<div>市场价：<s>￥6099.00</s></div>
-									<div>价格：<span class="redbold">￥<b id="ym-price">5099.00</b></span></div>
+									<div>价格：<span class="redbold">￥<b id="ym-price"><%=request.getParameter("money")%></b></span></div>
 								</div>
 
 							<div class="spec" id="goods-spec">
@@ -68,51 +83,189 @@
 									<span class="spec-name">尺寸</span>：<span class="select-mod"><a href="javascript:void(0);" id="4寸">14寸<i class="icon-check-zf"></i></a>	<a href="javascript:void(0);" id="5寸">15寸<i class="icon-check-zf"></i></a>	<a href="javascript:void(0);" id="6寸">16寸<i class="icon-check-zf"></i></a>	</span>
 								</div>
 								<div class="it">
-									<span class="spec-name">颜色</span>：<span class="select-mod">
-									<a href="javascript:void(0);" id="白色">白色<i class="icon-check-zf"></i></a>
-									<a href="javascript:void(0);" id="黑色">黑色<i class="icon-check-zf"></i></a>	</span>
+									<span class="spec-name">颜色</span>：<span class="select-mod"><a href="javascript:void(0);" id="白色">白色<i class="icon-check-zf"></i></a>	<a href="javascript:void(0);" id="黑色">黑色<i class="icon-check-zf"></i></a>	</span>
 								</div>
 							</div>
-							<div class="pro-number">
-								<a class="reduce" href="javascript:void(0);">-</a>
-								<input type="text" id="goods_num" class="result" data-max="1600" value="1" maxlength="10">
-								<a class="add" href="javascript:void(0);">+</a>
-							</div>
-							<div class="cart-buy">
-								<a href="javascript:void(0);" onclick="addCart(115,1,&#39;&#39;, 0);" class="buy-btn">立即购买</a>
-								<a href="javascript:void(0);" onclick="addCart(115,0,&#39;&#39;,0);" class="cart-btn">加入购物车</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="pview-right">
-					<h2>相关推荐</h2>
-					<div class="slider-protj">
-						<div class="bd">
-							<div class="tempWrap" style="overflow:hidden; position:relative; height:420px">
-								<ul style="top: 0px; position: relative; padding: 0px; margin: 0px;">
-									<li style="height: 200px;">
-										<a href="HP.html" target="_blank">HP/惠普商务笔记本电脑能源之星<img src="img/Hp1.jpg" alt=""></a>
-										<p>
-											<a href="#" target="_blank"></a><span>￥8099.00</span></p>
-									</li>
-									<li style="height: 200px;">
-										<a href="Y3.html" target="_blank"><img src="img/yi3.jpg" alt=""></a>
-										<p>
-											<a href="Y3.html" target="_blank">2017长袖夏季新款两件套女装长袖+T恤</a><span>￥199</span></p>
-									</li>
+						<div class="pro-number"  ng-repeat="(x, value) in myObj">
 
-								</ul>
+						<%--	<input type="radio">{{value.username}}</p>
+									<p><input type="radio">{{value.address}}</p>--%>
+
+							<input type="radio"   ><span hidden >{{value.username}}</span>{{value.address}}
+
+
+
 							</div>
-						</div>
-						<div class="hd">
-							<a href="javascript:void(0);" class="prev"></a>
-							<a href="javascript:void(0);" class="next"></a>
+
+
+								<form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
+									<table width="50%"  class="tb26" align="center">
+										<tr>
+											<td  hidden width="40%" height="25" class="tb27" align="left" valign="bottom">
+												服务版本号:
+											</td>
+											<td width="60%" class="tb29" valign="bottom">
+												<input  hidden name="versionId" class="intext" type="text" size="48" maxlength="50" value="1.0">
+											</td>
+										</tr>
+										<tr >
+											<p cl   hidden class="tb27" align="left" valign="bottom">
+												应付金额:
+											</p>
+
+											<td class="tb29" valign="bottom">
+												<%--<input name="orderAmount" class="intext" type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>">--%>
+												<input name="orderAmount"  hidden class="intext"  type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>00">
+
+												<%-- 应付金额：<%=request.getParameter("money")%>00分--%>
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden class="tb27" align="left" valign="bottom">
+												订单日期:
+											</td>
+
+											<td class="tb29" valign="bottom">
+												<input name="orderDate" hidden id="orderDate" class="intext" type="text" size="48" maxlength="20" value="">
+											</td>
+										</tr>
+
+
+										<tr>
+											<td height="25"  class="tb27" hidden align="left" valign="bottom">
+												加密方式:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input name="signType" class="intext" type="text" size="48" maxlength="4" hidden  value="MD5">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden class="tb27"   align="left" valign="bottom">
+												商户编号 :
+											</td>
+											<td class="tb29" valign="bottom">
+												<input name="merId" class="intext" hidden type="text" size="48" maxlength="30" value="<%=PayConfig.merId%>">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" class="tb27"  hidden align="left" valign="bottom">
+												商品订单号 :
+											</td>
+
+											<td class="tb29" valign="bottom">
+												<input name="prdOrdNo" hidden id="prdOrdNo" type="text" size="48"  maxlength="30" value="">
+											</td>
+										</tr>
+										<tr>
+											<td  hidden height="25" class="tb27" align="left" valign="bottom">
+												支付方式 :
+											</td>
+											<td class="tb29" valign="bottom">
+												<input hidden name="payMode" id="payMode" type="text" size="48"  maxlength="30" value="00020">
+
+											</td>
+
+										</tr>
+										<tr>
+											<td height="25"  hidden class="tb27" align="left" valign="bottom">
+												支付通道码 :
+											</td>
+											<td class="tb29" valign="bottom">
+												<input hidden name="typecode" id="typecode" type="text" size="48"  maxlength="30" value="${typecode}">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden class="tb27" align="left" valign="bottom">
+												到账类型:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input hidden name="receivableType" id="receivableType" type="text" size="48"  maxlength="30" value="D00">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden  class="tb27" align="left" valign="bottom">
+												商品单价:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>" hidden>
+											</td>
+										</tr>
+										<tr>
+											<td height="25"  hidden class="tb27" align="left" valign="bottom">
+												商品展示网址:
+											</td>
+											<td class="tb29" valign="bottom">
+	          <textarea hidden name="prdDisUrl" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,120);"
+						oninput="checkLength(this,120);">http://www.icardpay.com</textarea>
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden  class="tb27" align="left" valign="bottom">
+												商品名称:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input  hidden  name="prdName" class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("c_name")%>">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden  class="tb27" align="left" valign="bottom">
+												商品简称:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="">
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden  class="tb27" align="left" valign="bottom">
+												商品描述:
+											</td>
+											<td class="tb29" valign="bottom">
+	          <textarea hidden name="prdDesc" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,500);"
+						oninput="checkLength(this,500);"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td height="25" hidden  class="tb27" align="left" valign="bottom">
+												扩展参数:
+											</td>
+											<td class="tb29" valign="bottom">
+												<input hidden name="merParam" class="intext" type="text" size="48" maxlength="500" value="">
+											</td>
+										</tr>
+
+										<tr>
+											<div class="o-right" align="center" hidden>
+
+												<div class="o-price" hidden><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%></strong><em>元</em></div>
+											</div>
+											<div class="cart-buy">
+
+												<a   onclick="openwin();" class="cart-btn">新增收货地址</a>
+												<a><input type="submit" value="立即购买" style="background-color:#007cc3;color:#fff;width:198px;height:48px;font-size: 16px;border:2px solid #007cc3; " /></a>
+
+
+												<%--<a href="pay.jsp"  onclick="addCart(115,1,&#39;&#39;, 0);" class="buy-btn">立即购买</a>--%>
+
+											</div>
+
+										</tr>
+									</table>
+								</form>
+
+
 						</div>
 					</div>
 				</div>
+			<div class="pview-right">
+                    <div class="hd">
+                        <a href="javascript:void(0);" class="prev"></a>
+                        <a href="javascript:void(0);" class="next"></a>
+                    </div>
+                </div>
+            </div>
 			</div>
 
+			<div class="wenzi">
 							<div class="evalute">
 								<h3 class="title">商品评价</h3>
 								<div class="percentgood">
@@ -199,7 +352,7 @@
 									</li>
 									<li>
 										<p>本产品全国联保，享受三包服务，质保期为：一年质保（已激活的iPhone无质量问题不支持7天无理由退换货）<br>如因质量问题或故障，凭厂商维修中心或特约维修点的质量检测证明，享受7日内退货，15日内换货，15日以上在质保期内享受免费保修等三包服务！<br>(注:如厂家在商品介绍中有售后保障的说明,则此商品按照厂家说明执行售后保障服务。) 您可以查询本品牌在各地售后服务中心的联系方式，
-										</p>
+
 									</li>
 									<li>
 										<p><strong style="margin: 0px; padding: 8px 0px 3px; display: inline-block;">承诺</strong></p>
@@ -275,13 +428,72 @@
 				</div>
 			</div>
 		</div>
+	</div>
+
 
 		<link rel="stylesheet" href="css/MagicZoom.css">
 		<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<script src="js/MagicZoom.js" type="text/javascript"></script>
-		<script src="js/jquery.SuperSlide.2.1.1.js" type="text/javascript"></script>
+
 		<script src="js/main.js" type="text/javascript"></script>
 		<script src="js/layer.min.js"></script>
 	</body>
 
+	<script src="/js/angular/angular.min.js" type="text/javascript"></script>
+
+	<script type="text/javascript">
+        function getNewID() {
+            var Num="";
+            for(var i=0;i<14;i++){
+                Num+=Math.floor(Math.random()*10);
+            }
+            document.getElementById("prdOrdNo").value=Num;
+            var dateStr = getNowFormatDate();
+            document.getElementById("orderDate").value=dateStr;
+        }
+        getNewID();
+
+        function getNowFormatDate() {
+            var date = new Date();
+            var seperator1 = "";
+            var seperator2 = "";
+            var month = date.getMonth() + 1;
+            var strDate = date.getDate();
+            if (month >= 1 && month <= 9) {
+                month = "0" + month;
+            }
+            if (strDate >= 0 && strDate <= 9) {
+                strDate = "0" + strDate;
+            }
+            var hours = date.getHours();
+            var mins = date.getMinutes();
+            var secs = date.getSeconds();
+            var msecs = date.getMilliseconds();
+            if(hours<10) hours = "0"+hours;
+            if(mins<10) mins = "0"+mins;
+            if(secs<10) secs = "0"+secs;
+            var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                + hours+ seperator2 + mins
+                + seperator2 + secs;
+            return currentdate;
+        }
+
+
+        var app = angular.module('Selectform', []);
+        app.controller('SelectformCtrl', function($scope,$http) {
+
+            $http({
+                method: 'POST',
+                url: '/OrderList/getAllorder'
+            }).then(function successCallback(response) {
+                angular.forEach(response.data, function (data, index, array) {
+                    $scope.myObj = response.data;
+                });
+            }, function errorCallback(response) {
+
+            });
+
+        });
+
+	</script>
 </html>

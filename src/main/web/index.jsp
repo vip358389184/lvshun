@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <head lang="en">
@@ -708,7 +708,7 @@
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()"><img src="{{value.picture}}"></a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.label}}</a>
+                <a ng-click="findById(valu  e.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.label}}</a>
                 <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label)"onclick="a()">{{value.retail_price}}</a>
             </li>
         </ul>
@@ -786,9 +786,7 @@
 </div>
 <script type="text/javascript" src="js/xiaomi.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
-<script type="text/javascript">
 
-</script>
 <script type="text/javascript">
 
         var app = angular.module('myApp', []);
@@ -807,6 +805,7 @@
 
             });
 
+
             $scope.findById = function(id,money,c_name,picture,label) {
                 //参数
                 var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture,"label":label};
@@ -820,28 +819,29 @@
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
-                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label;
+                    window.location="/Xi.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label;
 
                 }).error(function(data, status, headers, config){
 
                 })
             }
-        })
-        function a() {
-            var username = <%=request.getParameter("username")%>
-            if(username==null){
-                alert("请先登录,后进行购买！");
-                window.location="login.html";
-            }
-        }
-        $( function b() {
-            var username = <%=request.getParameter("username")%>
-            if(username==null){
-                $("#b").text('你好，请登录');
-            }else{
-                $("#b").text(username);
-            }
         });
+
+       function a() {
+         var username = <%=request.getParameter("username")%>
+         if(username==null){
+         alert("请先登录,后进行购买！");
+         window.location="login.html";
+         }
+         }
+         $( function b() {
+         var username = <%=request.getParameter("username")%>
+         if(username==null){
+         $("#b").text('你好，请登录');
+         }else{
+         $("#b").text(username);
+         }
+         });
 </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ import java.math.BigDecimal;
  * Created by 宝龙 on 2017/4/20.
  */
 public class OrderList {
-    private  String snumber_id;
+    private  String Snumber_id;
     private  String o_id;
     private  String c_id;
     private  String o_name;
@@ -16,7 +16,7 @@ public class OrderList {
     private BigDecimal money;
     private  String o_state;
     private  String  user_id;
-    private  String address;
+    private  String addre;
     private  String s_method;
     private  String popay_ment;
     private  String  present_exp;
@@ -26,12 +26,72 @@ public class OrderList {
     private  String  ofk_date;
     private  String  order_time;
 
+
+
+
+
+
+    private String  formid;
+    private String username;
+    private String  phone;
+    private String  dawk;
+    private String prefecture;
+    private  String address;
+
+    public String getFormid() {
+        return formid;
+    }
+
+    public void setFormid(String formid) {
+        this.formid = formid;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getDawk() {
+        return dawk;
+    }
+
+    public void setDawk(String dawk) {
+        this.dawk = dawk;
+    }
+
+    public String getPrefecture() {
+        return prefecture;
+    }
+
+    public void setPrefecture(String prefecture) {
+        this.prefecture = prefecture;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
     public String getSnumber_id() {
-        return snumber_id;
+        return Snumber_id;
     }
 
     public void setSnumber_id(String snumber_id) {
-        this.snumber_id = snumber_id;
+        Snumber_id = snumber_id;
     }
 
     public String getO_id() {
@@ -122,12 +182,12 @@ public class OrderList {
         this.user_id = user_id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddre() {
+        return addre;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddre(String addre) {
+        this.address = addre;
     }
 
     public String getS_method() {

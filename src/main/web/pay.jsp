@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.lvshun.config.PayConfig"%>
@@ -115,8 +115,8 @@ request.setAttribute("money",request.getParameter("money"));%>
         </div>
         <div class="top">
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
+            <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
             <p class="moen"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>
-            
         </div>
         <form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
