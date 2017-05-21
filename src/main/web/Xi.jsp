@@ -7,6 +7,7 @@
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <%request.setAttribute("picture",request.getParameter("picture"));%>
 <%request.setAttribute("label",request.getParameter("label"));%>
+<%request.setAttribute("normal_price",request.getParameter("normal_price"));%>
 <html>
 
 	<head>
@@ -19,7 +20,7 @@
 		<link rel="stylesheet" href="css/location.css">
 		<link rel="stylesheet" href="css/item.css">
 		<link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss">
-		<script type="text/javascript" src="js/open.js"></script>
+		<%--<script type="text/javascript" src="js/open.js"></script>--%>
 	</head>
 	<style type="text/css">
 		.wenzi{
@@ -71,7 +72,7 @@
 								<h3><%=request.getParameter("c_name")%><%=request.getParameter("label")%></h3>
 								<p></p>
 								<div class="price">
-									<div>市场价：<s>￥6099.00</s></div>
+									<div>市场价：<s>￥<%=request.getParameter("normal_price")%></s></div>
 									<div>价格：<span class="redbold">￥<b id="ym-price"><%=request.getParameter("money")%></b></span></div>
 								</div>
 
@@ -241,10 +242,12 @@
 											<div class="cart-buy">
 
 
+
+												<a   onclick="openwin('<%=request.getParameter("c_name")%>')" class="cart-btn">新增收货地址</a>
 												<input type="submit" value="立即购买" style="background-color:#007cc3;color:#fff;width:198px;height:48px;font-size: 16px;border:2px solid #007cc3; " />
 
-												<a   onclick="openwin();" class="cart-btn">新增收货地址</a>
-												<%--<a href="pay.jsp"  onclick="addCart(115,1,&#39;&#39;, 0);" class="buy-btn">立即购买</a>--%>
+
+												<input type="submit" value="立即购买" style="background-color:#007cc3;color:#fff;width:198px;height:48px;font-size: 16px;border:2px solid #007cc3; " />
 
 											</div>
 
@@ -494,6 +497,25 @@
             });
 
         });
+        function openwin(<%=request.getParameter("c_name")%>){
+            var c_name = <%=request.getParameter("c_name")%>
+            var ct = "From.jsp?c_name="+c_name;
+            var modelWidth = 690;
+            var modelHeight = 400;
+            OpenLook(ct,modelWidth,modelHeight);
+        }
+
+
+        //打开窗体方法
+        function OpenLook(FormUrl,modelWidth,modelHeight){
+            var url ="";
+            if(FormUrl.indexOf("http://")==-1)
+                url = FormUrl;
+            else
+                url=FormUrl;
+            window.open(url,"newwindow", "height="+modelHeight+", width="+modelWidth+", top="+ ((screen.height-modelHeight))/2 +", left="+ ((screen.width-modelWidth)/2) +", toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no");
+        }
+
 
 	</script>
 </html>

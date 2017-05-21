@@ -16,6 +16,8 @@
 
 		)
 	</insert>
+
+
 	<!-- 查询订单 详细 -->
 	<select id="getByoId"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList" >
 		select
@@ -27,13 +29,13 @@
 	<select id="getAllorder"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList">
 		select
 		*
-		from orderlist
+		from orderlist limit 0,1
 	</select>
 	<!-- 删除订单 -->
 	<delete id="deleteOrder" parameterType="com.lvshun.po.OrderList">
 		delete from orderlist where id=#{oId}
 	</delete>
-	<!-- 修改订单 -->
+	<!--&lt;!&ndash; 修改订单 &ndash;&gt;
 	<update id="updateOrder" parameterType="com.lvshun.po.OrderList" >
 		UPDATE orderlist AS T SET
 		 T.snumber_id =#{snumberId},
@@ -55,5 +57,5 @@
 		 T.ofk_date=#{ofkDate},
 		 T.order_time=#{orderTime}
 		WHERE T.o_id,=#{oId}
-	</update>
+	</update>-->
 </mapper>

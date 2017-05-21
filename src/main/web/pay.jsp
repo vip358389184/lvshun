@@ -18,6 +18,7 @@ request.setAttribute("money",request.getParameter("money"));%>
     <link rel="stylesheet" type="text/css" href="/js/main.css">
     <link rel="stylesheet" type="text/css" href="/js/bankList.css">
     <link rel="stylesheet" type="text/css" href="/css/pay.css">
+    <script src="/js/angular/angular.min.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
     <style>#no-ie{display:block;}</style>
     <![endif]-->
@@ -77,7 +78,7 @@ request.setAttribute("money",request.getParameter("money"));%>
     }
 </script>
 
-<body :controller="vmPayment">
+<body ng-app="myApp" ng-controller="OrderListController">
 
 <!-- shortcut -->
 <div class="shortcut">
@@ -114,9 +115,14 @@ request.setAttribute("money",request.getParameter("money"));%>
             </div>
         </div>
         <div class="top">
+            <form method="post">
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
-            <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
-            <p class="moen"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>
+
+            <p class="name" ng-model="c_name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
+                <input type="text"  ng-model="o_name">
+            <p class="moen" ng-model="money"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>
+                <input type="button" ng-click="shop()" value="加入购物车">
+            </form>
         </div>
         <form name="MD5form" class="ying" id="MD5form" method="post" action="/payApply/pay">
             <table width="50%"  class="tb26" align="center">
@@ -310,6 +316,45 @@ request.setAttribute("money",request.getParameter("money"));%>
             + seperator2 + secs;
         return currentdate;
     }
+    var app = angular.module('myApp', []);
+    app.controller("OrderListController",function ($scope,$http) {
+        //$scope.picture="";
+      //  $scope.money="";
+        $scope.o_name="";
+
+        $scope.shop=function () {
+            //var picture=$scope.picture;
+          //  var money=$scope.money;
+            var o_name=$scope.o_name;
+
+            var parme ={
+                //'picture':picture,
+               // "money":money,
+                "o_name":o_name
+            };
+
+
+                $http({
+                    method:'POST',
+                    url:'/OrderList/addorderList',
+                    data:parme,
+//                  dataType:'json',
+                }).success(function (data,status, headers, config) {
+                    if(data=='ERROR'){
+                        //alert("注册失败！")
+                    }else {
+                      alert("注册成功！")
+                        //window.location = "login.html";
+                    }
+                }).error(function (data,status,headers,config) {
+
+                    //alert("注册失败！");
+                })
+
+        }
+
+    });
+
 </script>
 
 </body>

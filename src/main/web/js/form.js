@@ -119,7 +119,7 @@
     }
 
 //详细地址不能为空
-    function address_num_message() {
+   /* function address_num_message() {
         var address = $("#address").val();
         if (address == "") {
             $("#address_message").html("详细地址不能为空");
@@ -129,7 +129,7 @@
             $("#address_img").css("display", "none");
         }
     }
-
+*/
 //详细地址不能为空
     function address_message() {
         var address = $("#address").val();
@@ -162,10 +162,23 @@ function add(disabled) {
     } else if (prefecture == "" || prefecture == null) {
         $("#prefecture_message").html("所在地区不能为空");
         $("#prefecture_img").css("display", "block");
+<<<<<<< HEAD
     } else if (address == "" || address) {
         $("#address_message").html("详细地址不能为空");
         $("#address_img").css("display", "block");
     }
+=======
+
+        disabled.prefecture.focus();
+        return false;
+
+    } /*else if (address == "" || address) {
+        $("#address_message").html("详细地址不能为空");
+        $("#address_img").css("display", "block");
+        disabled.address.focus();
+        return false;
+    }*/
+>>>>>>> a973866184f0c1f8d9dc9eb7559ea1d5fe79abbf
 
 
 

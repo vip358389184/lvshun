@@ -1,5 +1,5 @@
-function openwin(){
-    var ct = "From.jsp";
+function openwin(c_name){
+    var ct = "From.jsp?c_name="+c_name;
     var modelWidth = 690;
     var modelHeight = 400;
     OpenLook(ct,modelWidth,modelHeight);

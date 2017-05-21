@@ -160,14 +160,18 @@
                     dataType: 'json',
                 }).success(function (data, status, headers, config) {
                     if(data=='ERROR'){
-                        alert("登录失败！");
+
                         window.location="login.html"
                     }else {
+<<<<<<< HEAD
                      /*   alert("登录成功！");*/
+=======
+
+>>>>>>> a973866184f0c1f8d9dc9eb7559ea1d5fe79abbf
                         window.location="index.jsp?username="+username;
                     }
                 }).error(function (data, status, headers, config) {
-                    alert("登录失败!");
+
                     window.location = "login.html";
                 });
             }
