@@ -240,10 +240,10 @@
 											</div>
 											<div class="cart-buy">
 
+
+												<input type="submit" value="立即购买" style="background-color:#007cc3;color:#fff;width:198px;height:48px;font-size: 16px;border:2px solid #007cc3; " />
+
 												<a   onclick="openwin();" class="cart-btn">新增收货地址</a>
-												<a><input type="submit" value="立即购买" style="background-color:#007cc3;color:#fff;width:198px;height:48px;font-size: 16px;border:2px solid #007cc3; " /></a>
-
-
 												<%--<a href="pay.jsp"  onclick="addCart(115,1,&#39;&#39;, 0);" class="buy-btn">立即购买</a>--%>
 
 											</div>

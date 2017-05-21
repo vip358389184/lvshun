@@ -8,7 +8,7 @@
     <script src="js/form.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="user/favicon.ico">
 </head>
-<%request.setAttribute("username",request.getParameter("username"));%>
+
 <body ng-app="addform" ng-controller="addformCtrl">
 <div class="erji">
     <p class="chuang">创建收货地址</p>
@@ -36,14 +36,9 @@
     </div>
     <div>
         <label class="xi">详细地址<span class="span">*</span></label>
-        <textarea class="ff" placeholder="请你填写详细地址" ng-model="address" id="address" name="address"  onblur="address_num_message()" onkeyup="address_message()"></textarea>
+        <textarea class="ff" placeholder="请你填写详细地址" ng-model="address" id="address" name="address"  onkeyup="address_message()"></textarea>
         <span style="display: -webkit-inline-box;"><img src="img/formaddtishi.png" style="display: none;width: 17px; height: 21px" id="address_img"/><label id="address_message" style="color: red;font-size: 14px;"></label></span>
     </div>
-    <%--  <div >
-    <label>收件人名<span class="span">*</span></label>
-    <input   type="text"  ng-model="usernames" value="<%=request.getParameter("username")%>"  />
-    </div>--%>
-
     <div>
         <input  class="btn" type="submit"  value="保存"   ng-click="addformm()"/>
     </div>
@@ -76,7 +71,7 @@
                 "prefecture": prefecture,
                 "address": address
             };
-           /* if ($scope.ADDform.vbis()) {*/
+
 
                 $http({
                     method: 'POST',

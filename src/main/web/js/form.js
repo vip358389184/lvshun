@@ -1,42 +1,4 @@
-﻿/*
-
-$(function () {
-    //表单处理
-    var username = $("#username"),
-        phone = $("#phone"),
-        dawk = $("#dawk"),
-        prefecture = $("#prefecture"),
-        address = $("#address")
-
-    username.change(function () {
-        username_message(false);
-        BASEisNotNum(false);
-        username_num_message(false)
-    });
-
-    phone.change(function () {
-        phone_message(false);
-        phone_num_message(false);
-    });
-
-    dawk.change(function () {
-        dawk_message(false);
-        dawk_num_message(false);
-
-    });
-    prefecture.change(function () {
-        prefecture_num_message(false)
-        prefecture_message(false)
-    })
-
-    address.change(function () {
-        address_num_message(false)
-        address_message(false)
-    })
-
-*/
-
-
+﻿
 //姓名长度
     function username_message() {
         var username = $("#username").val();
@@ -180,9 +142,7 @@ $(function () {
         }
     }
 
-
 function add(disabled) {
-
     var username = $("#username").val();
     var phone = $("#phone").val();
     var dawk = $("#dawk").val();
@@ -196,30 +156,18 @@ function add(disabled) {
     } else if (phone == "" || phone == null) {
         $("#phone_message").html("手机号码不能为空");
         $("#phone_img").css("display", "block");
-        disabled.phone.focus();
-        return false;
-
     } else if (prefecture == "" || dawk == null) {
         $("#dawk_message").html("邮政编码不能为空");
         $("#dawk_img").css("display", "block");
-
-        disabled.prefecture.focus();
-        return false;
     } else if (prefecture == "" || prefecture == null) {
         $("#prefecture_message").html("所在地区不能为空");
         $("#prefecture_img").css("display", "block");
-
-        disabled.prefecture.focus();
-        return false;
-
     } else if (address == "" || address) {
         $("#address_message").html("详细地址不能为空");
         $("#address_img").css("display", "block");
-        disabled.address.focus();
-        return false;
     }
 
 
-    return true;
+
 }
 
