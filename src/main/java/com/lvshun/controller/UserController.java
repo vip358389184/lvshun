@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @RequestMapping(value="/addUser")
+    @RequestMapping(value="/addUsers")
     public ReturnMessage addUsers(@RequestBody User user){
      logger.info(user);
      userBiz.addUsers(user);
@@ -56,7 +56,6 @@ public class UserController {
         int count = userBiz.selectlogin(user);
         logger.info("count:"+count);
         if(count>0){
-            logger.info("登录成功！");
             logger.info("GC");
             return  ReturnMessage.SUCCESS;
 
