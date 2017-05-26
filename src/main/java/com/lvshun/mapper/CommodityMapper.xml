@@ -23,7 +23,11 @@
 	</select>
 	<!-- 查询用户 -->
 	<select id="findAll" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
-		select * from commodity
+		select *  from commodity
+	</select>
+
+	<select id="findAllByTo" parameterType="com.lvshun.po.Commodity" resultType="com.lvshun.po.Commodity">
+		select *  from commodity where c_id limit 10,19
 	</select>
 	<!-- 删除用户 -->
 	<delete id="delete" parameterType="com.lvshun.po.Commodity" >

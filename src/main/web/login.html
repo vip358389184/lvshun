@@ -137,13 +137,9 @@
 <script src="/js/main.js" type="text/javascript"></script>
 <script src="/js/users.js" type="text/javascript"></script>
 <script src="/js/layer.min.js"></script>
-<script src="/js/layer.min.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
-
-
 <script>
     var app = angular.module('login', []);
-
     app.controller('loginCtrl', function($scope,$http) {
         $scope.username = "";
         $scope.password="";
@@ -161,12 +157,14 @@
                 window.location="index.html"
             }).error(function(data, status, headers, config){
                 alert("error！");
+                alert("登录成功！");
+                window.location="index.html"
+            }).error(function(data, status, headers, config){
+                alert("登录失败,请重新登录！");
+                window.location="login.html"
             })
         }
     });
-
-
-
 
 </script>
 

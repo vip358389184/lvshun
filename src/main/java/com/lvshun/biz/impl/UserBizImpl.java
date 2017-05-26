@@ -24,6 +24,7 @@ public class UserBizImpl implements UserBiz {
        use.setUsername(user.getUsername());
        use.setPassword(user.getPassword());
        use.setPhone(user.getMobile());
+
        return userServer.addUser(use);
     }
 

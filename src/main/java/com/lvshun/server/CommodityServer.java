@@ -16,6 +16,8 @@ public interface CommodityServer {
     public Commodity findById(String id);
     //删除商品
     public int delete(String id);
+
+    public List<Commodity> findAllByTo();
     //修改商品
     public int update(Commodity commodity);
 }

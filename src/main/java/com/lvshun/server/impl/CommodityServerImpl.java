@@ -26,6 +26,9 @@ public class CommodityServerImpl implements CommodityServer {
 
         return commodityDao.findAll();
     }
+    public List<Commodity> findAllByTo(){
+        return  commodityDao.findAllByTo();
+    }
 
     public Commodity findById(String id) {
         return commodityDao.findById(id);
