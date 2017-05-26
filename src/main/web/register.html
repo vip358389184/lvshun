@@ -179,12 +179,11 @@
                             data: parme,
                             dataType: 'json',
 
-                        }).success(function (data, status, headers, config) {
+                        }).success(function (data, status, headers) {
                             alert("注册成功！");
-
                             window.location = "login.html";
 
-                        }).error(function (data, status, headers, config) {
+                        }).error(function (data, status, headers) {
                             alert("注册失败！");
 
 
