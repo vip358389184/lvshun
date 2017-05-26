@@ -66,12 +66,12 @@ public class UserController {
        if(count>0){
 
             logger.info(user);
-            logger.info("CG");
+            logger.info("登录成功！");
 
             return  ReturnMessage.SUCCESS;
        }else {
 
-           logger.info("SB");
+           logger.info("登录失败！");
            return ReturnMessage.ERROR;
        }
     }
