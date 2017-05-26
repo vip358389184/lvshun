@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -682,7 +681,7 @@
             <li><img src="img/004.png"></li>
             <li><img src="img/005.jpg"></li>
             <li><img src="img/001.jpg"></li>
-            <li><img src="img/002.jpg"></li>0000000
+            <li><img src="img/002.jpg"></li>
 
         </ul>
     </div>
@@ -706,6 +705,7 @@
                 <a><img src="{{value.picture}}"></a>
                 <a>{{value.c_name}}</a>
                 <a>{{value.label}}</a>
+                <a href="pay.jsp" ng-click="findById(value.c_id)">立即购买</a>
             </li>
 
         </ul>
@@ -722,10 +722,11 @@
         <ul>
 
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a   class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a class="floor_goods_tit">{{value.c_name}}</a>
-                <a class="floor_goods_txt">{{value.label}}</a>
-                <a class="floor_goods_price">{{value.retail_price}}元</a>
+                <a href="pay.jsp"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a href="pay.jsp" class="floor_goods_tit">{{value.c_name}}</a>
+                <a  href="pay.jsp" class="floor_goods_txt">{{value.label}}</a>
+                <a href="pay.jsp" class="floor_goods_price">{{value.retail_price}}元</a>
+
             </li>
 
             <div style="clear:both;"></div>
@@ -805,6 +806,7 @@
             }, function errorCallback(response) {
 
             });
+
         })
 
 </script>

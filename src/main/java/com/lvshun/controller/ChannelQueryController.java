@@ -82,7 +82,7 @@ public class ChannelQueryController {
 
                 request.setAttribute("obj", retJson);
                 request.setAttribute("typecode", typecode);
-                request.getRequestDispatcher("/Pay_Demo/payApplyPage.jsp").forward(request, response);
+                request.getRequestDispatcher("/lvshun/payApplyPage.jsp").forward(request, response);
             } else {
                 String code = (String) retJson.get("code");
                 String desc = (String) retJson.get("desc");

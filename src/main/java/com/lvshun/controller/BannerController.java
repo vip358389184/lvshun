@@ -23,7 +23,6 @@ public class BannerController {
     @RequestMapping("/getBanner")
     public @ResponseBody
     List<Banner> contactUs(){
-
         List<Banner> banners=bannerBiz.getBanner();
         return banners;
     }
