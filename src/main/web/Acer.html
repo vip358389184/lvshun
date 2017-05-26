@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 	<meta charset="utf-8" />
 	<title></title>
@@ -10,18 +9,13 @@
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/location.css">
 	<link rel="stylesheet" href="css/item.css">
-
 	<link rel="stylesheet" href="css/layer.css" id="layui_layer_skinlayercss">
 </head>
 
 <body ng-app="myAppXQ" ng-controller="CommodityCo">
-
-
-
 <div class="navtitleright nb">
 	<a href="index.html">首页</a> &gt;
 	<a href="#">电脑</a> &gt;
-
 </div>
 <div class="indbody pro-style">
 	<div class="nb recom-box">
@@ -29,11 +23,12 @@
 			<div class="pview-left">
 				<div class="ovclear">
 					<div class="slide-fish">
-						<div class="t2"  ng-repeat="(x, value) in myObj">
-							<a href="{{value.picture}}" id="bigimg" class="MagicZoom MagicThumb" style="position: relative; display: block; outline: 0px; text-decoration: none; width: 410px;">
-								<img src="{{value.picture}}" id="sim145606" class="main_img" style="width:410px;height: 410px;">
+						<div class="t2">
+							<a href="img/acre2.jpg" id="bigimg" class="MagicZoom MagicThumb" style="position: relative; display: block; outline: 0px; text-decoration: none; width: 410px;">
+								<img src="img/acre2.jpg" id="sim145606" class="main_img" style="width:410px;height: 410px;">
 								<div id="bc145606" class="MagicZoomBigImageCont" style="width: 300px; height: 300px; left: -10000px; top: 0px; overflow: hidden; z-index: 100; visibility: hidden; position: absolute; display: block;">
-									<div style="overflow: hidden;"><img src="{{value.picture}}" style="position: relative; left: -499.512px; top: -499.512px; display: block; visibility: visible;"></div>
+									<div style="overflow: hidden;">
+										<img src="img/acre2.jpg" style="position: relative; left: -499.512px; top: -499.512px; display: block; visibility: visible;"></div>
 								</div>
 								<div class="MagicZoomPup" style="z-index: 10; visibility: hidden; position: absolute; opacity: 0.5; width: 153.75px; height: 153.75px; left: 256.25px; top: 256.25px;"></div>
 							</a>
@@ -43,10 +38,9 @@
 							<a class="next" href="javascript:void(0);"></a>
 							<div class="bd">
 								<ul class="smallImg" id="imglist">
-									<li class="on" ng-repeat="(x, value) in myObj">
-										<a rel="bigimg" rev="img/img/ACRE.jpg"><img src="{{value.picture}}"></a>
+									<li class="on">
+										<a rel="bigimg" rev="img/acre2.jpg"><img src="img/acre2.jpg"></a>
 									</li>
-
 								</ul>
 							</div>
 						</div>
@@ -136,9 +130,7 @@
 						<dd class="percentjd"><i class="" style="width:0%;"></i></dd>
 					</dl>
 				</div>
-
 			</div>
-
 			<div class="tab-gbw">
 				<div class="hd">
 					<ul class="evalute-titleul">
@@ -223,7 +215,6 @@
 			<p><br></p>
 		</div>
 	</div>
-
 </div>
 </div>
 </div>
@@ -271,7 +262,6 @@
 		</div>
 	</div>
 </div>
-
 <link rel="stylesheet" href="css/MagicZoom.css">
 <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="js/MagicZoom.js" type="text/javascript"></script>
@@ -279,21 +269,6 @@
 <script src="js/main.js" type="text/javascript"></script>
 <script src="js/layer.min.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-    var app = angular.module('myAppXQ', []);
-    app.controller('CommodityCo', function($scope,$http) {
-        $http({
-
-            method: 'POST',
-            url: '/comm/findById',
-
-		}).success(function(data) {
-
-
-        });
-    })
-</script>
+<script type="text/javascript"></script>
 </body>
-
 </html>
