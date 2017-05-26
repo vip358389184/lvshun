@@ -707,7 +707,7 @@
                 <a>{{value.c_name}}</a>
                 <a>{{value.label}}</a>
                 <a>{{value.retail_price}}</a>
-                <button href="#" ng-click="findById(value.c_id,value.retail_price)">立即购买</button>
+                <button id="sio" ng-click="findById(value.c_id,value.retail_price,value.c_name)" style="background-color: red;color: #7d8289">立即购买</button>
 
             </li>
 
@@ -724,10 +724,10 @@
     <div class="floor_goods_wrap">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a href="pay.jsp"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a href="pay.jsp" class="floor_goods_tit">{{value.c_name}}</a>
-                <a  href="pay.jsp" class="floor_goods_txt">{{value.label}}</a>
-                <a href="pay.jsp" class="floor_goods_price">{{value.retail_price}}元</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_tit">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  class="floor_goods_txt">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_price">{{value.retail_price}}元</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -802,19 +802,22 @@
             }, function errorCallback(response) {
 
             });
-            $scope.findById = function(id,money) {
+            $scope.findById = function(id,money,cname) {
                 //参数
 
-                var params={ 'money':money,"id":id };
+                var params={ 'money':money,"id":id ,"cname":cname};
                 $http({
-                    method:'GET',
-                    url:'/comm/findById?id='+id+"&money="+money,
+                    method:'POST',
+                    url:'/comm/findById?id='+id+"&money="+money+"&cname"+cname,
                     data:params,
-                    dataType:'json',
+                    dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
-                  window.location="/pay.jsp?money="+money;
+                   // window.location="/pay.jsp?cname="+cname;
+                  //window.location="/pay.jsp?money="+money;
+
+                    window.location="/pay.jsp?id="+id+"&money="+money+"&cname="+cname;
                 }).error(function(data, status, headers, config){
                     console.log(data)
                     console.log(status)

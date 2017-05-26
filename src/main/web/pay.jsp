@@ -125,8 +125,8 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
 
                     <td class="tb29" valign="bottom">
-                        <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="<fmt:formatNumber type="number"   value="${money}"  pattern="0.00" maxFractionDigits="2" />">
-
+                        <%--<input name="orderAmount" class="intext" type="text" size="48" maxlength="13" value="<%=request.getParameter("money")%>">--%>
+                            <input name="orderAmount"  class="intext" type="text" size="48" maxlength="13" value="<fmt:formatNumber type="number"   value="${money}"  pattern="0.00" maxFractionDigits="2" />">
                     </td>
                 </tr>
                 <tr>
@@ -214,11 +214,11 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                 </tr>
                 <tr>
-                    <td height="25"  hidden class="tb27" align="left" valign="bottom">
+                    <td height="25" hidden  class="tb27" align="left" valign="bottom">
                         商品名称:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input hidden name="prdName" class="intext" type="text" size="48" maxlength="48" value="100元移动充值卡">
+                        <input  hidden  name="prdName" class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("cname")%>">
                     </td>
                 </tr>
                 <tr>
