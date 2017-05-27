@@ -18,7 +18,8 @@ public class CommodityServerImpl implements CommodityServer {
     private CommodityDao commodityDao;
 
 
-    public int addComm(Commodity commodity) {
+    public int addComm(Commodity commodity)
+    {
         return commodityDao.addComm(commodity);
     }
 

@@ -703,11 +703,11 @@
     <div id="head_hot_goods_content">
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a  ng-click="findById(value.c_id,value.retail_price,value.c_name)"><img src="{{value.picture}}"></a>
-                <a  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.c_name}}</a>
-                <a  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.label}}</a>
-                <a  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.retail_price}}</a>
 
+                <a ng-click="findById(value.c_id,value.retail_price)"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price)">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price)">{{value.label}}</a>
+                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price)">{{value.retail_price}}</a>
             </li>
 
         </ul>
@@ -727,6 +727,7 @@
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_tit">{{value.c_name}}</a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  class="floor_goods_txt">{{value.label}}</a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" class="floor_goods_price">{{value.retail_price}}</a>
+
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -745,6 +746,8 @@
                 <li>满150元包邮</li>
                 <li class="font_top_i">|</li>
                 <li>520余家售后网点</li>
+
+                
             </ul>
         </div>
         <div class="foot_bottom">
@@ -816,7 +819,6 @@
                 }).error(function(data, status, headers, config){
                     console.log(data)
                     console.log(status)
-
                     alert("error");
                 })
             }

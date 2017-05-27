@@ -18,8 +18,9 @@ public class UserServerImpl implements UserServer{
     private UserDao userDao;
 
 
-    public int addUser(Users users) {
-        return userDao.addUser(users);
+  //注册
+    public  int addUsers(Users users){
+        return  userDao.addUsers(users);
     }
 
     //登录

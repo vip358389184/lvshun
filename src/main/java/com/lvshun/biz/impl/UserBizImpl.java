@@ -19,13 +19,12 @@ public class UserBizImpl implements UserBiz {
     private UserServer userServer;
 
     //注册代码
-    public int addUser(User user) {
-       Users  use = new Users();
-       use.setUsername(user.getUsername());
-       use.setPassword(user.getPassword());
-       use.setPhone(user.getMobile());
-
-       return userServer.addUser(use);
+    public int addUsers(User user){
+        Users users  = new Users();
+        users.setUsername(user.getUsername());
+        users.setPassword(user.getPassword());
+        users.setPhone(user.getPhone());
+     return  userServer.addUsers(users);
     }
 
     //登录
@@ -33,12 +32,8 @@ public class UserBizImpl implements UserBiz {
         Users  users = new Users();
         users.setUsername(user.getUsername());
         users.setPassword(user.getPassword());
-
         return userServer.selectlogin(users);
-
     }
-
-
 
     public List<Users> findAll() {
         return userServer.findAll();
