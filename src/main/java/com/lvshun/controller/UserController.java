@@ -52,15 +52,14 @@ public class UserController {
     public ReturnMessage selectlogin(@RequestBody User user){
         int count = userBiz.selectlogin(user);
         logger.info("count:"+count);
-       if(count>0){
-            logger.info(user);
+        if(count>0){
             logger.info("登录成功！");
             logger.info("GC");
             return  ReturnMessage.SUCCESS;
-       }else {
-           logger.info("登录失败！");
-           return ReturnMessage.ERROR;
-       }
+        }else {
+            logger.info("SB！");
+            return ReturnMessage.ERROR;
+        }
     }
     //修改
     @ResponseBody

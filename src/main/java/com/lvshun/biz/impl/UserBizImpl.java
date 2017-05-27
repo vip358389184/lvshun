@@ -29,12 +29,16 @@ public class UserBizImpl implements UserBiz {
     }
 
     //登录
-    public  int selectlogin(User user){
-        Users  use = new Users();
-        use.setUsername(user.getUsername());
-        use.setPassword(user.getPassword());
-        return  userServer.selectlogin(use);
+    public int selectlogin(User user) {
+        Users  users = new Users();
+        users.setUsername(user.getUsername());
+        users.setPassword(user.getPassword());
+
+        return userServer.selectlogin(users);
+
     }
+
+
 
     public List<Users> findAll() {
         return userServer.findAll();
