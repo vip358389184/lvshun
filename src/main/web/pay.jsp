@@ -228,7 +228,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品简称:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="充值卡">
+                        <input hidden name="prdShortName" class="intext" type="text" size="48" maxlength="48"  value="">
                     </td>
                 </tr>
                 <tr>
@@ -237,7 +237,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                     </td>
                     <td class="tb29" valign="bottom">
 	          <textarea hidden name="prdDesc" class="intext" rows="2" cols="50" onpropertychange="checkLength(this,500);"
-                        oninput="checkLength(this,500);">充值卡</textarea>
+                        oninput="checkLength(this,500);"></textarea>
                     </td>
                 </tr>
                 <tr>

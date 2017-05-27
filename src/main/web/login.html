@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/js/users.js">
     <link rel="stylesheet" href="/js/utils.js">
 </head>
-<body  ng-app="login"ng-controller="loginCtrl">
+<body  ng-app="login"ng-controller="UserController">
 <div class="head_box">
     <div id="head_wrap">
         <div id="head_nav">
@@ -142,7 +142,7 @@
 
 <script>
 var app = angular.module('login', []);
-app.controller('loginCtrl', function($scope,$http) {
+app.controller('UserController', function($scope,$http) {
     $scope.loginFrom = function () {
         var username = $scope.username;
         var password = $scope.password;
