@@ -204,7 +204,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品单价:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="1" hidden>
+                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>00" hidden>
                     </td>
                 </tr>
                 <tr>
