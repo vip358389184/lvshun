@@ -1,20 +1,20 @@
 
 $(function() {
-	
+
 	//注册处理
 	var username= $("#username"),
- 		mobile= $("#mobile"),
+        phone= $("#phone"),
  		smscode= $("#smscode"),
  		password= $("#password"),
  		repassword= $("#repassword"),
  		agree = $("#agree");
- 	
- 	username.change(function() { 		
+
+ 	username.change(function() {
  		checkUserName(false);
- 	});	
- 	mobile.change(function() { 		
- 		checkPhone(false);
- 	});	
+ 	});
+    phone.change(function() {
+        checkphone(false);
+ 	});
  	password.change(function(){
  		checkPwd(false);
  	});
@@ -24,7 +24,7 @@ $(function() {
  	agree.click(function(){
  		checkAgree();
  	});
- 	
+
  	//验证用户名
  	function checkUserName(issubmit) {
  		var isValid = false;
@@ -35,7 +35,7 @@ $(function() {
  				i.attr('class',"i-err").children("label").text('请输入用户名');
  			} else{
  				i.attr('class',"i-tip").children("label").text('支持中文、字母、数字、“-”“_”的组合');
- 			}  			
+ 			}
  		}
  		else if (getStringLength(v) < 4) {
  			i.attr('class',"i-err").children("label").text('长度只能在4-20个字符之间');
@@ -50,23 +50,28 @@ $(function() {
  		{
  			i.attr('class',"i-suc").children("label").text('');
  			isValid = true;
- 		} 	
+ 		}
  		return isValid;
  	}
- 	
+
+	function is_phone(phone){
+		var pattern = /^1[34578]\d{9}$/;
+    return pattern.test(phone);
+  }
+
  	//验证手机
- 	function checkPhone(issubmit) {
+ 	function checkphone(issubmit) {
  		var isValid = false;
- 		var v= $.trim(mobile.val());
- 		var i= mobile.siblings(".Validform_checktip").children();
+ 		var v= $.trim(phone.val());
+ 		var i= phone.siblings(".Validform_checktip").children();
  		if (v=='') {
  			if (issubmit) {
  				i.attr('class',"i-err").children("label").text('请输入手机号码');
  			} else{
  				i.attr('class',"").children("label").text('');
- 			}  			
+ 			}
  		}
- 		else if(!is_mobile(v))
+ 		else if(!is_phone(v))
  		{
  			i.attr('class',"i-err").children("label").text('手机号码格式不正确');
  		}
@@ -77,7 +82,7 @@ $(function() {
  		}
  		return isValid;
  	}
- 	
+
  	//验证密码
  	function checkPwd(issubmit) {
  		var isValid = false;
@@ -88,7 +93,7 @@ $(function() {
  				i.attr('class',"i-err").children("label").text('请输入密码');
  			} else{
  				i.attr('class',"i-tip").children("label").text('支持中文、字母、数字、“-”“_”的组合');
- 			} 
+ 			}
  		}
  		else if (getStringLength(v) < 6) {
  			i.attr('class',"i-err").children("label").text('长度只能在6-20个字符之间');
@@ -104,10 +109,10 @@ $(function() {
 	 		}
  			i.attr('class',"i-suc").children("label").text('');
  			isValid = true;
- 		} 	
+ 		}
  		return isValid;
  	}
- 	
+
  	//验证密码
  	function checkRePwd(issubmit) {
  		var isValid = false;
@@ -118,7 +123,7 @@ $(function() {
  				i.attr('class',"i-err").children("label").text('请输入密码');
  			} else{
  				i.attr('class',"").children("label").text('');
- 			} 
+ 			}
  		}
  		else if(v!=u)
  		{
@@ -128,7 +133,7 @@ $(function() {
  		{
  			i.attr('class',"i-suc").children("label").text('');
  			isValid = true;
- 		} 	
+ 		}
  		return isValid;
  	}
 
@@ -170,14 +175,14 @@ $(function() {
 		});
  	});
  	*/
- 	
+
  	//登陆处理
- 	$("#loginname").change(function() { 		
+ 	$("#loginname").change(function() {
  		checkLoginname(false);
  	});
- 	
+
  	function checkLoginname(issubmit) {
- 		var isValid=true;	
+ 		var isValid=true;
  		var v = $.trim($("#loginname").val());
  		var i = $("#loginname").siblings(".Validform_checktip");
 		if (v=='') {
@@ -192,12 +197,12 @@ $(function() {
 		{
 			i.children().attr('class',"").children("label").text('');
 		}
-		
+
 		return isValid;
  	}
- 	
+
  	function checkLoginPwd(issubmit) {
- 		var isValid=true;	
+ 		var isValid=true;
  		var v = $.trim($("#passw").val());
  		var i = $("#passw").siblings(".Validform_checktip");
 		if (v=='') {
@@ -212,12 +217,12 @@ $(function() {
 		{
 			i.children().attr('class',"").children("label").text('');
 		}
-		
+
 		return isValid;
  	}
  	
  	
- 	//用户登陆
+ /*	//用户登陆
 	$("#login").click(function() {		
 		var login_name=$.trim($("#loginname").val()),
 			passw=$.trim($("#passw").val()),
@@ -263,5 +268,5 @@ $(function() {
 		});
  	});
  	
-   loadLayer();
+   loadLayer();*/
 })

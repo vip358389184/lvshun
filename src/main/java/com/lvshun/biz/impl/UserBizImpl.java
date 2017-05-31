@@ -24,7 +24,7 @@ public class UserBizImpl implements UserBiz {
         users.setUsername(user.getUsername());
         users.setPassword(user.getPassword());
         users.setPhone(user.getPhone());
-     return  userServer.addUsers(users);
+        return  userServer.addUsers(users);
     }
 
     //登录

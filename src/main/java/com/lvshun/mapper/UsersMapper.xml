@@ -14,7 +14,7 @@
 		,#{grade},#{joindate},#{collect},#{monetary}	
 		)
 	</insert>-->
-	<insert id="addUser"  parameterType="com.lvshun.po.Users" >
+	<insert id="addUsers"  parameterType="com.lvshun.po.Users" >
 		INSERT INTO users(
 		username,password,phone
 		)VALUES(
