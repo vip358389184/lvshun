@@ -145,7 +145,7 @@ request.setAttribute("money",request.getParameter("money"));%>
 
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
             <p class="name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
-            <p class="moen"><span class="sp">￥</span><%=request.getParameter("money")%></p>
+            <p class="moen"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>
 
 
         </div>

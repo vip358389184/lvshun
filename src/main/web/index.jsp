@@ -810,10 +810,8 @@
        var username = <%=request.getParameter("username")%>
        if(username==null){
            $("#b").text('你好，请登录');
-       /*if($("#b").text("null")){
-           $("#b").text('你好，请登录');*/
        }else{
-           $("#b").text(<%=request.getParameter("username")%>);
+           $("#b").text(username);
        }
    });
 </script>
