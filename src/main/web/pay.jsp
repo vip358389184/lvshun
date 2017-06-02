@@ -5,11 +5,12 @@
 <%
 request.setAttribute("money",request.getParameter("money"));%>
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
+<%request.setAttribute("picture",request.getParameter("picture"));%>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html"; charset="gbk" />
     <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>绿顺支付</title>
     <link rel="shortcut icon" href="user/favicon.ico">
     <script src="js/jquery-1.9.1.min.js"></script>
@@ -68,7 +69,15 @@ request.setAttribute("money",request.getParameter("money"));%>
         return true;
     }
 </script>
+<style type="text/css" >
+    .top{
+          width: 50%;
+          height:100% ;
+          border: solid 1px cyan;
+    }
+</style>
 <body :controller="vmPayment">
+
 <!-- shortcut -->
 <div class="shortcut">
     <div class="w">
@@ -107,7 +116,15 @@ request.setAttribute("money",request.getParameter("money"));%>
                 <!-- 多笔订单 end -->
             </div>
         </div>
+        <div class="top">
 
+            <p>
+                商品名称：<%=request.getParameter("c_name")%>
+
+            </p>
+            <p>
+                商品图片：<%=request.getParameter("picture")%></p>
+        </div>
 
 
         <form name="MD5form" id="MD5form" method="post" action="/payApply/pay">
@@ -254,10 +271,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         <div class="o-price"><em style="font-size: 18px">应付金额:&nbsp;&nbsp;&nbsp;&nbsp;</em><strong style="color: red;font-size: 18px"><%=request.getParameter("money")%></strong><em>元</em></div>
                     </div>
                     <td width="100%" colspan="3" align="center" class="tb28">
-
-
-
-                        <input type="submit" id="next" name="next" onclick="a" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
+                        <input type="submit" id="next" name="next" class="btn_2" value="&nbsp;下 一 步 &nbsp;"style="background-color: red;color:white; width:120px;height: 30px;font-size: 18px">
                     </td>
                 </tr>
             </table>
