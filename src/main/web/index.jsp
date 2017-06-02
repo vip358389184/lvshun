@@ -35,8 +35,12 @@
                 <span>|</span>
                 <a class="head_nav_a" href="register.html">注册</a>
             </div>
-
-
+          <!--  <div id="head_car">
+                <a href="g.html" class="head_car_text">购物车（0）</a>
+                <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
+                    <a class="car_text"></a>
+                </div>
+            </div>-->
         </div>
     </div>
 </div>
@@ -551,6 +555,8 @@
                         <a href="kon.html"><img src="img/u=170626932,151332030&fm=23&gp=0.jpg"></a>
                         <a href="kon.html">百雀羚套装</a></li>
                 </ul>
+
+
             </div>
         </li>
         <li>
@@ -700,17 +706,10 @@
     <div id="head_hot_goods_content" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-<<<<<<< HEAD:src/main/web/index.jsp
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  onclick="a()"><img src="{{value.picture}}"></a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name) "onclick="a()">{{value.c_name}}</a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"onclick="a()">{{value.label}}</a>
                 <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name)"onclick="a()">{{value.retail_price}}</a>
-=======
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)">{{value.label}}</a>
-                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name)">{{value.retail_price}}</a>
->>>>>>> bf0c66207b5bc5b3c01ab544d5f94afcda25aa1e:src/main/web/index.jsp
             </li>
         </ul>
     </div>
@@ -725,17 +724,10 @@
     <div class="floor_goods_wrap" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-<<<<<<< HEAD:src/main/web/index.jsp
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)" onclick="a()" class="floor_goods_img"><img src="{{value.picture}}"></a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  onclick="a()" class="floor_goods_tit">{{value.c_name}}</a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  onclick="a()" class="floor_goods_txt">{{value.label}}</a>
                 <a ng-click="findById(value.c_id,value.retail_price,value.c_name)"  onclick="a()" class="floor_goods_price">{{value.retail_price}}</a>
-=======
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_tit">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)"  class="floor_goods_txt">{{value.label}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture)" class="floor_goods_price">{{value.retail_price}}</a>
->>>>>>> bf0c66207b5bc5b3c01ab544d5f94afcda25aa1e:src/main/web/index.jsp
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -818,7 +810,6 @@
        var username = <%=request.getParameter("username")%>
        if(username==null){
            $("#b").text('你好，请登录');
-
        /*if($("#b").text("null")){
            $("#b").text('你好，请登录');*/
        }else{
@@ -844,18 +835,18 @@
 
             });
 
-            $scope.findById = function(id,money,c_name,picture) {
+            $scope.findById = function(id,money,c_name) {
                 //参数
-                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture};
+                var params={ 'money':money,"id":id ,"c_name":c_name};
 
                 $http({
                     method:'POST',
-
-                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture,
+                    url:'/comm/findById?id='+id+"&money="+money+"&c_name"+c_name,
                     data:params,
                     dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
+                    window.location="/pay.jsp?id="+id+"&money="+money+"&c_name="+c_name;
                 }).error(function(data, status, headers, config){
 
                 })
