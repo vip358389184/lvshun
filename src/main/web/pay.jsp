@@ -6,7 +6,7 @@
 request.setAttribute("money",request.getParameter("money"));%>
 <%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <%request.setAttribute("picture",request.getParameter("picture"));%>
-<%request.setAttribute("label",request.getParameter("picture"));%>
+<%request.setAttribute("label",request.getParameter("label"));%>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -245,7 +245,7 @@ request.setAttribute("money",request.getParameter("money"));%>
                         商品单价:
                     </td>
                     <td class="tb29" valign="bottom">
-                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>00" hidden>
+                        <input name="prdAmt" class="intext" type="text" size="48"  maxlength="13" value="<%=request.getParameter("money")%>" hidden>
                     </td>
                 </tr>
                 <tr>

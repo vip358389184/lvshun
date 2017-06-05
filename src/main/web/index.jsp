@@ -787,33 +787,7 @@
 <script type="text/javascript" src="js/xiaomi.js"></script>
 <script src="/js/angular/angular.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    var username="username"; // 变量名
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(username + "=")
-        if (c_start != -1) {
-            c_start = c_start + username.length + 1
-            c_end = document.cookie.indexOf(";", c_start)
-            if (c_end == -1) c_end = document.cookie.length
-            //        document.write(document.cookie.substring(c_start,c_end)+"<br>");
-            var sss= unescape(document.cookie.substring(c_start, c_end))  // 取出值
-            alert(sss);
-        }
-    }
-    function a() {
-      var username = <%=request.getParameter("username")%>
-        if(username==null){
-            alert("请先登录,后进行购买！");
-            window.location="login.html";
-        }
-    }
-   $( function b() {
-       var username = <%=request.getParameter("username")%>
-       if(username==null){
-           $("#b").text('你好，请登录');
-       }else{
-           $("#b").text(username);
-       }
-   });
+
 </script>
 <script type="text/javascript">
 
@@ -853,6 +827,21 @@
                 })
             }
         })
+        function a() {
+            var username = <%=request.getParameter("username")%>
+            if(username==null){
+                alert("请先登录,后进行购买！");
+                window.location="login.html";
+            }
+        }
+        $( function b() {
+            var username = <%=request.getParameter("username")%>
+            if(username==null){
+                $("#b").text('你好，请登录');
+            }else{
+                $("#b").text(username);
+            }
+        });
 </script>
 </body>
 </html>

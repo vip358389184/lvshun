@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <%@ page language="java" pageEncoding="UTF-8"%>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/js/bootstrap.min.css">
     <script src="../scripts/jquery-1.6.2.min.js"></script>
@@ -16,9 +17,9 @@
 <body ng-app="myApp" ng-controller="CommodityController">
 
 <div class="container">
-
-    <h3>商品管理</h3>
-
+    <button class="btn btn-success" ng-click="addComm()">
+        <span class="glyphicon glyphicon-edit" ></span><a href="addComm.html" class="a">创建新商品</a>
+    </button>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -58,17 +59,13 @@
             <td>{{ comm.cdate }}</td>
 
             <td>
-                <button type="button" class="btn btn-info" ng-click="edit(comm.c_id)" >编辑</button>
+                <button type="button" class="btn btn-info" ng-click="findByIds(comm.c_id,comm.normal_price,comm.retail_price,comm.inventory)" >编辑</button>
                 <button type="button" class="btn btn-danger" ng-click="delete(comm.c_id)" >删除</button>
 
             </td>
         </tr>
         </tbody>
     </table>
-    <hr>
-    <button class="btn btn-success" ng-click="addComm()">
-        <span class="glyphicon glyphicon-edit" ></span><a href="addComm.html" class="a">创建新商品</a>
-    </button>
 
 </div>
 
@@ -94,10 +91,31 @@
                 window.location.reload();
             });
         }
- $scope.edit=function (id) {
-        window.open("updateComm.html?id="+id)
+        $scope.findByIds = function(id,normal_price,retail_price,inventory) {
+            //参数
+            var params={ 'normal_price':normal_price,"id":id ,"retail_price":retail_price,"inventory":inventory};
+            $http({
+                method:'POST',
 
- }
+              url:'/comm/findById?id='+id+"&normal_price="+normal_price+"&retail_price="+retail_price+"&inventory="+inventory,
+
+                data:params,
+                dataType:'text',
+            }).success(function(data, status, headers, config){
+                //处理返回值 进行跳转
+                console.log(data);
+               window.location="/user/updateComm.jsp?id="+id+"&normal_price="+normal_price+"&retail_price="+retail_price+"&inventory="+inventory;
+
+
+            }).error(function(data, status, headers, config){
+
+            })
+        }
+
+/* $scope.edit=function (id,normal_price,retail_price,inventory) {
+        window.location("/updateComm.jsp?id="+id+"&normal_price="+normal_price+"&retail_price="+retail_price+"&inventory="+inventory)
+
+ }*/
 
     });
 </script>
