@@ -157,7 +157,7 @@ $(function () {
     }
 
 //详细地址不能为空
-    function address_num_message() {
+   /* function address_num_message() {
         var address = $("#address").val();
         if (address == "") {
             $("#address_message").html("详细地址不能为空");
@@ -167,7 +167,7 @@ $(function () {
             $("#address_img").css("display", "none");
         }
     }
-
+*/
 //详细地址不能为空
     function address_message() {
         var address = $("#address").val();
@@ -212,12 +212,12 @@ function add(disabled) {
         disabled.prefecture.focus();
         return false;
 
-    } else if (address == "" || address) {
+    } /*else if (address == "" || address) {
         $("#address_message").html("详细地址不能为空");
         $("#address_img").css("display", "block");
         disabled.address.focus();
         return false;
-    }
+    }*/
 
 
     return true;

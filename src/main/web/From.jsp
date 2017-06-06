@@ -8,11 +8,11 @@
     <script src="js/form.js" type="text/javascript"></script>
     <link rel="shortcut icon" href="user/favicon.ico">
 </head>
-<%request.setAttribute("username",request.getParameter("username"));%>
+<%request.setAttribute("c_name",request.getParameter("c_name"));%>
 <body ng-app="addform" ng-controller="addformCtrl">
 <div class="erji">
     <p class="chuang">创建收货地址</p>
-<form class="from" name="disabled" onSubmit="return add(this);">
+<form class="from" name="from1" onSubmit="return add(this);">
     <div class="nn">
         <label>收件人名<span class="span">*</span></label>
         <input  class="ff" type="text" id="username" ng-model="username" id="username" onblur="username_num_message()" onkeyup="username_message()" />
@@ -36,7 +36,7 @@
     </div>
     <div>
         <label class="xi">详细地址<span class="span">*</span></label>
-        <textarea class="ff" placeholder="请你填写详细地址" ng-model="address" id="address" name="address"  onblur="address_num_message()" onkeyup="address_message()"></textarea>
+        <textarea class="ff" placeholder="请你填写详细地址" ng-model="address" id="address" name="address"></textarea>
         <span style="display: -webkit-inline-box;"><img src="img/formaddtishi.png" style="display: none;width: 17px; height: 21px" id="address_img"/><label id="address_message" style="color: red;font-size: 14px;"></label></span>
     </div>
     <%--  <div >
@@ -44,6 +44,12 @@
     <input   type="text"  ng-model="usernames" value="<%=request.getParameter("username")%>"  />
     </div>--%>
 
+<div>
+    <label> 商品名称<span class="span">*</span></label>
+            <input    name="textfield"   class="intext" type="text" size="48" maxlength="48" value="<%=request.getParameter("c_name")%>">
+
+
+</div>
     <div>
         <input  class="btn" type="submit"  value="保存"   ng-click="addformm()"/>
     </div>
@@ -56,6 +62,18 @@
 <script src="js/angular/angular.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
+  /* var c_name =
+    function ok()
+    {
+        document.from1.textfield2.value=document.from1.textfield.value;
+       // alert($("c_name").value)
+    };*/
+   /*function ok1()
+    {
+        document.from1.textfield.value=document.from1.textfield2.value;
+        alert($("c_name").value)
+    };*/
+
     var app = angular.module('addform', []);
     app.controller("addformCtrl",function ($scope,$http) {
         $scope.username="";
@@ -63,18 +81,21 @@
         $scope.dawk="";
         $scope.prefecture="";
         $scope.address="";
+        $scope.o_name="<%=request.getParameter("c_name")%>";
         $scope.addformm=function () {
             var username = $scope.username;
             var phone = $scope.phone;
             var dawk = $scope.dawk;
             var prefecture = $scope.prefecture;
             var address = $scope.address;
+            var o_name =$scope.o_name;
             var parme = {
                 'username': username,
                 "phone": phone,
                 "dawk": dawk,
                 "prefecture": prefecture,
-                "address": address
+                "address": address,
+                "o_name":o_name
             };
            /* if ($scope.ADDform.vbis()) {*/
 

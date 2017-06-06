@@ -29,7 +29,7 @@
 	<select id="getAllorder"  parameterType="com.lvshun.po.OrderList" resultType="com.lvshun.po.OrderList">
 		select
 		*
-		from orderlist
+		from orderlist limit 0,1
 	</select>
 	<!-- 删除订单 -->
 	<delete id="deleteOrder" parameterType="com.lvshun.po.OrderList">

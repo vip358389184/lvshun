@@ -15,6 +15,15 @@
         width: 50px;
         height: 50px;
     }
+    .floor_goods_wrap_li img{
+        width: 130px;
+        height: 130px;
+    }
+
+    .floor_goods_fu img{
+        width:200px;
+        height:200px;
+    }
 
 </style>
 </head>
@@ -706,10 +715,10 @@
     <div id="head_hot_goods_content" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in myObj">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.c_name}}</a>
-                <a ng-click="findById(valu  e.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()">{{value.label}}</a>
-                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label)"onclick="a()">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)"onclick="a()"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)"onclick="a()">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)"onclick="a()">{{value.label}}</a>
+                <a style="color:  #FF6700;margin-top: 20px;"  ng-click="findById(value.c_id,value.retail_price,value.c_name,value.label,value.normal_price)"onclick="a()">{{value.retail_price}}<span hidden>{{value.normal_price}}</span></a>
             </li>
         </ul>
     </div>
@@ -724,10 +733,10 @@
     <div class="floor_goods_wrap" >
         <ul>
             <li class="floor_goods_wrap_li"  ng-repeat="(x, value) in  yi">
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()"  class="floor_goods_img"><img src="{{value.picture}}"></a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)"onclick="a()" class="floor_goods_tit">{{value.c_name}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" onclick="a()" class="floor_goods_txt">{{value.label}}</a>
-                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label)" onclick="a()" class="floor_goods_price">{{value.retail_price}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)"onclick="a()"  class="floor_goods_img"><img src="{{value.picture}}"></a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)"onclick="a()" class="floor_goods_tit">{{value.c_name}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)" onclick="a()" class="floor_goods_txt">{{value.label}}</a>
+                <a ng-click="findById(value.c_id,value.retail_price,value.c_name,value.picture,value.label,value.normal_price)" onclick="a()" class="floor_goods_price">{{value.retail_price}}</a>
             </li>
             <div style="clear:both;"></div>
         </ul>
@@ -805,20 +814,20 @@
 
             });
 
-            $scope.findById = function(id,money,c_name,picture,label) {
+            $scope.findById = function(id,money,c_name,picture,label,normal_price) {
                 //参数
-                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture,"label":label};
+                var params={ 'money':money,"id":id ,"c_name":c_name,"picture":picture,"label":label,"normal_price":normal_price};
                 $http({
                     method:'POST',
 
-                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label,
+                    url:'/comm/findById?id='+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label+"&normal_price="+normal_price,
 
                     data:params,
                     dataType:'text',
                 }).success(function(data, status, headers, config){
                     //处理返回值 进行跳转
                     console.log(data);
-                    window.location="/Xi.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label;
+                    window.location="/Xi.jsp?id="+id+"&money="+money+"&c_name="+c_name+"&picture="+picture+"&label="+label+"&normal_price="+normal_price;
 
                 }).error(function(data, status, headers, config){
 
