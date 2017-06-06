@@ -830,7 +830,7 @@
         function a() {
             var username = <%=request.getParameter("username")%>
             if(username==null){
-                alert("请先登录,后进行购买！");
+               // alert("请先登录,后进行购买！");
                 window.location="login.html";
             }
         }

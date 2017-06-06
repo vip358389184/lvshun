@@ -36,7 +36,7 @@ public class OrderListBizImpl implements OrderListBiz {
         orderList1.setPresent_exp(orderList.getPresent_exp());
         orderList1.setOxd_date(orderList.getOxd_date());
         orderList1.setUser_id(orderList.getUser_id());
-        return orderListServer.updateOrder(orderList1);
+        return orderListServer.addorderList(orderList1);
     }
 
     public List<OrderList> getAllorder() {
