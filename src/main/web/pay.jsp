@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.lvshun.config.PayConfig"%>
@@ -117,6 +117,7 @@ request.setAttribute("money",request.getParameter("money"));%>
         <div class="top">
             <form method="post">
             <p class="imgas"><img  src="<%=request.getParameter("picture")%>"/></p>
+
             <p class="name" ng-model="c_name"><%=request.getParameter("c_name")%><%=request.getParameter("label")%></p>
                 <input type="text"  ng-model="o_name">
             <p class="moen" ng-model="money"><span class="sp" style="font-size: 12px;">￥</span><%=request.getParameter("money")%></p>

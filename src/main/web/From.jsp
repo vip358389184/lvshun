@@ -39,10 +39,11 @@
         <textarea class="ff" placeholder="请你填写详细地址" ng-model="address" id="address" name="address"  onblur="address_num_message()" onkeyup="address_message()"></textarea>
         <span style="display: -webkit-inline-box;"><img src="img/formaddtishi.png" style="display: none;width: 17px; height: 21px" id="address_img"/><label id="address_message" style="color: red;font-size: 14px;"></label></span>
     </div>
-  <%--  <div >
+    <%--  <div >
     <label>收件人名<span class="span">*</span></label>
     <input   type="text"  ng-model="usernames" value="<%=request.getParameter("username")%>"  />
     </div>--%>
+
     <div>
         <input  class="btn" type="submit"  value="保存"   ng-click="addformm()"/>
     </div>
@@ -51,8 +52,9 @@
 
 </div>
 </body>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
 <script src="js/angular/angular.min.js" type="text/javascript"></script>
-<script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+
 <script type="text/javascript">
     var app = angular.module('addform', []);
     app.controller("addformCtrl",function ($scope,$http) {
@@ -78,7 +80,7 @@
 
                 $http({
                     method: 'POST',
-                    url: '/Form/paddfrom',
+                    url: '/OrderList/addorderList',
                     data: parme,
                     dataType: 'json',
                 }).success(function (data, status, headers, config) {
@@ -88,6 +90,7 @@
                         window.location = "From.jsp";
 
                     } else {
+
                         alert("更新成功！");
                         window.close();
                     }

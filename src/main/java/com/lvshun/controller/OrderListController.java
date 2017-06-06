@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by 宝龙 on 2017/4/20.
@@ -35,13 +37,21 @@ public class OrderListController {
         List<OrderList> orderList = orderListBiz.getAllorder();
         return  orderList;
     }
+
+
+
     @ResponseBody
     @RequestMapping(value="/addorderList")
     public ReturnMessage addorderList(@RequestBody OrderLists orderLists){
 
-        logger.info(orderLists);
+       logger.info(orderLists);
         orderListBiz.addorderList(orderLists);
 
         return  ReturnMessage.SUCCESS;
+
     }
+
+
+
+
 }
